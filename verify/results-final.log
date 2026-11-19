@@ -1,0 +1,11 @@
+수집 완료: verify/results-final/original | 콘솔/네트워크 경고·오류: 0
+수집 완료: verify/results-final/original_repeat | 콘솔/네트워크 경고·오류: 0
+수집 완료: verify/results-final/rebundled | 콘솔/네트워크 경고·오류: 0
+######## 기준선: 원본 vs 원본(재실행)
+기준=verify/results-final/original 대상=verify/results-final/original_repeat
+스크린샷 56장: 완전 일치 56, 픽셀 차이 있음(렌더링 노이즈 후보) 0
+구조·기능 항목 불일치: 0
+######## 본 비교: 원본 vs 재번들
+기준=verify/results-final/original 대상=verify/results-final/rebundled
+스크린샷 56장: 완전 일치 56, 픽셀 차이 있음(렌더링 노이즈 후보) 0
+구조·기능 항목 불일치: 0

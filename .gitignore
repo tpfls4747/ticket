@@ -1,0 +1,8 @@
+__pycache__/
+# 최초 STEP 2A 검증 결과 중 보고서·핵심 증빙(report.json, comparison.txt, 보드 스크린샷)만 추적한다
+verify/results-final/original_repeat/
+verify/results-final/*/phones/
+verify/results-final/*/mobile/
+verify/results-final/*/dom/
+verify/results-final/*/text/
+verify/results-final/rebundled/desktop/

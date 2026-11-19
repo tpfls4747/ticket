@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<title>정책과 제약</title>
+<script src="{{asset:vendor/dc-runtime/support.js}}"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#5B3DF5}a:hover{color:#4328D9}
+</style>
+</helmet>
+<div style="position: relative; width: 1920px; height: 1080px; box-sizing: border-box; padding: 88px 120px 56px; background: #FFFFFF; font-family: 'Noto Sans KR', sans-serif; color: #191B22; display: flex; flex-direction: column; gap: 40px; overflow: hidden">
+<div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 32px">
+<div style="display: flex; align-items: flex-start; gap: 32px">
+<span aria-hidden="true" style="font-size: 128px; font-weight: 900; line-height: 0.82; color: #DCD5FF; letter-spacing: -4px">04</span>
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span style="align-self: flex-start; font-size: 14px; font-weight: 700; letter-spacing: 2px; color: #5B3DF5; background: #E9E5FF; padding: 6px 14px; border-radius: 999px">POLICY</span>
+<h1 style="margin: 0; font-size: 48px; font-weight: 900; line-height: 1.25; letter-spacing: -1px">확인된 정책과 <span style="color: #5B3DF5">설계 가정</span>을 구분해요</h1>
+<p style="margin: 0; width: 1000px; font-size: 20px; line-height: 1.6; color: #5F6370">NOL티켓 공식 약관·공연별 안내 원문은 아직 확인하지 못해, 공식 정책으로 확인된 규칙은 없어요. 아래 규칙은 시스템 기능과 프로토타입용 가상 규칙으로 나눠 표시했어요.</p>
+</div>
+</div>
+<span style="font-size: 15px; font-weight: 700; color: #4A4F5C; background: #F0F1F4; padding: 10px 16px; border-radius: 999px; flex-shrink: 0">공식 확인 0건 · 원문 확인 전</span>
+</div>
+<div style="flex: 1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 20px; min-height: 0">
+<section style="background: #191B22; border-radius: 28px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; color: #FFFFFF">
+<span style="font-size: 15px; font-weight: 700; letter-spacing: 1px; color: #B7A9FF">핵심 원칙 · 서비스 설계 가정</span>
+<p style="margin: 0; font-size: 28px; font-weight: 700; line-height: 1.45">교환은 <span style="color: #B7A9FF">예매처가</span> 처리하고, 관객끼리는 <span style="color: #B7A9FF">돈도 연락도</span> 주고받지 않아요.</p>
+</section>
+<section style="background: #F5F6F8; border-radius: 28px; padding: 30px; display: flex; flex-direction: column; gap: 12px">
+<span style="width: 52px; height: 52px; border-radius: 16px; background: #5B3DF5; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" sc-camel-view-box="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4l-4 4 4 4"></path><path d="M3 8h14"></path><path d="M17 20l4-4-4-4"></path><path d="M21 16H7"></path></svg></span>
+<span style="font-size: 15px; font-weight: 700; color: #5F6370">교환 대상<span style="font-size: 12px; font-weight: 700; color: #4A4F5C; background: #F0F1F4; padding: 4px 8px; border-radius: 6px; margin-left: 8px; vertical-align: middle; white-space: nowrap">가상 규칙 · MVP</span></span>
+<b style="font-size: 23px; line-height: 1.4">같은 가격·등급끼리만</b>
+<span style="font-size: 16px; line-height: 1.6; color: #4A4F5C">추가 결제·환불 계산이 없어 처리가 단순하다고 가정했어요. 다른 가격 교환·차액 정산은 후속 검토</span>
+</section>
+<section style="background: #F5F6F8; border-radius: 28px; padding: 30px; display: flex; flex-direction: column; gap: 12px">
+<span style="width: 52px; height: 52px; border-radius: 16px; background: #5B3DF5; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" sc-camel-view-box="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9a3 3 0 0 0 0 6v3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-3a3 3 0 0 0 0-6V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1z"></path><path d="M9 12l2 2 4-4"></path></svg></span>
+<span style="font-size: 15px; font-weight: 700; color: #5F6370">처리 주체<span style="font-size: 12px; font-weight: 700; color: #3A26C4; background: #E9E5FF; padding: 4px 8px; border-radius: 6px; margin-left: 8px; vertical-align: middle; white-space: nowrap">시스템 기능</span></span>
+<b style="font-size: 23px; line-height: 1.4">예매처가 두 티켓을 동시에 교체</b>
+<span style="font-size: 16px; line-height: 1.6; color: #4A4F5C">교체 도중 좌석을 놓치지 않도록 두 티켓을 한 번에 처리하는 기능이 필요해요</span>
+</section>
+<section style="background: #F5F6F8; border-radius: 28px; padding: 30px; display: flex; flex-direction: column; gap: 12px">
+<span style="width: 52px; height: 52px; border-radius: 16px; background: #5B3DF5; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" sc-camel-view-box="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></span>
+<span style="font-size: 15px; font-weight: 700; color: #5F6370">거래 방식<span style="font-size: 12px; font-weight: 700; color: #3A26C4; background: #E9E5FF; padding: 4px 8px; border-radius: 6px; margin-left: 8px; vertical-align: middle; white-space: nowrap">시스템 기능</span></span>
+<b style="font-size: 23px; line-height: 1.4">채팅·송금 없음, 개인정보 비공개</b>
+<span style="font-size: 16px; line-height: 1.6; color: #4A4F5C">사기·암표 거래 가능성을 줄이는 것을 목표로 해요 (효과는 검증 전)</span>
+</section>
+<section style="background: #F5F6F8; border-radius: 28px; padding: 30px; display: flex; flex-direction: column; gap: 12px">
+<span style="width: 52px; height: 52px; border-radius: 16px; background: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" sc-camel-view-box="0 0 24 24" fill="none" stroke="#5B3DF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span>
+<span style="font-size: 15px; font-weight: 700; color: #5F6370">응답 시간<span style="font-size: 12px; font-weight: 700; color: #4A4F5C; background: #F0F1F4; padding: 4px 8px; border-radius: 6px; margin-left: 8px; vertical-align: middle; white-space: nowrap">가상 규칙</span></span>
+<b style="font-size: 23px; line-height: 1.4">제안 후 12시간 안에 (예시 값)</b>
+<span style="font-size: 16px; line-height: 1.6; color: #4A4F5C">한 사람 때문에 다른 매칭이 막히지 않게</span>
+</section>
+<section style="background: #F5F6F8; border-radius: 28px; padding: 30px; display: flex; flex-direction: column; gap: 12px">
+<span style="width: 52px; height: 52px; border-radius: 16px; background: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" sc-camel-view-box="0 0 24 24" fill="none" stroke="#5B3DF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"></path><path d="M3 4v5h5"></path></svg></span>
+<span style="font-size: 15px; font-weight: 700; color: #5F6370">교환 횟수<span style="font-size: 12px; font-weight: 700; color: #4A4F5C; background: #F0F1F4; padding: 4px 8px; border-radius: 6px; margin-left: 8px; vertical-align: middle; white-space: nowrap">가상 규칙</span></span>
+<b style="font-size: 23px; line-height: 1.4">공연당 1회</b>
+<span style="font-size: 16px; line-height: 1.6; color: #4A4F5C">반복 교환으로 특정 좌석을 독점하지 않게</span>
+</section>
+<section style="background: #F5F6F8; border-radius: 28px; padding: 30px; display: flex; flex-direction: column; gap: 12px">
+<span style="width: 52px; height: 52px; border-radius: 16px; background: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" sc-camel-view-box="0 0 24 24" fill="none" stroke="#5B3DF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18"></path><path d="M8 3v4"></path><path d="M16 3v4"></path></svg></span>
+<span style="font-size: 15px; font-weight: 700; color: #5F6370">신청 마감<span style="font-size: 12px; font-weight: 700; color: #4A4F5C; background: #F0F1F4; padding: 4px 8px; border-radius: 6px; margin-left: 8px; vertical-align: middle; white-space: nowrap">가상 규칙</span></span>
+<b style="font-size: 23px; line-height: 1.4">공연 [N]일 전까지 (일수 미정)</b>
+<span style="font-size: 16px; line-height: 1.6; color: #4A4F5C">발권·입장 준비 일정과 겹치지 않게</span>
+</section>
+<section style="background: #F5F6F8; border-radius: 28px; padding: 30px; display: flex; flex-direction: column; gap: 12px">
+<span style="width: 52px; height: 52px; border-radius: 16px; background: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" sc-camel-view-box="0 0 24 24" fill="none" stroke="#5B3DF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 22V4"></path><path d="M4 4h12l-2 4 2 4H4"></path></svg></span>
+<span style="font-size: 15px; font-weight: 700; color: #5F6370">허용 여부<span style="font-size: 12px; font-weight: 700; color: #A3440B; background: #FFF1E6; padding: 4px 8px; border-radius: 6px; margin-left: 8px; vertical-align: middle; white-space: nowrap">확인 필요</span></span>
+<b style="font-size: 23px; line-height: 1.4">주최사·예매처가 허용한 공연에만 (가정)</b>
+<span style="font-size: 16px; line-height: 1.6; color: #4A4F5C">공연별 허용 여부와 권한 범위는 NOL티켓 약관·공연별 안내 확인 필요</span>
+</section>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: #6B7080"><span style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="display: flex; gap: 3px"><span style="width: 10px; height: 10px; border-radius: 3px; background: #5B3DF5"></span><span style="width: 10px; height: 10px; border-radius: 3px; background: #5B3DF5"></span></span>좌석·회차 교환 UX/UI</span><span><b style="color: #191B22">05</b> / 10</span></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1920,&quot;height&quot;:1080}}">
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+
+
+</body></html>

@@ -1,0 +1,553 @@
+{
+  "_comment": "tools/build.py 가 읽는 번들 명세. uuid 는 원본과 동일하게 보존한다.",
+  "root": {
+    "title": "티켓 교환 UX/UI 포트폴리오",
+    "template": "root/template.html",
+    "manifest_compressed": {
+      "984c02fd-adec-411c-955a-9dd6eda06a0c": true,
+      "df3fa8da-6073-4177-8693-43e386d1ea90": true,
+      "54c585e1-e3c1-4ea8-ba44-cc74d3c4b5a0": true,
+      "11d91f03-454e-47b9-a206-529aebe78b53": true,
+      "0253b585-e313-490e-8008-4f556f54afbc": true,
+      "0aa10175-7357-401e-af7e-902de0206a38": true,
+      "0ef09db3-006c-418f-bb4b-093a2cdcae54": true,
+      "0c65d917-c2e4-418d-820c-1b6e495528a0": true,
+      "dbdd1488-f3c4-440e-a5ba-f19821999195": true,
+      "5bea9993-031e-4b9c-b494-13fd4eea88d5": true
+    },
+    "page_order": [
+      {
+        "slug": "p01-cover",
+        "uuid": "984c02fd-adec-411c-955a-9dd6eda06a0c"
+      },
+      {
+        "slug": "p02-overview",
+        "uuid": "df3fa8da-6073-4177-8693-43e386d1ea90"
+      },
+      {
+        "slug": "p03-problem",
+        "uuid": "54c585e1-e3c1-4ea8-ba44-cc74d3c4b5a0"
+      },
+      {
+        "slug": "p04-desk-research",
+        "uuid": "11d91f03-454e-47b9-a206-529aebe78b53"
+      },
+      {
+        "slug": "p05-policy",
+        "uuid": "0253b585-e313-490e-8008-4f556f54afbc"
+      },
+      {
+        "slug": "p06-user-flow",
+        "uuid": "0aa10175-7357-401e-af7e-902de0206a38"
+      },
+      {
+        "slug": "p07-ui-exchange",
+        "uuid": "0ef09db3-006c-418f-bb4b-093a2cdcae54"
+      },
+      {
+        "slug": "p08-ui-pair",
+        "uuid": "0c65d917-c2e4-418d-820c-1b6e495528a0"
+      },
+      {
+        "slug": "p09-components",
+        "uuid": "dbdd1488-f3c4-440e-a5ba-f19821999195"
+      },
+      {
+        "slug": "p10-retrospective",
+        "uuid": "5bea9993-031e-4b9c-b494-13fd4eea88d5"
+      }
+    ]
+  },
+  "pages": {
+    "p01-cover": {
+      "title": "표지",
+      "template": "pages/p01-cover/page.html",
+      "assets": [
+        {
+          "uuid": "330dc972-567c-4899-8439-5dbd4cb4bca2",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "runtime",
+          "src": "vendor/dc-runtime/support.js",
+          "ext_id": null,
+          "sha256": "b5a2247a5d9443f651b1bc4895c61e9a2f74cda8abab4ed233767274ac0e23e4"
+        },
+        {
+          "uuid": "003189d5-d573-4a14-b870-2a54cccd85a4",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/pair/PairSeat.dc.html",
+          "ext_id": "./PairSeat.dc.html",
+          "sha256": "e8c44c612c3c6b029d12e31c21bcd2003c46699870419c1beb38276cc02de889"
+        },
+        {
+          "uuid": "21cc7a27-00dd-43c7-847d-015eb14c4c23",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/pair/PairDone.dc.html",
+          "ext_id": "./PairDone.dc.html",
+          "sha256": "bfc570f0a07d97702d2ab6495797431408ed8d63cb1938b81cfe57af7e1cd5bd"
+        },
+        {
+          "uuid": "99c9dfc4-3054-47b6-8437-e4f772087021",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js",
+          "sha256": "d949f1c3687aedadcedac85261865f29b17cd273997e7f6b2bfc53b2f9d4c4dd"
+        },
+        {
+          "uuid": "8cdac341-49f3-4a85-8968-7b6c237363ac",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react-dom.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js",
+          "sha256": "35f4f974f4b2bcd44da73963347f8952e341f83909e4498227d4e26b98f66f0d"
+        }
+      ],
+      "ext_resources_order": [
+        "003189d5-d573-4a14-b870-2a54cccd85a4",
+        "21cc7a27-00dd-43c7-847d-015eb14c4c23",
+        "99c9dfc4-3054-47b6-8437-e4f772087021",
+        "8cdac341-49f3-4a85-8968-7b6c237363ac"
+      ]
+    },
+    "p02-overview": {
+      "title": "프로젝트 개요",
+      "template": "pages/p02-overview/page.html",
+      "assets": [
+        {
+          "uuid": "7461e98b-708d-4213-ae46-2216dba6f211",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "runtime",
+          "src": "vendor/dc-runtime/support.js",
+          "ext_id": null,
+          "sha256": "b5a2247a5d9443f651b1bc4895c61e9a2f74cda8abab4ed233767274ac0e23e4"
+        },
+        {
+          "uuid": "49c4f955-9f77-42b2-bce5-92e4d3b4bee9",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js",
+          "sha256": "d949f1c3687aedadcedac85261865f29b17cd273997e7f6b2bfc53b2f9d4c4dd"
+        },
+        {
+          "uuid": "8d2f4b76-d6d6-4cbf-b3f7-b9949ae6e7c5",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react-dom.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js",
+          "sha256": "35f4f974f4b2bcd44da73963347f8952e341f83909e4498227d4e26b98f66f0d"
+        }
+      ],
+      "ext_resources_order": [
+        "49c4f955-9f77-42b2-bce5-92e4d3b4bee9",
+        "8d2f4b76-d6d6-4cbf-b3f7-b9949ae6e7c5"
+      ]
+    },
+    "p03-problem": {
+      "title": "문제 정의",
+      "template": "pages/p03-problem/page.html",
+      "assets": [
+        {
+          "uuid": "8ad627b6-b79c-405f-b847-df7c8571fdbe",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "runtime",
+          "src": "vendor/dc-runtime/support.js",
+          "ext_id": null,
+          "sha256": "b5a2247a5d9443f651b1bc4895c61e9a2f74cda8abab4ed233767274ac0e23e4"
+        },
+        {
+          "uuid": "a2e72d15-31f4-4c73-9c0c-1e34bf876ca4",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js",
+          "sha256": "d949f1c3687aedadcedac85261865f29b17cd273997e7f6b2bfc53b2f9d4c4dd"
+        },
+        {
+          "uuid": "002e277e-8ef2-4ac2-8f17-6c40958675c6",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react-dom.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js",
+          "sha256": "35f4f974f4b2bcd44da73963347f8952e341f83909e4498227d4e26b98f66f0d"
+        }
+      ],
+      "ext_resources_order": [
+        "a2e72d15-31f4-4c73-9c0c-1e34bf876ca4",
+        "002e277e-8ef2-4ac2-8f17-6c40958675c6"
+      ]
+    },
+    "p04-desk-research": {
+      "title": "데스크 리서치",
+      "template": "pages/p04-desk-research/page.html",
+      "assets": [
+        {
+          "uuid": "5e28dc3b-fd40-435c-998e-fec981125cae",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "runtime",
+          "src": "vendor/dc-runtime/support.js",
+          "ext_id": null,
+          "sha256": "b5a2247a5d9443f651b1bc4895c61e9a2f74cda8abab4ed233767274ac0e23e4"
+        },
+        {
+          "uuid": "082ad6d1-eb3b-4dfe-8e12-afdd3ff1185e",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js",
+          "sha256": "d949f1c3687aedadcedac85261865f29b17cd273997e7f6b2bfc53b2f9d4c4dd"
+        },
+        {
+          "uuid": "5363edcc-07ee-4ad8-b78d-d9a5f0988db8",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react-dom.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js",
+          "sha256": "35f4f974f4b2bcd44da73963347f8952e341f83909e4498227d4e26b98f66f0d"
+        }
+      ],
+      "ext_resources_order": [
+        "082ad6d1-eb3b-4dfe-8e12-afdd3ff1185e",
+        "5363edcc-07ee-4ad8-b78d-d9a5f0988db8"
+      ]
+    },
+    "p05-policy": {
+      "title": "정책과 제약",
+      "template": "pages/p05-policy/page.html",
+      "assets": [
+        {
+          "uuid": "3614ac4f-7a3c-42e9-91b6-87e64ae35843",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "runtime",
+          "src": "vendor/dc-runtime/support.js",
+          "ext_id": null,
+          "sha256": "b5a2247a5d9443f651b1bc4895c61e9a2f74cda8abab4ed233767274ac0e23e4"
+        },
+        {
+          "uuid": "3e1e8ae4-72c1-415c-9c16-4a101ad6f3a8",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js",
+          "sha256": "d949f1c3687aedadcedac85261865f29b17cd273997e7f6b2bfc53b2f9d4c4dd"
+        },
+        {
+          "uuid": "96181ded-6a7e-404b-a341-7f98bd0cd100",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react-dom.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js",
+          "sha256": "35f4f974f4b2bcd44da73963347f8952e341f83909e4498227d4e26b98f66f0d"
+        }
+      ],
+      "ext_resources_order": [
+        "3e1e8ae4-72c1-415c-9c16-4a101ad6f3a8",
+        "96181ded-6a7e-404b-a341-7f98bd0cd100"
+      ]
+    },
+    "p06-user-flow": {
+      "title": "유저 플로우",
+      "template": "pages/p06-user-flow/page.html",
+      "assets": [
+        {
+          "uuid": "e5d9ae6d-2cc2-4acc-a594-f66b19f467e4",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "runtime",
+          "src": "vendor/dc-runtime/support.js",
+          "ext_id": null,
+          "sha256": "b5a2247a5d9443f651b1bc4895c61e9a2f74cda8abab4ed233767274ac0e23e4"
+        },
+        {
+          "uuid": "8bda14ab-2aac-4a13-a042-84d343824554",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js",
+          "sha256": "d949f1c3687aedadcedac85261865f29b17cd273997e7f6b2bfc53b2f9d4c4dd"
+        },
+        {
+          "uuid": "062dc4bc-5fb4-4b4f-88e2-884abc6c059e",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react-dom.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js",
+          "sha256": "35f4f974f4b2bcd44da73963347f8952e341f83909e4498227d4e26b98f66f0d"
+        }
+      ],
+      "ext_resources_order": [
+        "8bda14ab-2aac-4a13-a042-84d343824554",
+        "062dc4bc-5fb4-4b4f-88e2-884abc6c059e"
+      ]
+    },
+    "p07-ui-exchange": {
+      "title": "UI 좌석·회차 교환",
+      "template": "pages/p07-ui-exchange/page.html",
+      "assets": [
+        {
+          "uuid": "69dfc292-407f-4e73-97cc-c5eee324e7a0",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "runtime",
+          "src": "vendor/dc-runtime/support.js",
+          "ext_id": null,
+          "sha256": "b5a2247a5d9443f651b1bc4895c61e9a2f74cda8abab4ed233767274ac0e23e4"
+        },
+        {
+          "uuid": "f51b712a-115a-44fe-bb97-23545b6429f5",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/exchange/Main.dc.html",
+          "ext_id": "./Main.dc.html",
+          "sha256": "efaab6fc7134172360f2879882c5bac86536a1a0f4bc0ef2b9a9e78d097cc07d"
+        },
+        {
+          "uuid": "0f2e08a1-096f-4ade-9441-0fc3397ae57b",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/exchange/Request.dc.html",
+          "ext_id": "./Request.dc.html",
+          "sha256": "06b1f9d01510e7669b6811c92c93f558fd9e4683ded03fe4b442c8c13f6e2c8c"
+        },
+        {
+          "uuid": "faaf43a5-aea2-4eaa-bdcd-11be9b04ad38",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/exchange/Waiting.dc.html",
+          "ext_id": "./Waiting.dc.html",
+          "sha256": "e9b99a41aaf0fc31d2f01fc04852948ca26bb2d76a1c39d295042d8b438c577a"
+        },
+        {
+          "uuid": "242c4ecd-98de-48b3-9986-9f3982526791",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/exchange/Match.dc.html",
+          "ext_id": "./Match.dc.html",
+          "sha256": "8a392a2ecd503b2abbc7605d161f3ad93e826096a9853b32a1e0308b7dadda06"
+        },
+        {
+          "uuid": "c5a4a07d-597b-443e-bfab-e2ebcfc7da05",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/exchange/Done.dc.html",
+          "ext_id": "./Done.dc.html",
+          "sha256": "54176f72c5b3505d73b28091cedd113265af2e17d0fef3b912bf28ddb45ac965"
+        },
+        {
+          "uuid": "ae24baf6-ce6a-45e0-8198-79caca1a2e3d",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/exchange/Expired.dc.html",
+          "ext_id": "./Expired.dc.html",
+          "sha256": "2a2d7e088ca0e4fcef768c788faf4c89c0f0f9d71e949a7cdae141d3cfc7f1c8"
+        },
+        {
+          "uuid": "ad386a92-5b64-4286-a4d5-aab6ee9ccb60",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js",
+          "sha256": "d949f1c3687aedadcedac85261865f29b17cd273997e7f6b2bfc53b2f9d4c4dd"
+        },
+        {
+          "uuid": "4eecbfda-caf8-4c7a-906e-7e72daf37c84",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react-dom.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js",
+          "sha256": "35f4f974f4b2bcd44da73963347f8952e341f83909e4498227d4e26b98f66f0d"
+        }
+      ],
+      "ext_resources_order": [
+        "f51b712a-115a-44fe-bb97-23545b6429f5",
+        "0f2e08a1-096f-4ade-9441-0fc3397ae57b",
+        "faaf43a5-aea2-4eaa-bdcd-11be9b04ad38",
+        "242c4ecd-98de-48b3-9986-9f3982526791",
+        "c5a4a07d-597b-443e-bfab-e2ebcfc7da05",
+        "ae24baf6-ce6a-45e0-8198-79caca1a2e3d",
+        "ad386a92-5b64-4286-a4d5-aab6ee9ccb60",
+        "4eecbfda-caf8-4c7a-906e-7e72daf37c84"
+      ]
+    },
+    "p08-ui-pair": {
+      "title": "UI 연석 만들기",
+      "template": "pages/p08-ui-pair/page.html",
+      "assets": [
+        {
+          "uuid": "8e945764-dbf3-49a6-80d4-50393f241ef6",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "runtime",
+          "src": "vendor/dc-runtime/support.js",
+          "ext_id": null,
+          "sha256": "b5a2247a5d9443f651b1bc4895c61e9a2f74cda8abab4ed233767274ac0e23e4"
+        },
+        {
+          "uuid": "73910deb-0c7d-43a0-8dd6-2ff3dd6ea0a4",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/pair/PairMode.dc.html",
+          "ext_id": "./PairMode.dc.html",
+          "sha256": "d09be0b47fea00c5b8720dcb03312e17b12de6656351981026c16a6b6e70de08"
+        },
+        {
+          "uuid": "f2b9611a-7b26-4a15-921b-1479ef456154",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/pair/PairSeat.dc.html",
+          "ext_id": "./PairSeat.dc.html",
+          "sha256": "e8c44c612c3c6b029d12e31c21bcd2003c46699870419c1beb38276cc02de889"
+        },
+        {
+          "uuid": "574c0af8-ae2e-472b-bc95-1f9aa70997aa",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/pair/PairReceive.dc.html",
+          "ext_id": "./PairReceive.dc.html",
+          "sha256": "e36d7179bfd41daadcc2e7b3644f836237d3343c035ea4418a454fe4226d7f26"
+        },
+        {
+          "uuid": "3a791c84-4b0d-409d-8f8c-32b1d18ab1b2",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/pair/PairDone.dc.html",
+          "ext_id": "./PairDone.dc.html",
+          "sha256": "bfc570f0a07d97702d2ab6495797431408ed8d63cb1938b81cfe57af7e1cd5bd"
+        },
+        {
+          "uuid": "5a694ac2-86c3-4e5b-8a94-68aa8229adc5",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js",
+          "sha256": "d949f1c3687aedadcedac85261865f29b17cd273997e7f6b2bfc53b2f9d4c4dd"
+        },
+        {
+          "uuid": "015e234a-268d-4058-a73e-169c91a10661",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react-dom.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js",
+          "sha256": "35f4f974f4b2bcd44da73963347f8952e341f83909e4498227d4e26b98f66f0d"
+        }
+      ],
+      "ext_resources_order": [
+        "73910deb-0c7d-43a0-8dd6-2ff3dd6ea0a4",
+        "f2b9611a-7b26-4a15-921b-1479ef456154",
+        "574c0af8-ae2e-472b-bc95-1f9aa70997aa",
+        "3a791c84-4b0d-409d-8f8c-32b1d18ab1b2",
+        "5a694ac2-86c3-4e5b-8a94-68aa8229adc5",
+        "015e234a-268d-4058-a73e-169c91a10661"
+      ]
+    },
+    "p09-components": {
+      "title": "컴포넌트",
+      "template": "pages/p09-components/page.html",
+      "assets": [
+        {
+          "uuid": "744a2a31-f213-45f8-ada2-873757bad570",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "runtime",
+          "src": "vendor/dc-runtime/support.js",
+          "ext_id": null,
+          "sha256": "b5a2247a5d9443f651b1bc4895c61e9a2f74cda8abab4ed233767274ac0e23e4"
+        },
+        {
+          "uuid": "ab2a1b32-29f7-4196-99a6-0032899eb9a5",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js",
+          "sha256": "d949f1c3687aedadcedac85261865f29b17cd273997e7f6b2bfc53b2f9d4c4dd"
+        },
+        {
+          "uuid": "4fc4b7d9-e657-41fe-8cde-1c82bc997dbb",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react-dom.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js",
+          "sha256": "35f4f974f4b2bcd44da73963347f8952e341f83909e4498227d4e26b98f66f0d"
+        }
+      ],
+      "ext_resources_order": [
+        "ab2a1b32-29f7-4196-99a6-0032899eb9a5",
+        "4fc4b7d9-e657-41fe-8cde-1c82bc997dbb"
+      ]
+    },
+    "p10-retrospective": {
+      "title": "회고",
+      "template": "pages/p10-retrospective/page.html",
+      "assets": [
+        {
+          "uuid": "5b51805a-ef84-4b48-94a2-1e751f801e1d",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "runtime",
+          "src": "vendor/dc-runtime/support.js",
+          "ext_id": null,
+          "sha256": "b5a2247a5d9443f651b1bc4895c61e9a2f74cda8abab4ed233767274ac0e23e4"
+        },
+        {
+          "uuid": "1b74a2cf-58ef-46aa-b1b6-dae9a8b571c7",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js",
+          "sha256": "d949f1c3687aedadcedac85261865f29b17cd273997e7f6b2bfc53b2f9d4c4dd"
+        },
+        {
+          "uuid": "e1cca925-0fe7-4c3e-9e7a-22cc15b80af6",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react-dom.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js",
+          "sha256": "35f4f974f4b2bcd44da73963347f8952e341f83909e4498227d4e26b98f66f0d"
+        }
+      ],
+      "ext_resources_order": [
+        "1b74a2cf-58ef-46aa-b1b6-dae9a8b571c7",
+        "e1cca925-0fe7-4c3e-9e7a-22cc15b80af6"
+      ]
+    }
+  }
+}
