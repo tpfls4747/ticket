@@ -13,7 +13,13 @@
       "0ef09db3-006c-418f-bb4b-093a2cdcae54": true,
       "0c65d917-c2e4-418d-820c-1b6e495528a0": true,
       "dbdd1488-f3c4-440e-a5ba-f19821999195": true,
-      "5bea9993-031e-4b9c-b494-13fd4eea88d5": true
+      "5bea9993-031e-4b9c-b494-13fd4eea88d5": true,
+      "6d99ea30-22d1-48b7-ba42-e5bc0623b314": true,
+      "1b951654-140b-47ea-ae65-2e538dfff364": true,
+      "00a7dadd-94f8-4485-a99d-357cefaa32f8": true,
+      "ba2bd893-e69a-412f-936d-04fa9d0d5ab1": true,
+      "06423238-2023-47da-bddd-fbc1e53511a3": true,
+      "813cebf1-0bce-4e55-b166-5e3289562409": true
     },
     "page_order": [
       {
@@ -41,16 +47,40 @@
         "uuid": "0aa10175-7357-401e-af7e-902de0206a38"
       },
       {
+        "slug": "p06b-state-flow",
+        "uuid": "6d99ea30-22d1-48b7-ba42-e5bc0623b314"
+      },
+      {
         "slug": "p07-ui-exchange",
         "uuid": "0ef09db3-006c-418f-bb4b-093a2cdcae54"
+      },
+      {
+        "slug": "p07b-conditions-match",
+        "uuid": "1b951654-140b-47ea-ae65-2e538dfff364"
+      },
+      {
+        "slug": "p07c-status",
+        "uuid": "00a7dadd-94f8-4485-a99d-357cefaa32f8"
+      },
+      {
+        "slug": "p07d-exceptions",
+        "uuid": "ba2bd893-e69a-412f-936d-04fa9d0d5ab1"
       },
       {
         "slug": "p08-ui-pair",
         "uuid": "0c65d917-c2e4-418d-820c-1b6e495528a0"
       },
       {
+        "slug": "p08b-pair-states",
+        "uuid": "06423238-2023-47da-bddd-fbc1e53511a3"
+      },
+      {
         "slug": "p09-components",
         "uuid": "dbdd1488-f3c4-440e-a5ba-f19821999195"
+      },
+      {
+        "slug": "p09b-state-components",
+        "uuid": "813cebf1-0bce-4e55-b166-5e3289562409"
       },
       {
         "slug": "p10-retrospective",
@@ -77,18 +107,18 @@
           "mime": "text/html",
           "compressed": true,
           "kind": "component",
-          "src": "components/pair/PairSeat.dc.html",
-          "ext_id": "./PairSeat.dc.html",
-          "sha256": "e8c44c612c3c6b029d12e31c21bcd2003c46699870419c1beb38276cc02de889"
+          "src": "components/exchange/Request.dc.html",
+          "ext_id": "./Request.dc.html",
+          "sha256": "bea4f8029e08bed84ebaa563f9bfcc5a6eafd056fe8065aef8b0f265ae717637"
         },
         {
           "uuid": "21cc7a27-00dd-43c7-847d-015eb14c4c23",
           "mime": "text/html",
           "compressed": true,
           "kind": "component",
-          "src": "components/pair/PairDone.dc.html",
-          "ext_id": "./PairDone.dc.html",
-          "sha256": "bfc570f0a07d97702d2ab6495797431408ed8d63cb1938b81cfe57af7e1cd5bd"
+          "src": "components/exchange/Match.dc.html",
+          "ext_id": "./Match.dc.html",
+          "sha256": "052bb3567a94e4935e7673c5e9cfb754ff51f7ae008fb20e3ed24af06eb23a64"
         },
         {
           "uuid": "99c9dfc4-3054-47b6-8437-e4f772087021",
@@ -547,6 +577,418 @@
       "ext_resources_order": [
         "1b74a2cf-58ef-46aa-b1b6-dae9a8b571c7",
         "e1cca925-0fe7-4c3e-9e7a-22cc15b80af6"
+      ]
+    },
+    "p07b-conditions-match": {
+      "title": "UI 조건·양방향 매칭·비교",
+      "template": "pages/p07b-conditions-match/page.html",
+      "assets": [
+        {
+          "uuid": "32b92a3a-b980-410b-98fa-28be5543c185",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "runtime",
+          "src": "vendor/dc-runtime/support.js",
+          "ext_id": null,
+          "sha256": "b5a2247a5d9443f651b1bc4895c61e9a2f74cda8abab4ed233767274ac0e23e4"
+        },
+        {
+          "uuid": "8c037b2c-f744-4b8d-ad57-645cd8462d89",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/states/Eligibility.dc.html",
+          "ext_id": "./Eligibility.dc.html",
+          "sha256": "6f44737b0b2d35fc020e1ad43b703d1d927110cd4d3a2e1961103a838865323b"
+        },
+        {
+          "uuid": "263ee2fb-e335-4fda-9a63-57791f2947d1",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/states/ConditionsCast.dc.html",
+          "ext_id": "./ConditionsCast.dc.html",
+          "sha256": "d12d09d4b1b063dced865b5e46527a633375d71806494321c748736ada6b3263"
+        },
+        {
+          "uuid": "0cfcc159-bac8-42f1-8698-6b0e1a115f9b",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/states/MatchCheck.dc.html",
+          "ext_id": "./MatchCheck.dc.html",
+          "sha256": "a49c3348d0d7e20eece1ae3ca9681061c7b17b199f2471ec672839a1a4c1208f"
+        },
+        {
+          "uuid": "6e287c77-da1a-4452-a037-a574717027e6",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/states/Compare.dc.html",
+          "ext_id": "./Compare.dc.html",
+          "sha256": "674fbc8777965df3ce911704e7e9537d40ee7783ef5d571d5e34f09f9e1e9592"
+        },
+        {
+          "uuid": "46f5bf1f-d12a-4187-8037-9a34c3aea853",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js",
+          "sha256": "d949f1c3687aedadcedac85261865f29b17cd273997e7f6b2bfc53b2f9d4c4dd"
+        },
+        {
+          "uuid": "3eda3645-baa8-48a1-bb3a-5df98284d069",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react-dom.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js",
+          "sha256": "35f4f974f4b2bcd44da73963347f8952e341f83909e4498227d4e26b98f66f0d"
+        }
+      ],
+      "ext_resources_order": [
+        "8c037b2c-f744-4b8d-ad57-645cd8462d89",
+        "263ee2fb-e335-4fda-9a63-57791f2947d1",
+        "0cfcc159-bac8-42f1-8698-6b0e1a115f9b",
+        "6e287c77-da1a-4452-a037-a574717027e6",
+        "46f5bf1f-d12a-4187-8037-9a34c3aea853",
+        "3eda3645-baa8-48a1-bb3a-5df98284d069"
+      ]
+    },
+    "p07c-status": {
+      "title": "UI 교환 처리 상태",
+      "template": "pages/p07c-status/page.html",
+      "assets": [
+        {
+          "uuid": "ef0c7b00-9f60-4f49-968b-a99669227704",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "runtime",
+          "src": "vendor/dc-runtime/support.js",
+          "ext_id": null,
+          "sha256": "b5a2247a5d9443f651b1bc4895c61e9a2f74cda8abab4ed233767274ac0e23e4"
+        },
+        {
+          "uuid": "b486f1f8-c0dc-4b83-8808-ce46df330c90",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/states/StatusSent.dc.html",
+          "ext_id": "./StatusSent.dc.html",
+          "sha256": "7e050a86c36ff4f5f64b525cf7422bb7530588cafc16a0bc047c540d50541da3"
+        },
+        {
+          "uuid": "bb0baefd-9230-4990-9d77-b87a583e7464",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/states/StatusAccepted.dc.html",
+          "ext_id": "./StatusAccepted.dc.html",
+          "sha256": "8176711550de386544eacb061a9d6bc2ed67ece0e7b09834d68a6774ac2be6b4"
+        },
+        {
+          "uuid": "73d78680-6421-4b9d-9dc8-e87c757329a4",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/states/StatusFinal.dc.html",
+          "ext_id": "./StatusFinal.dc.html",
+          "sha256": "ba8ff93234ee126ae0a82c53b191e871f1c6b43d2ac0492dda6bc03d4e5cd4e7"
+        },
+        {
+          "uuid": "f9503add-60f9-4314-9f18-9a9c8419e1d4",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/exchange/Done.dc.html",
+          "ext_id": "./Done.dc.html",
+          "sha256": "a4987410b4a3000efeecb4e549f82fdb1fbd7d4344c62c6966d71037b6020696"
+        },
+        {
+          "uuid": "34981f9f-9d45-4592-81c2-d63b0fd8366a",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js",
+          "sha256": "d949f1c3687aedadcedac85261865f29b17cd273997e7f6b2bfc53b2f9d4c4dd"
+        },
+        {
+          "uuid": "0ef8631d-8fb4-48ea-97e0-e4576ecd7f0e",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react-dom.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js",
+          "sha256": "35f4f974f4b2bcd44da73963347f8952e341f83909e4498227d4e26b98f66f0d"
+        }
+      ],
+      "ext_resources_order": [
+        "b486f1f8-c0dc-4b83-8808-ce46df330c90",
+        "bb0baefd-9230-4990-9d77-b87a583e7464",
+        "73d78680-6421-4b9d-9dc8-e87c757329a4",
+        "f9503add-60f9-4314-9f18-9a9c8419e1d4",
+        "34981f9f-9d45-4592-81c2-d63b0fd8366a",
+        "0ef8631d-8fb4-48ea-97e0-e4576ecd7f0e"
+      ]
+    },
+    "p07d-exceptions": {
+      "title": "UI 교환 예외 상황",
+      "template": "pages/p07d-exceptions/page.html",
+      "assets": [
+        {
+          "uuid": "76bdd041-ba87-4e40-957a-9164ad483e5e",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "runtime",
+          "src": "vendor/dc-runtime/support.js",
+          "ext_id": null,
+          "sha256": "b5a2247a5d9443f651b1bc4895c61e9a2f74cda8abab4ed233767274ac0e23e4"
+        },
+        {
+          "uuid": "9b7f1994-e29e-4720-ad69-2fcc6e121bac",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/exceptions/ExMismatch.dc.html",
+          "ext_id": "./ExMismatch.dc.html",
+          "sha256": "7fb78d04fdf16c0e3b0ea9d6c7bf6d8f2285fbe4a1975fcddf95d24b5fe704b6"
+        },
+        {
+          "uuid": "d34458ca-3c9f-45d5-857c-4475842e67f6",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/exceptions/ExNoCandidate.dc.html",
+          "ext_id": "./ExNoCandidate.dc.html",
+          "sha256": "47fde5cf86a917d6a65b63c8ade30e8db47641a1ed2511f853c2980cfddfc387"
+        },
+        {
+          "uuid": "dd5ff6a1-ca38-4087-8ff0-0b290f8ea704",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/exceptions/ExDeclined.dc.html",
+          "ext_id": "./ExDeclined.dc.html",
+          "sha256": "a9f177330b29648caffdc84cfe59e7ff6179acb114efba1987c2f7f2ff80bb25"
+        },
+        {
+          "uuid": "766199c9-796b-4af4-807a-78167e00a5ec",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/exceptions/ExCancelled.dc.html",
+          "ext_id": "./ExCancelled.dc.html",
+          "sha256": "892fed4aae899d4d50f4942c244d5214e2699c7140b9fce342e3f9d1b09a3eef"
+        },
+        {
+          "uuid": "d4f445d2-c467-4873-8776-4c7520fc3227",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/exceptions/ExTicketChanged.dc.html",
+          "ext_id": "./ExTicketChanged.dc.html",
+          "sha256": "5d230ed1c8a069380d034d817026e714068b4daa0062d835f9ae463e29c0e32b"
+        },
+        {
+          "uuid": "da862dbe-808f-460a-9109-59d6286cf845",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/exceptions/ExFinalFailed.dc.html",
+          "ext_id": "./ExFinalFailed.dc.html",
+          "sha256": "b532bcbb857305709fa451ed2a2f3f2f88c078f0620b7aa76cc44f8ad4f61426"
+        },
+        {
+          "uuid": "3c7a1a75-fa7a-4dc4-a53d-b70ce44ff59c",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js",
+          "sha256": "d949f1c3687aedadcedac85261865f29b17cd273997e7f6b2bfc53b2f9d4c4dd"
+        },
+        {
+          "uuid": "7e19953f-b0c2-4396-8c9b-249427b9150a",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react-dom.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js",
+          "sha256": "35f4f974f4b2bcd44da73963347f8952e341f83909e4498227d4e26b98f66f0d"
+        }
+      ],
+      "ext_resources_order": [
+        "9b7f1994-e29e-4720-ad69-2fcc6e121bac",
+        "d34458ca-3c9f-45d5-857c-4475842e67f6",
+        "dd5ff6a1-ca38-4087-8ff0-0b290f8ea704",
+        "766199c9-796b-4af4-807a-78167e00a5ec",
+        "d4f445d2-c467-4873-8776-4c7520fc3227",
+        "da862dbe-808f-460a-9109-59d6286cf845",
+        "3c7a1a75-fa7a-4dc4-a53d-b70ce44ff59c",
+        "7e19953f-b0c2-4396-8c9b-249427b9150a"
+      ]
+    },
+    "p08b-pair-states": {
+      "title": "UI 연석 의향·인접·동의·상태",
+      "template": "pages/p08b-pair-states/page.html",
+      "assets": [
+        {
+          "uuid": "4a841c80-8276-4f00-9e3b-dbea2647cfd9",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "runtime",
+          "src": "vendor/dc-runtime/support.js",
+          "ext_id": null,
+          "sha256": "b5a2247a5d9443f651b1bc4895c61e9a2f74cda8abab4ed233767274ac0e23e4"
+        },
+        {
+          "uuid": "55900ca6-1108-4432-9b21-2f7c047e8a71",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/pair/PairIntent.dc.html",
+          "ext_id": "./PairIntent.dc.html",
+          "sha256": "3af5f404da8d3a643fc145d8d4b360555d565746946c92889f5c322016bffe25"
+        },
+        {
+          "uuid": "66d028d9-c9b7-4e35-b1b8-820952f9216b",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/pair/PairAdjacency.dc.html",
+          "ext_id": "./PairAdjacency.dc.html",
+          "sha256": "412cb3bce3280093d325e7679a6a7316a42b16e2ba451acc51bf99f50a989d32"
+        },
+        {
+          "uuid": "5931228c-ffcf-4687-af92-c5c060b45555",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/pair/PairWarn.dc.html",
+          "ext_id": "./PairWarn.dc.html",
+          "sha256": "18e137d3dac4a7347cc7c57b032257862d1934960b6aa506c145c54e3eb9b91b"
+        },
+        {
+          "uuid": "3f9979d6-3f1e-48cd-962c-0061cf4b986e",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/pair/PairAccepted.dc.html",
+          "ext_id": "./PairAccepted.dc.html",
+          "sha256": "f1530847c8cd23fbe41d65c8e22ea734939ab2011d6e1eedc9d2777d9d332749"
+        },
+        {
+          "uuid": "25937a8a-ffbc-48f8-b68b-9d9a6b614731",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/pair/PairDeclined.dc.html",
+          "ext_id": "./PairDeclined.dc.html",
+          "sha256": "7a97fa2b437c635e4d5bac6b111e1e86b636640c3ba32d5480edcdd69ac55edf"
+        },
+        {
+          "uuid": "b83afaa6-4e52-4d61-ba42-ae27e3d50d96",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js",
+          "sha256": "d949f1c3687aedadcedac85261865f29b17cd273997e7f6b2bfc53b2f9d4c4dd"
+        },
+        {
+          "uuid": "aa26ab30-62f9-4dc6-b34a-a1f648d18233",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react-dom.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js",
+          "sha256": "35f4f974f4b2bcd44da73963347f8952e341f83909e4498227d4e26b98f66f0d"
+        }
+      ],
+      "ext_resources_order": [
+        "55900ca6-1108-4432-9b21-2f7c047e8a71",
+        "66d028d9-c9b7-4e35-b1b8-820952f9216b",
+        "5931228c-ffcf-4687-af92-c5c060b45555",
+        "3f9979d6-3f1e-48cd-962c-0061cf4b986e",
+        "25937a8a-ffbc-48f8-b68b-9d9a6b614731",
+        "b83afaa6-4e52-4d61-ba42-ae27e3d50d96",
+        "aa26ab30-62f9-4dc6-b34a-a1f648d18233"
+      ]
+    },
+    "p06b-state-flow": {
+      "title": "상태 흐름",
+      "template": "pages/p06b-state-flow/page.html",
+      "assets": [
+        {
+          "uuid": "d1870f24-8726-4b44-9ea6-550d8f525bea",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "runtime",
+          "src": "vendor/dc-runtime/support.js",
+          "ext_id": null,
+          "sha256": "b5a2247a5d9443f651b1bc4895c61e9a2f74cda8abab4ed233767274ac0e23e4"
+        },
+        {
+          "uuid": "a6263e86-0c7b-46e0-b5a2-86c8f478ef8d",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js",
+          "sha256": "d949f1c3687aedadcedac85261865f29b17cd273997e7f6b2bfc53b2f9d4c4dd"
+        },
+        {
+          "uuid": "93677c28-b0d4-42a5-9adf-9a7dc58fe2d4",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react-dom.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js",
+          "sha256": "35f4f974f4b2bcd44da73963347f8952e341f83909e4498227d4e26b98f66f0d"
+        }
+      ],
+      "ext_resources_order": [
+        "a6263e86-0c7b-46e0-b5a2-86c8f478ef8d",
+        "93677c28-b0d4-42a5-9adf-9a7dc58fe2d4"
+      ]
+    },
+    "p09b-state-components": {
+      "title": "컴포넌트 상태",
+      "template": "pages/p09b-state-components/page.html",
+      "assets": [
+        {
+          "uuid": "02fa4078-21a3-44cf-9e85-97d75e555f93",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "runtime",
+          "src": "vendor/dc-runtime/support.js",
+          "ext_id": null,
+          "sha256": "b5a2247a5d9443f651b1bc4895c61e9a2f74cda8abab4ed233767274ac0e23e4"
+        },
+        {
+          "uuid": "ba9c524f-9cf9-487e-b508-3aeed362670a",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js",
+          "sha256": "d949f1c3687aedadcedac85261865f29b17cd273997e7f6b2bfc53b2f9d4c4dd"
+        },
+        {
+          "uuid": "d157a8e0-ba12-4317-b632-7d67138d6d77",
+          "mime": "text/javascript",
+          "compressed": true,
+          "kind": "vendor",
+          "src": "vendor/react/react-dom.production.min.js",
+          "ext_id": "https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js",
+          "sha256": "35f4f974f4b2bcd44da73963347f8952e341f83909e4498227d4e26b98f66f0d"
+        }
+      ],
+      "ext_resources_order": [
+        "ba9c524f-9cf9-487e-b508-3aeed362670a",
+        "d157a8e0-ba12-4317-b632-7d67138d6d77"
       ]
     }
   }

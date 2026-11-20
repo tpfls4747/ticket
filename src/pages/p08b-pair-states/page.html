@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<title>UI 연석 의향·인접·동의·상태</title>
+<script src="{{asset:vendor/dc-runtime/support.js}}"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#5B3DF5}a:hover{color:#4328D9}
+</style>
+</helmet>
+<div style="width: 1920px; height: 1080px; box-sizing: border-box; padding: 88px 120px 56px; background: #F7F7FA; font-family: 'Noto Sans KR', sans-serif; color: #191B22; display: flex; flex-direction: column; gap: 36px; overflow: hidden">
+<div style="display: flex; align-items: flex-start; gap: 32px">
+<span aria-hidden="true" style="font-size: 128px; font-weight: 900; line-height: 0.82; color: #DCD5FF; letter-spacing: -4px">07</span>
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span style="align-self: flex-start; font-size: 14px; font-weight: 700; letter-spacing: 2px; color: #5B3DF5; background: #E9E5FF; padding: 6px 14px; border-radius: 999px">UI DESIGN · B-2 · 실험 기능 · 수요 미검증</span>
+<h1 style="margin: 0; font-size: 48px; font-weight: 900; line-height: 1.25; letter-spacing: -1px">연석은 <span style="color: #5B3DF5">의향 확인</span>부터 시작해요</h1>
+</div>
+</div>
+<div style="flex: 1; display: flex; gap: 24px; min-height: 0"><div style="background: #5B3DF5; border-radius: 32px; padding: 36px 32px; flex: 1; display: flex; gap: 36px; min-height: 0"><figure style="margin: 0; width: 226px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; gap: 10px"><span style="width: 32px; height: 32px; border-radius: 16px; background: #FFFFFF; color: #5B3DF5; font-size: 15px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0">1</span><span style="flex: 1; height: 2px; background: #8E7BFA; margin-right: -52px"></span></div>
+<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35)"><div style="width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left"><dc-import name="PairIntent" hint-size="390px,844px"></dc-import></div></div>
+<figcaption style="display: flex; flex-direction: column; gap: 6px"><b style="font-size: 17px; color: #FFFFFF">제안 수신 의향</b><span style="font-size: 15px; line-height: 1.55; color: #E3DDFF">기본값은 받지 않기예요. 켜기 전에는 제안이 가지 않아요</span></figcaption>
+</figure>
+<figure style="margin: 0; width: 226px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; gap: 10px"><span style="width: 32px; height: 32px; border-radius: 16px; background: #FFFFFF; color: #5B3DF5; font-size: 15px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0">2</span><span style="flex: 1; height: 2px; background: #8E7BFA; margin-right: -52px"></span></div>
+<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35)"><div style="width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left"><dc-import name="PairAdjacency" hint-size="390px,844px"></dc-import></div></div>
+<figcaption style="display: flex; flex-direction: column; gap: 6px"><b style="font-size: 17px; color: #FFFFFF">인접 · 자격 확인</b><span style="font-size: 15px; line-height: 1.55; color: #E3DDFF">번호가 이어져도 배치도로 따로 확인해요</span></figcaption>
+</figure>
+<figure style="margin: 0; width: 226px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; gap: 10px"><span style="width: 32px; height: 32px; border-radius: 16px; background: #FFFFFF; color: #5B3DF5; font-size: 15px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0">3</span><span style="flex: 1; height: 2px; background: #8E7BFA; margin-right: -52px"></span></div>
+<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35)"><div style="width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left"><dc-import name="PairWarn" hint-size="390px,844px"></dc-import></div></div>
+<figcaption style="display: flex; flex-direction: column; gap: 6px"><b style="font-size: 17px; color: #FFFFFF">제안 전 확인</b><span style="font-size: 15px; line-height: 1.55; color: #E3DDFF">전후 좌석 비교와 동행석 분리 가능성을 알려줘요</span></figcaption>
+</figure>
+<figure style="margin: 0; width: 226px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; gap: 10px"><span style="width: 32px; height: 32px; border-radius: 16px; background: #FFFFFF; color: #5B3DF5; font-size: 15px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0">4</span><span style="flex: 1; height: 2px; background: #8E7BFA; margin-right: -52px"></span></div>
+<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35)"><div style="width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left"><dc-import name="PairAccepted" hint-size="390px,844px"></dc-import></div></div>
+<figcaption style="display: flex; flex-direction: column; gap: 6px"><b style="font-size: 17px; color: #FFFFFF">수락 · 최종 확인 전</b><span style="font-size: 15px; line-height: 1.55; color: #E3DDFF">수락은 완료가 아니에요</span></figcaption>
+</figure>
+<figure style="margin: 0; width: 226px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; gap: 10px"><span style="width: 32px; height: 32px; border-radius: 16px; background: #FFFFFF; color: #5B3DF5; font-size: 15px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0">5</span></div>
+<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35)"><div style="width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left"><dc-import name="PairDeclined" hint-size="390px,844px"></dc-import></div></div>
+<figcaption style="display: flex; flex-direction: column; gap: 6px"><b style="font-size: 17px; color: #FFFFFF">수신자 거절</b><span style="font-size: 15px; line-height: 1.55; color: #E3DDFF">거절할 권한은 수신자에게 있어요</span></figcaption>
+</figure></div></div>
+<div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: #6B7080"><span style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="display: flex; gap: 3px"><span style="width: 10px; height: 10px; border-radius: 3px; background: #5B3DF5"></span><span style="width: 10px; height: 10px; border-radius: 3px; background: #5B3DF5"></span></span>좌석·회차 교환 UX/UI</span><span><b style="color: #191B22">08</b> / 10 · B-2</span></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1920,&quot;height&quot;:1080}}">
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+
+
+</body></html>
