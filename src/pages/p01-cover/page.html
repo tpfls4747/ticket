@@ -22,15 +22,15 @@ a{color:#FFFFFF}a:hover{color:#E3DDFF}
 </div>
 <div style="position: absolute; left: 1060px; top: 150px; width: 362px; height: 784px; border-radius: 44px; background: #191B22; padding: 10px; box-sizing: border-box; box-shadow: 0 40px 80px rgba(18, 8, 70, 0.45)">
 <div style="width: 342px; height: 764px; border-radius: 36px; overflow: hidden">
-<div style="width: 390px; height: 844px; transform: scale(0.877); transform-origin: top left">
-<dc-import name="Request" hint-size="390px,844px"></dc-import>
+<div data-nav-host="0" tabIndex="-1" onclick="{{nav_0}}" onkeydown="{{key_0}}" style="outline: none; width: 390px; height: 844px; transform: scale(0.877); transform-origin: top left">
+<form data-nav-screen="Request" onsubmit="{{nosubmit}}" style="display: {{v_0_Request}}; margin: 0"><dc-import name="Request" hint-size="390px,844px"></dc-import></form>
 </div>
 </div>
 </div>
 <div style="position: absolute; left: 1470px; top: 250px; width: 362px; height: 784px; border-radius: 44px; background: #191B22; padding: 10px; box-sizing: border-box; box-shadow: 0 40px 80px rgba(18, 8, 70, 0.45)">
 <div style="width: 342px; height: 764px; border-radius: 36px; overflow: hidden">
-<div style="width: 390px; height: 844px; transform: scale(0.877); transform-origin: top left">
-<dc-import name="Match" hint-size="390px,844px"></dc-import>
+<div data-nav-host="1" tabIndex="-1" onclick="{{nav_1}}" onkeydown="{{key_1}}" style="outline: none; width: 390px; height: 844px; transform: scale(0.877); transform-origin: top left">
+<form data-nav-screen="Match" onsubmit="{{nosubmit}}" style="display: {{v_1_Match}}; margin: 0"><dc-import name="Match" hint-size="390px,844px"></dc-import></form>
 </div>
 </div>
 </div>
@@ -51,7 +51,7 @@ a{color:#FFFFFF}a:hover{color:#E3DDFF}
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1920,&quot;height&quot;:1080}}">
-class Component extends DCLogic {
+class BaseLogic extends DCLogic {
 renderVals() {
 const seats = [];
 for (let i = 0; i < 156; i++) {
@@ -59,6 +59,63 @@ const hi = i === 31 || i === 32;
 seats.push({ hi: hi, lo: !hi });
 }
 return { seats: seats };
+}
+}
+var INITIAL = ["Request", "Match"];
+var HOSTS = [["Request"], ["Match"]];
+function BASE_VALS(self) { return BaseLogic.prototype.renderVals.call(self) || {}; }
+class Component extends BaseLogic {
+constructor(props) {
+super(props);
+this.state = { stacks: INITIAL.map(function (s) { return [s]; }) };
+}
+navigate(i, e) {
+var t = e && e.target;
+var a = t && t.closest ? t.closest('a[href]') : null;
+if (!a) return;
+var href = a.getAttribute('href') || '';
+var m = /^(?:\.\/)?([A-Za-z0-9_-]+)\.dc\.html$/.exec(href);
+if (!m) return;
+e.preventDefault();
+var target = m[1];
+var back = a.getAttribute('aria-label') === '뒤로';
+var screens = HOSTS[i];
+var hostEl = a.closest('[data-nav-host]');
+var moved = false;
+this.setState(function (st) {
+var stacks = st.stacks.map(function (x) { return x.slice(); });
+var s = stacks[i];
+if (back && s.length > 1) { s.pop(); }
+else if (screens.indexOf(target) < 0) { /* 이 보드에 없는 화면: 현재 화면 유지 */ }
+else if (back) { stacks[i] = [target]; }
+else if (s[s.length - 1] !== target) { s.push(target); }
+moved = JSON.stringify(stacks[i]) !== JSON.stringify(st.stacks[i]);
+return { stacks: stacks };
+}, function () {
+// 화면이 바뀌면 누른 링크가 숨겨져 포커스가 사라지므로, 폰 틀로 포커스를 옮겨 키보드 위치를 유지한다
+if (moved && hostEl && hostEl.focus) { try { hostEl.focus({ preventScroll: true }); } catch (err) { /* 무시 */ } }
+});
+}
+keydown(i, e) {
+if (e && e.key === 'Escape') {
+this.setState(function (st) {
+var stacks = st.stacks.map(function (x) { return x.slice(); });
+stacks[i] = [INITIAL[i]];
+return { stacks: stacks };
+});
+}
+}
+renderVals() {
+var self = this;
+var stacks = (this.state && this.state.stacks) || INITIAL.map(function (s) { return [s]; });
+var v = { nosubmit: function (e) { if (e && e.preventDefault) e.preventDefault(); } };
+INITIAL.forEach(function (_, i) {
+var cur = stacks[i][stacks[i].length - 1];
+HOSTS[i].forEach(function (s) { v['v_' + i + '_' + s] = s === cur ? 'block' : 'none'; });
+v['nav_' + i] = function (e) { self.navigate(i, e); };
+v['key_' + i] = function (e) { self.keydown(i, e); };
+});
+return Object.assign({}, BASE_VALS(this), v);
 }
 }
 </script>

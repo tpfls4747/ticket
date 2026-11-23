@@ -48,6 +48,7 @@ const DESCRIBE = (el) => ({
   type: el.getAttribute('type'),
   name: el.getAttribute('name'),
   checked: el.checked === undefined ? null : el.checked,
+  visible: !!(el.offsetParent || el.getClientRects().length),
 });
 
 // 헤드리스 Chromium 은 큰 iframe 을 래스터화하기 전에 찍으면 빈(흰) PNG 를 돌려줄 때가 있다
@@ -180,7 +181,7 @@ async function waitReady(page, boards) {
       for (const el of els) interactive.push(await el.evaluate(DESCRIBE));
       /* 키보드: 이 프레임의 포커스 가능한 요소 수만큼만 Tab (다음 프레임으로 새지 않게) */
       const focusable = await f.evaluate((sel) => [...document.querySelectorAll(sel)].filter((e) =>
-        !e.disabled && e.tabIndex >= 0 && getComputedStyle(e).visibility !== 'hidden').length, INTERACTIVE_SEL);
+        !e.disabled && e.tabIndex >= 0 && getComputedStyle(e).visibility !== 'hidden' && e.getClientRects().length > 0).length, INTERACTIVE_SEL);
       const tabOrder = [];
       await f.evaluate(() => { document.body.tabIndex = -1; document.body.focus(); });
       for (let k = 0; k < focusable; k++) {
@@ -203,16 +204,18 @@ async function waitReady(page, boards) {
       const ctlCount = await f.evaluate(() => document.querySelectorAll('input[type=radio],input[type=checkbox]').length);
       for (let k = 0; k < ctlCount; k++) {
         const ctl = (await f.$$('input[type=radio],input[type=checkbox]'))[k];
+        // 화면 전환(STEP 3A) 이후에는 숨겨진 화면에도 입력 요소가 있으므로 보이는 요소만 누른다
+        if (!(await ctl.boundingBox())) continue;
         await realClick(ctl);
         await page.waitForTimeout(300);
         controlSteps.push(await f.evaluate((idx) => ({
           clicked: idx,
-          state: [...document.querySelectorAll('input[type=radio],input[type=checkbox]')].map((e) => e.type[0] + ':' + (e.name || '-') + ':' + (e.checked ? 1 : 0)).join(','),
+          state: [...document.querySelectorAll('input[type=radio],input[type=checkbox]')].filter((e) => e.getClientRects().length > 0).map((e) => e.type[0] + ':' + (e.name || '-') + ':' + (e.checked ? 1 : 0)).join(','),
         }), k));
       }
       /* 링크 클릭: 첫 번째 링크만 실제 마우스로 누른다. 누르면 프레임이 이동해 이후 요소가 사라지므로
          링크 하나당 한 번만 측정할 수 있다 (모든 링크의 동작은 같은 구조라 대표값으로 비교한다). */
-      const firstLinkIdx = interactive.findIndex((x) => x.tag === 'a' && x.href);
+      const firstLinkIdx = interactive.findIndex((x) => x.tag === 'a' && x.href && x.visible);
       let firstLinkClick = null;
       if (firstLinkIdx >= 0) {
         const urlBefore = f.url();

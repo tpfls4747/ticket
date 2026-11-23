@@ -1,0 +1,63 @@
+PASS 링크 P01 폰1 [Request] 뒤로 → Main
+PASS Esc 초기화 P01 폰1 (뒤로 이후)
+PASS 링크 P01 폰1 [Request] 교환 신청 등록 → Waiting
+PASS Esc 초기화 P01 폰1 (교환 신청 등록 이후)
+PASS 링크 P01 폰2 [Match] 뒤로 → Waiting
+PASS Esc 초기화 P01 폰2 (뒤로 이후)
+PASS 링크 P01 폰2 [Match] 거절 → Waiting
+PASS Esc 초기화 P01 폰2 (거절 이후)
+PASS 링크 P01 폰2 [Match] 교환 수락 → Done
+PASS Esc 초기화 P01 폰2 (교환 수락 이후)
+PASS 링크 P07 폰1 [Main] 좌석·회차 교환 신청 → Request
+PASS Esc 초기화 P07 폰1 (좌석·회차 교환 신청 이후)
+PASS 링크 P07 폰2 [Request] 뒤로 → Main
+PASS Esc 초기화 P07 폰2 (뒤로 이후)
+PASS 링크 P07 폰2 [Request] 교환 신청 등록 → Waiting
+PASS Esc 초기화 P07 폰2 (교환 신청 등록 이후)
+PASS 링크 P07 폰3 [Waiting] 뒤로 → Main
+PASS Esc 초기화 P07 폰3 (뒤로 이후)
+PASS 링크 P07 폰3 [Waiting] 수정 → Request
+PASS Esc 초기화 P07 폰3 (수정 이후)
+PASS 링크 P07 폰3 [Waiting] 알림 도착 (프로토타입) → Match
+PASS Esc 초기화 P07 폰3 (알림 도착 (프로토타입) 이후)
+PASS 링크 P07 폰4 [Match] 뒤로 → Waiting
+PASS Esc 초기화 P07 폰4 (뒤로 이후)
+PASS 링크 P07 폰4 [Match] 거절 → Waiting
+PASS Esc 초기화 P07 폰4 (거절 이후)
+PASS 링크 P07 폰4 [Match] 교환 수락 → Done
+PASS Esc 초기화 P07 폰4 (교환 수락 이후)
+PASS 링크 P07 폰5 [Done] 예매 내역으로 → Main
+PASS Esc 초기화 P07 폰5 (예매 내역으로 이후)
+PASS 링크 P07 폰6 [Expired] 뒤로 → Main
+PASS Esc 초기화 P07 폰6 (뒤로 이후)
+PASS 링크 P07 폰6 [Expired] C구역도 포함하기 → Request
+PASS Esc 초기화 P07 폰6 (C구역도 포함하기 이후)
+PASS 링크 P07 폰6 [Expired] 12.20 (일) 14:00 회차 추 → Request
+PASS Esc 초기화 P07 폰6 (12.20 (일) 14:00 회차 추 이후)
+PASS 링크 P07 폰6 [Expired] 이 조건으로 계속 기다리기 → Waiting
+PASS Esc 초기화 P07 폰6 (이 조건으로 계속 기다리기 이후)
+PASS 링크 P07-C 폰4 [Done] 예매 내역으로 → Main
+PASS Esc 초기화 P07-C 폰4 (예매 내역으로 이후)
+PASS 링크 P08 폰1 [PairMode] 뒤로 → Main
+PASS Esc 초기화 P08 폰1 (뒤로 이후)
+PASS 링크 P08 폰1 [PairMode] 다음 → PairSeat
+PASS Esc 초기화 P08 폰1 (다음 이후)
+PASS 링크 P08 폰2 [PairSeat] 뒤로 → PairMode
+PASS Esc 초기화 P08 폰2 (뒤로 이후)
+PASS 링크 P08 폰2 [PairSeat] 동의한 옆자리에 제안 보내기 → PairReceive
+PASS Esc 초기화 P08 폰2 (동의한 옆자리에 제안 보내기 이후)
+PASS 링크 P08 폰3 [PairReceive] 수락하기 → PairDone
+PASS Esc 초기화 P08 폰3 (수락하기 이후)
+PASS 링크 P08 폰4 [PairDone] 예매 내역으로 → Main
+PASS Esc 초기화 P08 폰4 (예매 내역으로 이후)
+PASS 뒤로: 기록대로 돌아오기
+PASS 키보드: Tab 으로 링크 포커스 → Enter 이동
+PASS 키보드: Esc 로 처음 화면
+PASS 입력 보존: 라디오 선택 후 다른 화면에 다녀와도 유지
+PASS 전환 이후 입력 요소 동작
+PASS 기존 버튼 클릭 시 제출·이동 없음 (교환 신청 취소)
+PASS 복제된 화면의 라디오 그룹이 서로 섞이지 않음 (PairSeat 기본 선택이 모두 유지)
+PASS 모든 보드 프레임이 blob 문서에 머무름 (빈 화면 이동 없음)
+PASS 콘솔 오류·경고, 페이지 오류, 차단된 이동 0건
+
+합계 61건, 실패 0건

@@ -1,0 +1,19 @@
+== 픽셀 비교
+  차이 desktop P11.png 443298 px (21.358%), 영역 x359-1812 y266-893
+  desktop: 16장 중 동일 15장
+  차이 mobile P11-viewport.png 7278 px (2.211%), 영역 x359-389 y298-843
+  mobile: 16장 중 동일 15장
+== 구조
+  보드 제목 동일: True | 보드 크기 동일: True
+  모바일 가로 스크롤 폭: 1968 → 1968
+  콘솔/네트워크 로그: 0 → 0
+== 페이지별
+  P01 P01 표지
+     - 첫 링크 클릭: about:blank#blocked(0) → blob:(707)
+  P08 P07 UI 좌석·회차 교환
+     - 첫 링크 클릭: about:blank#blocked(0) → blob:(1934)
+  P10 P07-C 교환 처리 상태 (STEP 2C 추가)
+     - 첫 링크 클릭: about:blank#blocked(0) → blob:(1592)
+  P12 P08 UI 연석 만들기
+     - 라디오·체크박스 클릭 결과 다름
+     - 첫 링크 클릭: about:blank#blocked(0) → blob:(1660)

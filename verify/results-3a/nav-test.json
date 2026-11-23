@@ -1,0 +1,571 @@
+{
+ "results": [
+  {
+   "name": "링크 P01 폰1 [Request] 뒤로 → Main",
+   "pass": true,
+   "detail": "기대 Request, 결과 Request (뒤로)"
+  },
+  {
+   "name": "Esc 초기화 P01 폰1 (뒤로 이후)",
+   "pass": true,
+   "detail": "결과 Request"
+  },
+  {
+   "name": "링크 P01 폰1 [Request] 교환 신청 등록 → Waiting",
+   "pass": true,
+   "detail": "기대 Request, 결과 Request"
+  },
+  {
+   "name": "Esc 초기화 P01 폰1 (교환 신청 등록 이후)",
+   "pass": true,
+   "detail": "결과 Request"
+  },
+  {
+   "name": "링크 P01 폰2 [Match] 뒤로 → Waiting",
+   "pass": true,
+   "detail": "기대 Match, 결과 Match (뒤로)"
+  },
+  {
+   "name": "Esc 초기화 P01 폰2 (뒤로 이후)",
+   "pass": true,
+   "detail": "결과 Match"
+  },
+  {
+   "name": "링크 P01 폰2 [Match] 거절 → Waiting",
+   "pass": true,
+   "detail": "기대 Match, 결과 Match"
+  },
+  {
+   "name": "Esc 초기화 P01 폰2 (거절 이후)",
+   "pass": true,
+   "detail": "결과 Match"
+  },
+  {
+   "name": "링크 P01 폰2 [Match] 교환 수락 → Done",
+   "pass": true,
+   "detail": "기대 Match, 결과 Match"
+  },
+  {
+   "name": "Esc 초기화 P01 폰2 (교환 수락 이후)",
+   "pass": true,
+   "detail": "결과 Match"
+  },
+  {
+   "name": "링크 P07 폰1 [Main] 좌석·회차 교환 신청 → Request",
+   "pass": true,
+   "detail": "기대 Request, 결과 Request"
+  },
+  {
+   "name": "Esc 초기화 P07 폰1 (좌석·회차 교환 신청 이후)",
+   "pass": true,
+   "detail": "결과 Main"
+  },
+  {
+   "name": "링크 P07 폰2 [Request] 뒤로 → Main",
+   "pass": true,
+   "detail": "기대 Main, 결과 Main (뒤로)"
+  },
+  {
+   "name": "Esc 초기화 P07 폰2 (뒤로 이후)",
+   "pass": true,
+   "detail": "결과 Request"
+  },
+  {
+   "name": "링크 P07 폰2 [Request] 교환 신청 등록 → Waiting",
+   "pass": true,
+   "detail": "기대 Waiting, 결과 Waiting"
+  },
+  {
+   "name": "Esc 초기화 P07 폰2 (교환 신청 등록 이후)",
+   "pass": true,
+   "detail": "결과 Request"
+  },
+  {
+   "name": "링크 P07 폰3 [Waiting] 뒤로 → Main",
+   "pass": true,
+   "detail": "기대 Main, 결과 Main (뒤로)"
+  },
+  {
+   "name": "Esc 초기화 P07 폰3 (뒤로 이후)",
+   "pass": true,
+   "detail": "결과 Waiting"
+  },
+  {
+   "name": "링크 P07 폰3 [Waiting] 수정 → Request",
+   "pass": true,
+   "detail": "기대 Request, 결과 Request"
+  },
+  {
+   "name": "Esc 초기화 P07 폰3 (수정 이후)",
+   "pass": true,
+   "detail": "결과 Waiting"
+  },
+  {
+   "name": "링크 P07 폰3 [Waiting] 알림 도착 (프로토타입) → Match",
+   "pass": true,
+   "detail": "기대 Match, 결과 Match"
+  },
+  {
+   "name": "Esc 초기화 P07 폰3 (알림 도착 (프로토타입) 이후)",
+   "pass": true,
+   "detail": "결과 Waiting"
+  },
+  {
+   "name": "링크 P07 폰4 [Match] 뒤로 → Waiting",
+   "pass": true,
+   "detail": "기대 Waiting, 결과 Waiting (뒤로)"
+  },
+  {
+   "name": "Esc 초기화 P07 폰4 (뒤로 이후)",
+   "pass": true,
+   "detail": "결과 Match"
+  },
+  {
+   "name": "링크 P07 폰4 [Match] 거절 → Waiting",
+   "pass": true,
+   "detail": "기대 Waiting, 결과 Waiting"
+  },
+  {
+   "name": "Esc 초기화 P07 폰4 (거절 이후)",
+   "pass": true,
+   "detail": "결과 Match"
+  },
+  {
+   "name": "링크 P07 폰4 [Match] 교환 수락 → Done",
+   "pass": true,
+   "detail": "기대 Done, 결과 Done"
+  },
+  {
+   "name": "Esc 초기화 P07 폰4 (교환 수락 이후)",
+   "pass": true,
+   "detail": "결과 Match"
+  },
+  {
+   "name": "링크 P07 폰5 [Done] 예매 내역으로 → Main",
+   "pass": true,
+   "detail": "기대 Main, 결과 Main"
+  },
+  {
+   "name": "Esc 초기화 P07 폰5 (예매 내역으로 이후)",
+   "pass": true,
+   "detail": "결과 Done"
+  },
+  {
+   "name": "링크 P07 폰6 [Expired] 뒤로 → Main",
+   "pass": true,
+   "detail": "기대 Main, 결과 Main (뒤로)"
+  },
+  {
+   "name": "Esc 초기화 P07 폰6 (뒤로 이후)",
+   "pass": true,
+   "detail": "결과 Expired"
+  },
+  {
+   "name": "링크 P07 폰6 [Expired] C구역도 포함하기 → Request",
+   "pass": true,
+   "detail": "기대 Request, 결과 Request"
+  },
+  {
+   "name": "Esc 초기화 P07 폰6 (C구역도 포함하기 이후)",
+   "pass": true,
+   "detail": "결과 Expired"
+  },
+  {
+   "name": "링크 P07 폰6 [Expired] 12.20 (일) 14:00 회차 추 → Request",
+   "pass": true,
+   "detail": "기대 Request, 결과 Request"
+  },
+  {
+   "name": "Esc 초기화 P07 폰6 (12.20 (일) 14:00 회차 추 이후)",
+   "pass": true,
+   "detail": "결과 Expired"
+  },
+  {
+   "name": "링크 P07 폰6 [Expired] 이 조건으로 계속 기다리기 → Waiting",
+   "pass": true,
+   "detail": "기대 Waiting, 결과 Waiting"
+  },
+  {
+   "name": "Esc 초기화 P07 폰6 (이 조건으로 계속 기다리기 이후)",
+   "pass": true,
+   "detail": "결과 Expired"
+  },
+  {
+   "name": "링크 P07-C 폰4 [Done] 예매 내역으로 → Main",
+   "pass": true,
+   "detail": "기대 Done, 결과 Done"
+  },
+  {
+   "name": "Esc 초기화 P07-C 폰4 (예매 내역으로 이후)",
+   "pass": true,
+   "detail": "결과 Done"
+  },
+  {
+   "name": "링크 P08 폰1 [PairMode] 뒤로 → Main",
+   "pass": true,
+   "detail": "기대 PairMode, 결과 PairMode (뒤로)"
+  },
+  {
+   "name": "Esc 초기화 P08 폰1 (뒤로 이후)",
+   "pass": true,
+   "detail": "결과 PairMode"
+  },
+  {
+   "name": "링크 P08 폰1 [PairMode] 다음 → PairSeat",
+   "pass": true,
+   "detail": "기대 PairSeat, 결과 PairSeat"
+  },
+  {
+   "name": "Esc 초기화 P08 폰1 (다음 이후)",
+   "pass": true,
+   "detail": "결과 PairMode"
+  },
+  {
+   "name": "링크 P08 폰2 [PairSeat] 뒤로 → PairMode",
+   "pass": true,
+   "detail": "기대 PairMode, 결과 PairMode (뒤로)"
+  },
+  {
+   "name": "Esc 초기화 P08 폰2 (뒤로 이후)",
+   "pass": true,
+   "detail": "결과 PairSeat"
+  },
+  {
+   "name": "링크 P08 폰2 [PairSeat] 동의한 옆자리에 제안 보내기 → PairReceive",
+   "pass": true,
+   "detail": "기대 PairReceive, 결과 PairReceive"
+  },
+  {
+   "name": "Esc 초기화 P08 폰2 (동의한 옆자리에 제안 보내기 이후)",
+   "pass": true,
+   "detail": "결과 PairSeat"
+  },
+  {
+   "name": "링크 P08 폰3 [PairReceive] 수락하기 → PairDone",
+   "pass": true,
+   "detail": "기대 PairDone, 결과 PairDone"
+  },
+  {
+   "name": "Esc 초기화 P08 폰3 (수락하기 이후)",
+   "pass": true,
+   "detail": "결과 PairReceive"
+  },
+  {
+   "name": "링크 P08 폰4 [PairDone] 예매 내역으로 → Main",
+   "pass": true,
+   "detail": "기대 PairDone, 결과 PairDone"
+  },
+  {
+   "name": "Esc 초기화 P08 폰4 (예매 내역으로 이후)",
+   "pass": true,
+   "detail": "결과 PairDone"
+  },
+  {
+   "name": "뒤로: 기록대로 돌아오기",
+   "pass": true,
+   "detail": "[\"Request\",\"Waiting\",\"Request\",\"Main\"]"
+  },
+  {
+   "name": "키보드: Tab 으로 링크 포커스 → Enter 이동",
+   "pass": true,
+   "detail": "포커스 좌석·회차 교환 신청, 결과 Request"
+  },
+  {
+   "name": "키보드: Esc 로 처음 화면",
+   "pass": true,
+   "detail": "Main"
+  },
+  {
+   "name": "입력 보존: 라디오 선택 후 다른 화면에 다녀와도 유지",
+   "pass": true,
+   "detail": "처음 [false,true] → 선택 [true,false] → PairSeat → PairMode → [true,false]"
+  },
+  {
+   "name": "전환 이후 입력 요소 동작",
+   "pass": true,
+   "detail": "[false,true]"
+  },
+  {
+   "name": "기존 버튼 클릭 시 제출·이동 없음 (교환 신청 취소)",
+   "pass": true,
+   "detail": "blob:null/3d63ee1c-650d-4a6e-b"
+  },
+  {
+   "name": "복제된 화면의 라디오 그룹이 서로 섞이지 않음 (PairSeat 기본 선택이 모두 유지)",
+   "pass": true,
+   "detail": "[[true,false],[true,false],[true,false],[true,false]]"
+  },
+  {
+   "name": "모든 보드 프레임이 blob 문서에 머무름 (빈 화면 이동 없음)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "콘솔 오류·경고, 페이지 오류, 차단된 이동 0건",
+   "pass": true,
+   "detail": ""
+  }
+ ],
+ "graph": [
+  {
+   "board": "P01 표지",
+   "host": 0,
+   "from": "Request",
+   "link": "뒤로",
+   "href": "Main.dc.html",
+   "to": "Request",
+   "result": "현재 화면 유지(이 보드에 없는 화면)",
+   "pass": true
+  },
+  {
+   "board": "P01 표지",
+   "host": 0,
+   "from": "Request",
+   "link": "교환 신청 등록",
+   "href": "Waiting.dc.html",
+   "to": "Request",
+   "result": "현재 화면 유지(이 보드에 없는 화면)",
+   "pass": true
+  },
+  {
+   "board": "P01 표지",
+   "host": 1,
+   "from": "Match",
+   "link": "뒤로",
+   "href": "Waiting.dc.html",
+   "to": "Match",
+   "result": "현재 화면 유지(이 보드에 없는 화면)",
+   "pass": true
+  },
+  {
+   "board": "P01 표지",
+   "host": 1,
+   "from": "Match",
+   "link": "거절",
+   "href": "Waiting.dc.html",
+   "to": "Match",
+   "result": "현재 화면 유지(이 보드에 없는 화면)",
+   "pass": true
+  },
+  {
+   "board": "P01 표지",
+   "host": 1,
+   "from": "Match",
+   "link": "교환 수락",
+   "href": "Done.dc.html",
+   "to": "Match",
+   "result": "현재 화면 유지(이 보드에 없는 화면)",
+   "pass": true
+  },
+  {
+   "board": "P07 UI 좌석·회차 교환",
+   "host": 0,
+   "from": "Main",
+   "link": "좌석·회차 교환 신청",
+   "href": "Request.dc.html",
+   "to": "Request",
+   "result": "이동",
+   "pass": true
+  },
+  {
+   "board": "P07 UI 좌석·회차 교환",
+   "host": 1,
+   "from": "Request",
+   "link": "뒤로",
+   "href": "Main.dc.html",
+   "to": "Main",
+   "result": "이동",
+   "pass": true
+  },
+  {
+   "board": "P07 UI 좌석·회차 교환",
+   "host": 1,
+   "from": "Request",
+   "link": "교환 신청 등록",
+   "href": "Waiting.dc.html",
+   "to": "Waiting",
+   "result": "이동",
+   "pass": true
+  },
+  {
+   "board": "P07 UI 좌석·회차 교환",
+   "host": 2,
+   "from": "Waiting",
+   "link": "뒤로",
+   "href": "Main.dc.html",
+   "to": "Main",
+   "result": "이동",
+   "pass": true
+  },
+  {
+   "board": "P07 UI 좌석·회차 교환",
+   "host": 2,
+   "from": "Waiting",
+   "link": "수정",
+   "href": "Request.dc.html",
+   "to": "Request",
+   "result": "이동",
+   "pass": true
+  },
+  {
+   "board": "P07 UI 좌석·회차 교환",
+   "host": 2,
+   "from": "Waiting",
+   "link": "알림 도착 (프로토타입)",
+   "href": "Match.dc.html",
+   "to": "Match",
+   "result": "이동",
+   "pass": true
+  },
+  {
+   "board": "P07 UI 좌석·회차 교환",
+   "host": 3,
+   "from": "Match",
+   "link": "뒤로",
+   "href": "Waiting.dc.html",
+   "to": "Waiting",
+   "result": "이동",
+   "pass": true
+  },
+  {
+   "board": "P07 UI 좌석·회차 교환",
+   "host": 3,
+   "from": "Match",
+   "link": "거절",
+   "href": "Waiting.dc.html",
+   "to": "Waiting",
+   "result": "이동",
+   "pass": true
+  },
+  {
+   "board": "P07 UI 좌석·회차 교환",
+   "host": 3,
+   "from": "Match",
+   "link": "교환 수락",
+   "href": "Done.dc.html",
+   "to": "Done",
+   "result": "이동",
+   "pass": true
+  },
+  {
+   "board": "P07 UI 좌석·회차 교환",
+   "host": 4,
+   "from": "Done",
+   "link": "예매 내역으로",
+   "href": "Main.dc.html",
+   "to": "Main",
+   "result": "이동",
+   "pass": true
+  },
+  {
+   "board": "P07 UI 좌석·회차 교환",
+   "host": 5,
+   "from": "Expired",
+   "link": "뒤로",
+   "href": "Main.dc.html",
+   "to": "Main",
+   "result": "이동",
+   "pass": true
+  },
+  {
+   "board": "P07 UI 좌석·회차 교환",
+   "host": 5,
+   "from": "Expired",
+   "link": "C구역도 포함하기",
+   "href": "Request.dc.html",
+   "to": "Request",
+   "result": "이동",
+   "pass": true
+  },
+  {
+   "board": "P07 UI 좌석·회차 교환",
+   "host": 5,
+   "from": "Expired",
+   "link": "12.20 (일) 14:00 회차 추",
+   "href": "Request.dc.html",
+   "to": "Request",
+   "result": "이동",
+   "pass": true
+  },
+  {
+   "board": "P07 UI 좌석·회차 교환",
+   "host": 5,
+   "from": "Expired",
+   "link": "이 조건으로 계속 기다리기",
+   "href": "Waiting.dc.html",
+   "to": "Waiting",
+   "result": "이동",
+   "pass": true
+  },
+  {
+   "board": "P07-C 교환 처리 상태 (STEP 2C 추가)",
+   "host": 3,
+   "from": "Done",
+   "link": "예매 내역으로",
+   "href": "Main.dc.html",
+   "to": "Done",
+   "result": "현재 화면 유지(이 보드에 없는 화면)",
+   "pass": true
+  },
+  {
+   "board": "P08 UI 연석 만들기",
+   "host": 0,
+   "from": "PairMode",
+   "link": "뒤로",
+   "href": "Main.dc.html",
+   "to": "PairMode",
+   "result": "현재 화면 유지(이 보드에 없는 화면)",
+   "pass": true
+  },
+  {
+   "board": "P08 UI 연석 만들기",
+   "host": 0,
+   "from": "PairMode",
+   "link": "다음",
+   "href": "PairSeat.dc.html",
+   "to": "PairSeat",
+   "result": "이동",
+   "pass": true
+  },
+  {
+   "board": "P08 UI 연석 만들기",
+   "host": 1,
+   "from": "PairSeat",
+   "link": "뒤로",
+   "href": "PairMode.dc.html",
+   "to": "PairMode",
+   "result": "이동",
+   "pass": true
+  },
+  {
+   "board": "P08 UI 연석 만들기",
+   "host": 1,
+   "from": "PairSeat",
+   "link": "동의한 옆자리에 제안 보내기",
+   "href": "PairReceive.dc.html",
+   "to": "PairReceive",
+   "result": "이동",
+   "pass": true
+  },
+  {
+   "board": "P08 UI 연석 만들기",
+   "host": 2,
+   "from": "PairReceive",
+   "link": "수락하기",
+   "href": "PairDone.dc.html",
+   "to": "PairDone",
+   "result": "이동",
+   "pass": true
+  },
+  {
+   "board": "P08 UI 연석 만들기",
+   "host": 3,
+   "from": "PairDone",
+   "link": "예매 내역으로",
+   "href": "Main.dc.html",
+   "to": "PairDone",
+   "result": "현재 화면 유지(이 보드에 없는 화면)",
+   "pass": true
+  }
+ ]
+}
