@@ -18,6 +18,7 @@ const results = [];
 let journey = '';
 const seenScreens = new Set();
 const clipped = new Set();
+const CTL = { '상대방 수락': '상대방 제안 수락', '상대방 거절': '상대방 거절', '최종 확인 시작': '최종 확인 시작', '최종 확인 성공': '최종 확인 성공', '최종 확인 실패': '최종 확인 실패' };
 const ok = (name, pass, detail) => results.push({ journey, name, pass: !!pass, detail: pass ? '' : String(detail || '') });
 
 (async () => {
@@ -59,8 +60,13 @@ const ok = (name, pass, detail) => results.push({ journey, name, pass: !!pass, d
         }, [sel, text || null]);
         return h.asElement();
       },
+      ptext: () => f.evaluate(() => { const p = document.querySelector('[data-demo-ctl]'); return p ? p.innerText.replace(/\s+/g, ' ') : ''; }),
       async click(sel, text) {
-        const e = await H.el(sel, text);
+        let e = await H.el(sel, text);
+        // STEP 4A: 상대방 응답·최종 확인 결과는 폰 밖 시연 제어판에서 정한다
+        if (!e && CTL[text]) {
+          e = (await f.evaluateHandle((tx) => [...document.querySelectorAll('[data-demo-ctl] button')].find((b) => b.textContent.trim() === tx) || null, CTL[text])).asElement();
+        }
         if (!e) throw new Error('요소 없음: ' + sel + ' ' + (text || '') + ' (현재 화면 ' + (await H.screen()) + ')');
         // 스크린샷 등으로 스크롤이 바뀌었을 수 있으므로 보드와 폰 잘림 영역을 매번 원위치한다
         await handle.evaluate((x) => x.scrollIntoView({ block: 'center' }));
@@ -135,7 +141,8 @@ const ok = (name, pass, detail) => results.push({ journey, name, pass: !!pass, d
     await H.click('button', '교환 제안 보내기');
     ok('제안 전송 → 상대방 검토 화면', (await H.screen()) === 'StatusSent', await H.screen());
     const t2 = await H.text();
-    ok('상대방 검토 화면에 데모 모드(시뮬레이션) 표시', t2.includes('데모 모드') && t2.includes('상대방 행동 시뮬레이션'), t2.slice(-200));
+    const p2 = await H.ptext();
+    ok('상대방 응답은 폰 밖 시연 제어판에서 (폰 화면에는 데모 조작 없음)', p2.includes('시연 제어판') && p2.includes('상대방 제안 수락') && !t2.includes('데모 모드'), p2 + ' | ' + t2.slice(-120));
     ok('상대방 검토 중에는 완료 안내 없음', !t2.includes('교환이 완료됐어요'), t2);
   }
   async function acceptToFinal(H) {
@@ -353,7 +360,7 @@ const ok = (name, pass, detail) => results.push({ journey, name, pass: !!pass, d
     await compareAndSend(H, ['R석 A구역']);
     await acceptToFinal(H);
     const tf = await H.text();
-    ok('최종 확인 중: 시뮬레이션 버튼 표시, 취소 버튼 없음', tf.includes('최종 확인 결과 시뮬레이션') && !tf.includes('교환 취소하기'), tf.slice(-250));
+    ok('최종 확인 중: 제어판에 결과 버튼, 폰에는 취소 버튼 없음', (await H.ptext()).includes('최종 확인 성공') && !tf.includes('교환 취소하기'), tf.slice(-250));
     await H.click('button', '최종 확인 실패');
     ok('최종 확인 실패 → 실패 화면', (await H.screen()) === 'ExFinalFailed', await H.screen());
     const t = await H.text();

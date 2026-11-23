@@ -120,7 +120,7 @@ var DEMO = (function () {
   }
   var ACTIVE = ['proposed', 'accepted', 'final'];
   // 제안 이후 공용 진행 흐름 (STEP 3C 연석 만들기도 같은 규칙을 쓴다): 행동 → [필요한 현재 단계, 다음 단계]
-  // 상대방 수락·거절과 최종 확인 결과는 데모 모드 버튼으로만 일어나는 시뮬레이션이다.
+  // 상대방의 제안 수락·거절과 최종 확인 결과는 시연 제어판(폰 밖) 또는 수신자 체험 폰에서만 일어나는 시뮬레이션이다.
   var FLOW = { simAccept: ['proposed', 'accepted'], simDecline: ['proposed', 'declined'], toFinal: ['accepted', 'final'],
                simOk: ['final', 'done'], simFail: ['final', 'failed'] };
   function flowNext(step, type) { var f = FLOW[type]; return f && f[0] === step ? f[1] : null; }
@@ -358,8 +358,47 @@ var DEMO = (function () {
   }
   // 최종 확인 실패 화면: 유지되는 내 티켓 (목표 UX)
   function viewFailed() { return { mine: ticketLine(MY), keepText: '유지 (목표)' }; }
+
+  /* ---- STEP 4A: 일반 교환·연석 교환이 함께 쓰는 화면의 문구 분기 · 시연 제어판 · 상태 안내 ---- */
+  // 용어 기준: 교환 제안 받기(사전 수신 의향) · 교환 제안 보내기(신청자) · 제안 수락(수신자 개별 동의) · 최종 확인 중 · 교환 완료
+  var TL_COLOR = { done: '#191B22', now: '#3A26C4', todo: '#8B909C' };
+  var TL_TEXT = { done: '완료', now: '지금 단계', todo: '남은 단계' };
+  function timeline(list, nowIdx) {
+    return list.map(function (x, i) {
+      var st = i < nowIdx ? 'done' : i === nowIdx ? 'now' : 'todo';
+      return { label: x[0], sub: x[1], done: st === 'done', now: st === 'now', todo: st === 'todo', hasLine: i < list.length - 1,
+        color: TL_COLOR[st], stText: TL_TEXT[st] };
+    });
+  }
+  var SENT_STEPS = [['교환 신청', '조건 등록 완료'], ['후보 확인', '양방향 조건 확인 통과'], ['교환 제안 보내기', '비교 화면에서 내 동의 완료'],
+    ['상대방 검토', '응답 기한은 가상 규칙이에요 (예: 12시간)'], ['제안 수락', '상대방이 제안을 수락해야 다음으로 가요'],
+    ['최종 확인 중', '티켓·조건을 마지막으로 확인해요'], ['교환 완료', '최종 확인을 통과해야 표시돼요']];
+  function viewSent() { return { steps: timeline(SENT_STEPS, 3), sub: '상대방이 검토하는 동안 내 티켓은 그대로 유효해요.' }; }
+  function viewCancelled() {
+    return { title: '교환 신청을 취소했어요',
+      body: "진행 중이던 제안은 닫혔어요. 상대방에게는 '취소됨'으로 보인다고 가정했어요 (서비스 설계 가정). 내 티켓은 그대로 유효해요.",
+      primary: '교환 다시 신청', secondary: '예매 상세로' };
+  }
+  var STATUS = { edit: '조건 입력 중', searching: '후보 찾는 중', found: '후보 확인 중', mismatch: '필수 조건 불일치', none: '맞는 후보 없음',
+    proposed: '교환 제안 보냄 · 상대방 검토 중', accepted: '상대방 제안 수락 · 최종 확인 전', final: '최종 확인 중', done: '교환 완료 (시연)',
+    declined: '상대방이 제안을 거절함', cancelled: '교환 신청 취소', failed: '최종 확인 실패 · 내 티켓 유지 (목표)' };
+  // 시연 제어판 (폰 밖, 실제 서비스 기능 아님): 상대방 계정의 응답과 예매처의 최종 확인 결과를 정한다
+  var CTL_STY = {
+    primary: 'height: 34px; padding: 0 12px; border-radius: 10px; font-family: inherit; font-size: 13px; font-weight: 700; background: #191B22; color: #FFFFFF; border: 0',
+    bad: 'height: 34px; padding: 0 12px; border-radius: 10px; font-family: inherit; font-size: 13px; font-weight: 700; background: #FFFFFF; color: #B03A3A; border: 1.5px solid #B03A3A' };
+  function ctlBtn(act, label, kind) { return { act: act, val: '', label: label, style: CTL_STY[kind || 'primary'], pressed: 'false' }; }
+  function viewCtl(s) {
+    var b = [], hint;
+    if (s.step === 'proposed') { hint = '상대방 계정의 응답을 정해 보세요.'; b = [ctlBtn('simAccept', '상대방 제안 수락'), ctlBtn('simDecline', '상대방 거절', 'bad')]; }
+    else if (s.step === 'accepted') { hint = '양쪽이 수락했어요. 예매처의 최종 확인을 시작해요.'; b = [ctlBtn('toFinal', '최종 확인 시작')]; }
+    else if (s.step === 'final') { hint = '최종 확인 결과를 정해 보세요.'; b = [ctlBtn('simOk', '최종 확인 성공'), ctlBtn('simFail', '최종 확인 실패', 'bad')]; }
+    else if (TERMINAL.indexOf(s.step) >= 0) { hint = "결과 화면이에요. '처음부터 다시'로 다시 체험해요."; }
+    else { hint = '폰에서 교환 제안을 보내면 여기서 상대방 응답과 최종 확인 결과를 정해요.'; }
+    return { hint: hint, buttons: b, hasButtons: b.length > 0, status: STATUS[s.step] || '' };
+  }
   function views(s, demo) {
-    var v = { isDemo: !!demo, step: s.step, request: viewRequest(s.cond, demo), waiting: viewWaiting(s.cond), failed: viewFailed() };
+    var v = { isDemo: !!demo, step: s.step, request: viewRequest(s.cond, demo), waiting: viewWaiting(s.cond), failed: viewFailed(),
+      sent: viewSent(), cancelled: viewCancelled(), ctl: viewCtl(s), statusA: STATUS[s.step] || '' };
     if (s.candId) { v.match = viewMatch(s.cond, s.candId); v.compare = viewCompare(s.candId, s.consent, s.consentKey, s.step); v.done = viewDone(s.candId); }
     if (s.step === 'mismatch') v.mismatch = viewMismatch(s.cond, s.declined);
     return v;
@@ -371,7 +410,7 @@ var DEMO = (function () {
     return {
       request: viewRequest(DEFAULT_COND, false), waiting: viewWaiting(DEFAULT_COND),
       match: viewMatch(c4, 'C1'), compare: viewCompare('C1', true, 0, 'found'), done: viewDone('C1'),
-      mismatch: viewMismatch(c1, []), failed: viewFailed(), isDemo: false,
+      mismatch: viewMismatch(c1, []), failed: viewFailed(), sent: viewSent(), cancelled: viewCancelled(), isDemo: false,
     };
   }
 
@@ -379,6 +418,7 @@ var DEMO = (function () {
     initialState: initialState, reduce: reduce, views: views, defaultViews: defaultViews,
     // STEP 3C 연석 만들기가 다시 쓰는 공용 부품 (판정 규칙·진행 흐름·표시 형식)
     SHOW: SHOW, STY: STY, judge: judge, round: round, ticketLine: ticketLine, dateLine: dateLine, count: count, clone: clone,
-    flags: flags, resultRow: resultRow, badgeItem: badgeItem, flowNext: flowNext, FLOW: FLOW, CANCELABLE: CANCELABLE, TERMINAL: TERMINAL };
+    flags: flags, resultRow: resultRow, badgeItem: badgeItem, flowNext: flowNext, FLOW: FLOW, CANCELABLE: CANCELABLE, TERMINAL: TERMINAL,
+    timeline: timeline, STATUS: STATUS, ctlBtn: ctlBtn, CTL_STY: CTL_STY };
 })();
 if (typeof module !== 'undefined') module.exports = DEMO;

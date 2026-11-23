@@ -666,6 +666,15 @@
           "src": "components/exceptions/ExFinalFailed.dc.html",
           "ext_id": "./ExFinalFailed.dc.html",
           "sha256": "d2a017d36df14fe2cbb3d8b09f198e2b77a114b70c026c54c1105bb1468ce473"
+        },
+        {
+          "uuid": "5814f080-d008-48c3-b2a9-9c6a18a1e7ff",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/pair/PairIntent.dc.html",
+          "ext_id": "./PairIntent.dc.html",
+          "sha256": "58f373d60276b7f589fb4d560c091bc2dad3f82c833a63b923697494a2e63288"
         }
       ],
       "ext_resources_order": [
@@ -681,6 +690,7 @@
         "52a35a20-040a-4af4-a324-d1225c4f5185",
         "2098c0ee-5375-477d-a260-01d7cf2cb200",
         "46ff6eed-6274-4a28-878a-6b91400aeb59",
+        "5814f080-d008-48c3-b2a9-9c6a18a1e7ff",
         "5a694ac2-86c3-4e5b-8a94-68aa8229adc5",
         "015e234a-268d-4058-a73e-169c91a10661"
       ]
