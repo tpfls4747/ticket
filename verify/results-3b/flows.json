@@ -1,0 +1,1106 @@
+[
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "예매 상세 → 조건 등록",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "회차 선택 반영 R3",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "구역 선택 반영 A",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "신청 등록 → 신청 현황",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "신청 현황에 조건 유지: 12.20 (일) 18:00 · 필수",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "신청 현황에 조건 유지: R석 A구역 · 선호",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "신청 현황에 조건 유지: 1열 ~ 10열 · 선호",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "후보 탐색 결과 화면 = MatchCheck",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "후보 = 같은 회차 A구역 6열 3번",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "양쪽 필수 충족 표시",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "매칭 완료로 표시하지 않음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "양방향 확인 → 전후 비교",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "비교 화면 데이터: 날짜·회차 12.20 (일) 18:00 · 3회차 12.20 (일) 18:00 · 3회차 같음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "비교 화면 데이터: 구역 R석 B구역 R석 A구역 다름",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "비교 화면 데이터: 열·좌석 7열 12번 6열 3번 다름",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "비교 화면 데이터: 154,000원 (가상) 같음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "동의 전에는 제안 보내기 비활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "동의 안내 표시",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "동의 후 제안 보내기 활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "제안 전송 → 상대방 검토 화면",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "상대방 검토 화면에 데모 모드(시뮬레이션) 표시",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "상대방 검토 중에는 완료 안내 없음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "상대방 수락 → 수락 화면 (완료 아님)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "수락 화면: \"아직 교환이 완료된 것은 아니에요\"",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "수락 화면에 완료 안내 없음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "최종 확인 중 화면",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "최종 확인 성공 → 교환 완료",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "완료 화면 = 받은 티켓 A구역 6열 3번, 이전 티켓 B구역 7열 12번",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "예매 내역으로 → 예매 상세 (데모 처음 상태)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "콘솔 오류·경고·빈 화면 이동 0건",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "프레임이 blob 문서에 머무름",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 같은 회차 좌석 교환 성공",
+  "name": "다른 폰(2~6)은 그대로",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "예매 상세 → 조건 등록",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "회차 선택 반영 R4",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "신청 등록 → 신청 현황",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "신청 현황에 조건 유지: 12.21 (월) 14:00 · 필수",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "신청 현황에 조건 유지: R석 A·B구역 · 선호",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "후보 탐색 결과 화면 = MatchCheck",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "후보 = 12.21 A구역 5열 8번",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "후보의 선호(A구역)와 내 B구역 차이를 설명",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "미확인 정보(가격·정책) 표시",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "제외된 후보(C4, 상대 필수 불일치)는 표시되지 않음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "뒤로: 전후 비교 → 양방향 확인",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "뒤로: 양방향 확인 → 신청 현황",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "양방향 확인 → 전후 비교",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "비교 화면 데이터: 12.21 (월) 14:00 · 4회차 다름",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "비교 화면 데이터: R석 · 가격 정보 없음 확인 필요",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "비교 화면 데이터: 정책 확인 상태 없음 확인 필요",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "동의 전에는 제안 보내기 비활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "동의 안내 표시",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "동의 후 제안 보내기 활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "제안 전송 → 상대방 검토 화면",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "상대방 검토 화면에 데모 모드(시뮬레이션) 표시",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "상대방 검토 중에는 완료 안내 없음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "진행 중(상대방 검토)에는 뒤로 눌러도 머무름",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "상대방 수락 → 수락 화면 (완료 아님)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "수락 화면: \"아직 교환이 완료된 것은 아니에요\"",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "수락 화면에 완료 안내 없음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "최종 확인 중 화면",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "완료 화면 = 12.21 (월) 14:00 · 4회차, A구역 5열 8번",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "콘솔 오류·경고·빈 화면 이동 0건",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "프레임이 blob 문서에 머무름",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 다른 회차 교환 성공",
+  "name": "다른 폰(2~6)은 그대로",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 필수 조건 불일치",
+  "name": "예매 상세 → 조건 등록",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 필수 조건 불일치",
+  "name": "회차 선택 반영 R1",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 필수 조건 불일치",
+  "name": "신청 등록 → 신청 현황",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 필수 조건 불일치",
+  "name": "신청 현황에 조건 유지: 12.19 (토) 19:30 · 필수",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 필수 조건 불일치",
+  "name": "후보 탐색 결과 화면 = ExMismatch",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 필수 조건 불일치",
+  "name": "제외한 후보 = 12.19 B구역 9열 4번",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 필수 조건 불일치",
+  "name": "후보의 필수(12.20 14:00) 불일치 이유",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 필수 조건 불일치",
+  "name": "상대 필수는 바꿀 수 없음 → \"필수를 선호로\" 비활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 필수 조건 불일치",
+  "name": "조건 수정하기 → 조건 등록 (선택 유지)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 필수 조건 불일치",
+  "name": "회차 선택 반영 R4",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 필수 조건 불일치",
+  "name": "구역 선택 반영 C",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 필수 조건 불일치",
+  "name": "신청 등록 → 신청 현황",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 필수 조건 불일치",
+  "name": "신청 현황에 조건 유지: R석 C구역 · 필수",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 필수 조건 불일치",
+  "name": "후보 탐색 결과 화면 = ExMismatch",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 필수 조건 불일치",
+  "name": "불일치 화면이 실제 후보·조건과 일치",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 필수 조건 불일치",
+  "name": "콘솔 오류·경고·빈 화면 이동 0건",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 필수 조건 불일치",
+  "name": "프레임이 blob 문서에 머무름",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 필수 조건 불일치",
+  "name": "다른 폰(2~6)은 그대로",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 선호 조건만 불일치",
+  "name": "예매 상세 → 조건 등록",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 선호 조건만 불일치",
+  "name": "회차 선택 반영 R4",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 선호 조건만 불일치",
+  "name": "구역 선택 반영 C",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 선호 조건만 불일치",
+  "name": "신청 등록 → 신청 현황",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 선호 조건만 불일치",
+  "name": "신청 현황에 조건 유지: R석 C구역 · 선호",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 선호 조건만 불일치",
+  "name": "후보 탐색 결과 화면 = MatchCheck",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 선호 조건만 불일치",
+  "name": "후보로 표시됨 (필수는 모두 충족)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 선호 조건만 불일치",
+  "name": "내 선호 차이 설명: C구역 vs A구역",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 선호 조건만 불일치",
+  "name": "후보 선호 차이 설명",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 선호 조건만 불일치",
+  "name": "양방향 확인 → 전후 비교",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 선호 조건만 불일치",
+  "name": "비교 화면 데이터: 구역 R석 B구역 R석 A구역 다름",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 선호 조건만 불일치",
+  "name": "동의 전에는 제안 보내기 비활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 선호 조건만 불일치",
+  "name": "동의 안내 표시",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 선호 조건만 불일치",
+  "name": "동의 후 제안 보내기 활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 선호 조건만 불일치",
+  "name": "제안 전송 → 상대방 검토 화면",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 선호 조건만 불일치",
+  "name": "상대방 검토 화면에 데모 모드(시뮬레이션) 표시",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 선호 조건만 불일치",
+  "name": "상대방 검토 중에는 완료 안내 없음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 선호 조건만 불일치",
+  "name": "콘솔 오류·경고·빈 화면 이동 0건",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 선호 조건만 불일치",
+  "name": "프레임이 blob 문서에 머무름",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 선호 조건만 불일치",
+  "name": "다른 폰(2~6)은 그대로",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "5 후보 없음",
+  "name": "예매 상세 → 조건 등록",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "5 후보 없음",
+  "name": "회차 선택 반영 ",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "5 후보 없음",
+  "name": "회차 미선택 → 신청 버튼 비활성 + 안내",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "5 후보 없음",
+  "name": "키보드(Space)로 회차 칩 선택",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "5 후보 없음",
+  "name": "중요도 미선택 → 비활성 + \"무관으로 처리하지 않아요\"",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "5 후보 없음",
+  "name": "중요도 다시 선택 → 활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "5 후보 없음",
+  "name": "열 범위 + (키보드 Enter) → 1열 ~ 11열",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "5 후보 없음",
+  "name": "신청 등록 → 신청 현황",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "5 후보 없음",
+  "name": "신청 현황에 조건 유지: 12.20 (일) 14:00 · 필수",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "5 후보 없음",
+  "name": "신청 현황에 조건 유지: 1열 ~ 11열 · 무관",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "5 후보 없음",
+  "name": "후보 탐색 결과 화면 = ExNoCandidate",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "5 후보 없음",
+  "name": "후보 없음 안내 + 신청 유지",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "5 후보 없음",
+  "name": "조건 수정하기 → 조건 유지된 조건 등록",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "5 후보 없음",
+  "name": "콘솔 오류·경고·빈 화면 이동 0건",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "5 후보 없음",
+  "name": "프레임이 blob 문서에 머무름",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "5 후보 없음",
+  "name": "다른 폰(2~6)은 그대로",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대방 거절",
+  "name": "예매 상세 → 조건 등록",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대방 거절",
+  "name": "신청 등록 → 신청 현황",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대방 거절",
+  "name": "신청 현황에 조건 유지: 12.19 (토) 19:30, 12.21 (월) 14:00 · 필수",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대방 거절",
+  "name": "후보 탐색 결과 화면 = MatchCheck",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대방 거절",
+  "name": "양방향 확인 → 전후 비교",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대방 거절",
+  "name": "비교 화면 데이터: R석 A구역",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대방 거절",
+  "name": "동의 전에는 제안 보내기 비활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대방 거절",
+  "name": "동의 안내 표시",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대방 거절",
+  "name": "동의 후 제안 보내기 활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대방 거절",
+  "name": "제안 전송 → 상대방 검토 화면",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대방 거절",
+  "name": "상대방 검토 화면에 데모 모드(시뮬레이션) 표시",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대방 거절",
+  "name": "상대방 검토 중에는 완료 안내 없음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대방 거절",
+  "name": "상대방 거절 → 거절 화면",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대방 거절",
+  "name": "거절 화면: 내 티켓 변경 없음, 완료 안내 없음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대방 거절",
+  "name": "다른 후보 찾기: 거절한 후보 제외 후 재탐색 (남은 후보는 필수 불일치)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대방 거절",
+  "name": "콘솔 오류·경고·빈 화면 이동 0건",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대방 거절",
+  "name": "프레임이 blob 문서에 머무름",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대방 거절",
+  "name": "다른 폰(2~6)은 그대로",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 신청자 취소",
+  "name": "예매 상세 → 조건 등록",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 신청자 취소",
+  "name": "신청 등록 → 신청 현황",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 신청자 취소",
+  "name": "신청 현황에 조건 유지: R석 A·B구역 · 선호",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 신청자 취소",
+  "name": "후보 탐색 결과 화면 = MatchCheck",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 신청자 취소",
+  "name": "양방향 확인 → 전후 비교",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 신청자 취소",
+  "name": "비교 화면 데이터: R석 A구역",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 신청자 취소",
+  "name": "동의 전에는 제안 보내기 비활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 신청자 취소",
+  "name": "동의 안내 표시",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 신청자 취소",
+  "name": "동의 후 제안 보내기 활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 신청자 취소",
+  "name": "제안 전송 → 상대방 검토 화면",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 신청자 취소",
+  "name": "상대방 검토 화면에 데모 모드(시뮬레이션) 표시",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 신청자 취소",
+  "name": "상대방 검토 중에는 완료 안내 없음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 신청자 취소",
+  "name": "제안 취소하기 → 취소 화면",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 신청자 취소",
+  "name": "취소 화면: 내 티켓 유효, 완료 안내 없음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 신청자 취소",
+  "name": "교환 다시 신청 → 조건 등록 (조건 유지)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 신청자 취소",
+  "name": "신청 등록 → 신청 현황",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 신청자 취소",
+  "name": "신청 현황에 조건 유지: R석 A·B구역 · 선호",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 신청자 취소",
+  "name": "후보 탐색 결과 화면 = MatchCheck",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 신청자 취소",
+  "name": "다시 신청하면 동의가 초기화되어 제안 버튼 비활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 신청자 취소",
+  "name": "Esc → 데모 처음 화면(예매 상세)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 신청자 취소",
+  "name": "예매 상세 → 조건 등록",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 신청자 취소",
+  "name": "신청 현황에서 교환 신청 취소 → 취소 화면",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 신청자 취소",
+  "name": "콘솔 오류·경고·빈 화면 이동 0건",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 신청자 취소",
+  "name": "프레임이 blob 문서에 머무름",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 신청자 취소",
+  "name": "다른 폰(2~6)은 그대로",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "예매 상세 → 조건 등록",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "신청 등록 → 신청 현황",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "신청 현황에 조건 유지: 1열 ~ 10열 · 선호",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "후보 탐색 결과 화면 = MatchCheck",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "양방향 확인 → 전후 비교",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "비교 화면 데이터: R석 A구역",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "동의 전에는 제안 보내기 비활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "동의 안내 표시",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "동의 후 제안 보내기 활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "제안 전송 → 상대방 검토 화면",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "상대방 검토 화면에 데모 모드(시뮬레이션) 표시",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "상대방 검토 중에는 완료 안내 없음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "상대방 수락 → 수락 화면 (완료 아님)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "수락 화면: \"아직 교환이 완료된 것은 아니에요\"",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "수락 화면에 완료 안내 없음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "최종 확인 중 화면",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "최종 확인 중: 시뮬레이션 버튼 표시, 취소 버튼 없음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "최종 확인 실패 → 실패 화면",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "실패 화면: 원 티켓 유지(목표 UX) 안내, 완료 안내 없음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "내 티켓 확인 → 예매 상세",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "콘솔 오류·경고·빈 화면 이동 0건",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "프레임이 blob 문서에 머무름",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "다른 폰(2~6)은 그대로",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "공통",
+  "name": "체험 중 지나간 화면(14종)의 본문 잘림 0",
+  "pass": true,
+  "detail": ""
+ }
+]

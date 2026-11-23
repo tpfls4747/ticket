@@ -16,19 +16,26 @@ a{color:#5B3DF5}a:hover{color:#4328D9}
 </helmet>
 <div style="width: 390px; height: 844px; box-sizing: border-box; background: #FFFFFF; font-family: 'Noto Sans KR', sans-serif; color: #191B22; display: flex; flex-direction: column; overflow: hidden">
 <header style="height: 56px; display: flex; align-items: center; gap: 4px; padding: 0 8px; flex-shrink: 0">
-<span aria-hidden="true" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#191B22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M15 18l-6-6 6-6"/></svg></span>
+<sc-if value="{{notDemo}}"><span aria-hidden="true" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#191B22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M15 18l-6-6 6-6"/></svg></span></sc-if><sc-if value="{{isDemo}}"><button type="button" data-act="back" aria-label="뒤로" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 0; padding: 0; background: transparent; cursor: pointer"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#191B22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M15 18l-6-6 6-6"/></svg></button></sc-if>
 <h1 style="margin: 0; font-size: 18px; font-weight: 700">상대방 제안 거절</h1>
 </header>
 <main style="flex: 1; display: flex; flex-direction: column; gap: 14px; padding: 4px 20px 16px; overflow: hidden">
 <div style="display: flex; flex-direction: column; gap: 8px"><span style="align-self: flex-start"><span style="display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 700; color: #B03A3A; background: #FDF0F0; padding: 4px 8px; border-radius: 6px; white-space: nowrap"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B03A3A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>거절</span> <span style="font-size: 11px; font-weight: 700; color: #4A4F5C; background: #F0F1F4; padding: 2px 6px; border-radius: 4px; white-space: nowrap">시연용 모의 데이터</span></span><h2 style="margin: 0; font-size: 21px; font-weight: 700; line-height: 1.4">상대방이 제안을 거절했어요</h2><p style="margin: 0; font-size: 12px; line-height: 1.5; font-weight: 400; color: #4A4F5C">거절 사유는 공개되지 않아요. 내 티켓은 그대로 유효해요.</p></div><div style="background: #FFFFFF; border-radius: 14px; padding: 4px 14px; display: flex; flex-direction: column; gap: 0px; border: 1px solid #E6E8EC"><div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 0; border-top: 1px solid #EEF0F3"><span style="display: flex; flex-direction: column; gap: 1px"><span style="font-size: 12px; font-weight: 700">내 티켓</span><span style="font-size: 12px; color: #5F6370">12.20 (일) 18:00 · 3회차 · R석 B구역 7열 12번</span></span><span style="display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 700; color: #1F7A4D; background: #E6F6EE; padding: 4px 8px; border-radius: 6px; white-space: nowrap"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1F7A4D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M5 12l5 5L19 7"/></svg>변경 없음</span></div><div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 0; border-top: 1px solid #EEF0F3"><span style="display: flex; flex-direction: column; gap: 1px"><span style="font-size: 12px; font-weight: 700">진행 상태</span><span style="font-size: 12px; color: #5F6370">이 후보와의 교환</span></span><span style="display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 700; color: #B03A3A; background: #FDF0F0; padding: 4px 8px; border-radius: 6px; white-space: nowrap"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B03A3A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>거절됨</span></div></div>
 </main>
-<footer style="padding: 12px 20px 28px; display: flex; flex-direction: column; gap: 10px; flex-shrink: 0; border-top: 1px solid #EEF0F3"><button type="button" style="height: 50px; border-radius: 14px; font-family: inherit; font-size: 15px; font-weight: 700; background: #5B3DF5; color: #FFFFFF; border: 0">다른 후보 찾기</button><button type="button" style="height: 50px; border-radius: 14px; font-family: inherit; font-size: 15px; font-weight: 700; background: #FFFFFF; color: #4A4F5C; border: 1px solid #DADDE3">교환 신청 취소</button></footer>
+<footer style="padding: 12px 20px 28px; display: flex; flex-direction: column; gap: 10px; flex-shrink: 0; border-top: 1px solid #EEF0F3"><button data-act="retry" type="button" style="height: 50px; border-radius: 14px; font-family: inherit; font-size: 15px; font-weight: 700; background: #5B3DF5; color: #FFFFFF; border: 0">다른 후보 찾기</button><button data-act="cancel" type="button" style="height: 50px; border-radius: 14px; font-family: inherit; font-size: 15px; font-weight: 700; background: #FFFFFF; color: #4A4F5C; border: 1px solid #DADDE3">교환 신청 취소</button></footer>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+var DEFAULT_VIEW = {};
 class Component extends DCLogic {
 renderVals() {
-return {};
+var d = this.props.demo;
+var v = DEFAULT_VIEW;
+var o = {};
+for (var k in v) o[k] = v[k];
+o.isDemo = !!(d && d.isDemo);
+o.notDemo = !o.isDemo;
+return o;
 }
 }
 </script>

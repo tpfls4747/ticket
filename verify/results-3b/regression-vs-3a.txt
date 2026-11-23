@@ -1,0 +1,16 @@
+== 픽셀 비교
+  차이 desktop P08.png 1819 px (0.088%), 영역 x152-375 y858-918
+  차이 desktop P09.png 1318 px (0.064%), 영역 x726-914 y381-690
+  차이 desktop P11.png 21869 px (1.054%), 영역 x152-377 y443-785
+  desktop: 16장 중 동일 13장
+  차이 mobile P11-viewport.png 21869 px (6.644%), 영역 x152-377 y443-785
+  mobile: 16장 중 동일 15장
+== 구조
+  보드 제목 동일: True | 보드 크기 동일: True
+  모바일 가로 스크롤 폭: 1968 → 1968
+  콘솔/네트워크 로그: 0 → 0
+== 페이지별
+  P08 P07 UI 좌석·회차 교환
+     - 첫 링크 클릭: blob:(1934) → blob:(1977)
+  P11 P07-D 예외 상황 (STEP 2C 추가)
+     - Tab 순서 다름: ['button:조건 수정하기', 'button:필수를 선호로 바꿔 보기', 'button:조건 수정하기', 'button:교환 신청 취소', 'button:다른 후보 찾기', 'button:교환 신청 취소', 'button:교환 다시 신청', 'button:예매 상세로', 'button:상태 다시 확인', 'button:교환 신청 취소', 'button:내 티켓 확인', 'button:다시 신청'] → ['button:조건 수정하기', 'button:조건 수정하기', 'button:교환 신청 취소', 'button:다른 후보 찾기', 'button:교환 신청 취소', 'button:교환 다시 신청', 'button:예매 상세로', 'button:상태 다시 확인', 'button:교환 신청 취소', 'button:내 티켓 확인', 'button:다시 신청']

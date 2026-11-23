@@ -51,30 +51,37 @@ a{color:#5B3DF5}a:hover{color:#4328D9}
 <section style="background: #FFFFFF; border-radius: 20px; padding: 18px 20px; display: flex; flex-direction: column; gap: 14px">
 <div style="display: flex; align-items: center; justify-content: space-between">
 <h2 style="margin: 0; font-size: 16px; font-weight: 700">내가 등록한 조건</h2>
-<a href="Request.dc.html" style="font-size: 14px; font-weight: 500; text-decoration: none; padding: 10px 0">수정</a>
+<a href="Request.dc.html" data-act="edit" style="font-size: 14px; font-weight: 500; text-decoration: none; padding: 10px 0">수정</a>
 </div>
 <dl style="margin: 0; display: grid; grid-template-columns: 64px 1fr; row-gap: 10px; font-size: 14px">
 <dt style="color: #5F6370">회차</dt>
-<dd style="margin: 0; font-weight: 500">12.19 (토) 19:30, 12.21 (월) 14:00 · 필수</dd>
+<dd style="margin: 0; font-weight: 500">{{roundsText}}</dd>
 <dt style="color: #5F6370">구역</dt>
-<dd style="margin: 0; font-weight: 500">R석 A·B구역 · 선호</dd>
+<dd style="margin: 0; font-weight: 500">{{zonesText}}</dd>
 <dt style="color: #5F6370">열</dt>
-<dd style="margin: 0; font-weight: 500">1열 ~ 10열 · 선호</dd>
+<dd style="margin: 0; font-weight: 500">{{rowText}}</dd>
 <dt style="color: #5F6370">마감</dt>
 <dd style="margin: 0; font-weight: 500">12.13 (일) 23:59</dd>
 </dl>
 </section>
 </main>
 <footer style="background: #FFFFFF; padding: 12px 20px 28px; display: flex; flex-direction: column; gap: 4px; flex-shrink: 0">
-<a href="Match.dc.html" style="height: 54px; border-radius: 14px; background: #191B22; color: #FFFFFF; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px; font-weight: 700; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>알림 도착 (프로토타입)</a>
-<button style="height: 44px; border: none; background: transparent; font-family: inherit; font-size: 14px; color: #5F6370; text-decoration: underline">교환 신청 취소</button>
+<a href="Match.dc.html" data-act="notify" style="height: 54px; border-radius: 14px; background: #191B22; color: #FFFFFF; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px; font-weight: 700; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>알림 도착 (프로토타입)</a>
+<button data-act="cancel" style="height: 44px; border: none; background: transparent; font-family: inherit; font-size: 14px; color: #5F6370; text-decoration: underline">교환 신청 취소</button>
 </footer>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+var DEFAULT_VIEW = {"roundsText": "12.19 (토) 19:30, 12.21 (월) 14:00 · 필수", "zonesText": "R석 A·B구역 · 선호", "rowText": "1열 ~ 10열 · 선호"};
 class Component extends DCLogic {
 renderVals() {
-return {};
+var d = this.props.demo;
+var v = (d && d.waiting) || DEFAULT_VIEW;
+var o = {};
+for (var k in v) o[k] = v[k];
+o.isDemo = !!(d && d.isDemo);
+o.notDemo = !o.isDemo;
+return o;
 }
 }
 </script>

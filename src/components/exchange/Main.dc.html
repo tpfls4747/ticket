@@ -56,14 +56,21 @@ a{color:#5B3DF5}a:hover{color:#4328D9}
 </main>
 <footer style="background: #FFFFFF; padding: 12px 20px 28px; display: flex; gap: 10px; flex-shrink: 0">
 <button style="width: 112px; height: 54px; border: 1px solid #DADDE3; border-radius: 14px; background: #FFFFFF; font-family: inherit; font-size: 15px; font-weight: 500; color: #4A4F5C">예매 취소</button>
-<a href="Request.dc.html" style="flex: 1; height: 54px; border-radius: 14px; background: #5B3DF5; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; text-decoration: none">좌석·회차 교환 신청</a>
+<a href="Request.dc.html" data-act="start" style="flex: 1; height: 54px; border-radius: 14px; background: #5B3DF5; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; text-decoration: none">좌석·회차 교환 신청</a>
 </footer>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+var DEFAULT_VIEW = {};
 class Component extends DCLogic {
 renderVals() {
-return {};
+var d = this.props.demo;
+var v = DEFAULT_VIEW;
+var o = {};
+for (var k in v) o[k] = v[k];
+o.isDemo = !!(d && d.isDemo);
+o.notDemo = !o.isDemo;
+return o;
 }
 }
 </script>

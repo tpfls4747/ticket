@@ -29,17 +29,17 @@ a{color:#5B3DF5}a:hover{color:#4328D9}
 </div>
 <dl style="margin: 0; display: grid; grid-template-columns: 72px 1fr; row-gap: 10px; font-size: 15px">
 <dt style="color: #5F6370">관람일</dt>
-<dd style="margin: 0; font-weight: 700">12.21 (월) 14:00 · 4회차</dd>
+<dd style="margin: 0; font-weight: 700">{{date}}</dd>
 <dt style="color: #5F6370">좌석</dt>
-<dd style="margin: 0; font-weight: 700">R석 · A구역 5열 8번</dd>
+<dd style="margin: 0; font-weight: 700">{{seat}}</dd>
 <dt style="color: #5F6370">예매번호</dt>
-<dd style="margin: 0; font-weight: 500">T26112-0839</dd>
+<dd style="margin: 0; font-weight: 500">{{booking}}</dd>
 </dl>
 </div>
 <div style="height: 0; border-top: 2px dashed #E6E8EC; margin: 0 16px"></div>
 <div style="padding: 14px 20px 18px; display: flex; flex-direction: column; gap: 4px">
 <span style="font-size: 12px; font-weight: 500; color: #6B7080">이전 티켓 · 무효 처리됨</span>
-<span style="font-size: 14px; color: #6B7080; text-decoration: line-through">12.20 (일) 18:00 · B구역 7열 12번</span>
+<span style="font-size: 14px; color: #6B7080; text-decoration: line-through">{{prev}}</span>
 </div>
 </section>
 <div style="background: #FFFFFF; border-radius: 14px; padding: 14px 16px; display: flex; gap: 10px; align-items: flex-start">
@@ -49,14 +49,21 @@ a{color:#5B3DF5}a:hover{color:#4328D9}
 </main>
 <footer style="padding: 12px 20px 28px; display: flex; flex-direction: column; gap: 4px; flex-shrink: 0">
 <button style="height: 54px; border: none; border-radius: 14px; background: #5B3DF5; color: #FFFFFF; font-family: inherit; font-size: 16px; font-weight: 700">모바일 티켓 보기</button>
-<a href="Main.dc.html" style="height: 44px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #5F6370">예매 내역으로</a>
+<a href="Main.dc.html" data-act="home" style="height: 44px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #5F6370">예매 내역으로</a>
 </footer>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+var DEFAULT_VIEW = {"date": "12.21 (월) 14:00 · 4회차", "seat": "R석 · A구역 5열 8번", "booking": "T26112-0839", "prev": "12.20 (일) 18:00 · B구역 7열 12번"};
 class Component extends DCLogic {
 renderVals() {
-return {};
+var d = this.props.demo;
+var v = (d && d.done) || DEFAULT_VIEW;
+var o = {};
+for (var k in v) o[k] = v[k];
+o.isDemo = !!(d && d.isDemo);
+o.notDemo = !o.isDemo;
+return o;
 }
 }
 </script>
