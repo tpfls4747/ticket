@@ -594,6 +594,78 @@
           "src": "vendor/react/react-dom.production.min.js",
           "ext_id": "https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js",
           "sha256": "35f4f974f4b2bcd44da73963347f8952e341f83909e4498227d4e26b98f66f0d"
+        },
+        {
+          "uuid": "8b8a2f43-48ef-49a6-beb6-74433ac002ce",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/pair/PairAdjacency.dc.html",
+          "ext_id": "./PairAdjacency.dc.html",
+          "sha256": "281194b8930ac0cf392490ccedd602d6351e3d81ed047417ebee930750c19775"
+        },
+        {
+          "uuid": "289a10ba-307e-43df-a6c5-f848b98f4bf5",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/pair/PairWarn.dc.html",
+          "ext_id": "./PairWarn.dc.html",
+          "sha256": "f311eb17edb340ab7e2fd2184d4cdcbf28bd30aad22189a6694c8e982c9dbf73"
+        },
+        {
+          "uuid": "35fd0ea3-a2e4-4cfe-9149-14410f162fa1",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/states/StatusSent.dc.html",
+          "ext_id": "./StatusSent.dc.html",
+          "sha256": "8a8fdc508ef2387bc30558e89fc9ab6cca92bf025166ec136b97ffd7dbbf97cc"
+        },
+        {
+          "uuid": "e5056028-148d-42a2-870e-0db31ae2b37f",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/pair/PairAccepted.dc.html",
+          "ext_id": "./PairAccepted.dc.html",
+          "sha256": "8402c167e2b4c51407e2e29680463a5e1c32af738d876e429669c299dd4e4461"
+        },
+        {
+          "uuid": "368ed72a-8e28-447a-91e4-7c720b8ffce6",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/states/StatusFinal.dc.html",
+          "ext_id": "./StatusFinal.dc.html",
+          "sha256": "4d17405d6a3544e34d9bca65efea01e82d3e60ced39f98bc5fd259f1064359b0"
+        },
+        {
+          "uuid": "52a35a20-040a-4af4-a324-d1225c4f5185",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/pair/PairDeclined.dc.html",
+          "ext_id": "./PairDeclined.dc.html",
+          "sha256": "fcbae07891ab70a41cde817d78ad9d07bff8601dfb78cd30fc74828f55395ed8"
+        },
+        {
+          "uuid": "2098c0ee-5375-477d-a260-01d7cf2cb200",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/exceptions/ExCancelled.dc.html",
+          "ext_id": "./ExCancelled.dc.html",
+          "sha256": "ba7fd7f6119a3aaba8727864ce2f226a96b6c9932925820cf9a247686ab4a864"
+        },
+        {
+          "uuid": "46ff6eed-6274-4a28-878a-6b91400aeb59",
+          "mime": "text/html",
+          "compressed": true,
+          "kind": "component",
+          "src": "components/exceptions/ExFinalFailed.dc.html",
+          "ext_id": "./ExFinalFailed.dc.html",
+          "sha256": "d2a017d36df14fe2cbb3d8b09f198e2b77a114b70c026c54c1105bb1468ce473"
         }
       ],
       "ext_resources_order": [
@@ -601,6 +673,14 @@
         "f2b9611a-7b26-4a15-921b-1479ef456154",
         "574c0af8-ae2e-472b-bc95-1f9aa70997aa",
         "3a791c84-4b0d-409d-8f8c-32b1d18ab1b2",
+        "8b8a2f43-48ef-49a6-beb6-74433ac002ce",
+        "289a10ba-307e-43df-a6c5-f848b98f4bf5",
+        "35fd0ea3-a2e4-4cfe-9149-14410f162fa1",
+        "e5056028-148d-42a2-870e-0db31ae2b37f",
+        "368ed72a-8e28-447a-91e4-7c720b8ffce6",
+        "52a35a20-040a-4af4-a324-d1225c4f5185",
+        "2098c0ee-5375-477d-a260-01d7cf2cb200",
+        "46ff6eed-6274-4a28-878a-6b91400aeb59",
         "5a694ac2-86c3-4e5b-8a94-68aa8229adc5",
         "015e234a-268d-4058-a73e-169c91a10661"
       ]

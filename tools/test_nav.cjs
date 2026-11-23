@@ -139,36 +139,41 @@ const ok = (name, pass, detail) => { results.push({ name, pass, detail: detail |
     ok('키보드: Esc 로 처음 화면', (await visible(f, 0))[0] === 'Main', (await visible(f, 0))[0]);
   }
 
-  /* ---- 4. 입력 상태 보존 (P08 연석 보드 폰1: 교환 방식 라디오) ---- */
+  /* ---- 4. 입력 상태 보존 (P08 연석 보드 폰2: 교환 방식 라디오) ----
+   * STEP 3C 부터 폰1은 연석 체험 폰(상태와 묶인 입력, '좌석·회차 교환'을 고르면 다음으로 가지 않음)이라
+   * STEP 3A 링크 전환만 쓰는 폰2에서 같은 검사를 한다. 폰1의 입력 유지는 tools/test_pair_flows.cjs 여정 9 가 검사한다. */
   const fiPair = titles.findIndex((t) => t.startsWith('P08 UI'));
   {
     const f = frames[fiPair];
     const radios = () => f.evaluate(() => {
-      const host = document.querySelector('[data-nav-host="0"] [data-nav-screen="PairMode"]');
+      const host = document.querySelector('[data-nav-host="1"] [data-nav-screen="PairMode"]');
       return [...host.querySelectorAll('input[name=mode]')].map((r) => r.checked);
     });
+    // 폰2는 좌석 방향 화면에서 시작하므로 '뒤로'로 교환 방식 화면에 먼저 간다
+    const back0 = (await linksOnVisible(f, 1)).find((l) => l.label === '뒤로');
+    await clickLink(fiPair, 1, back0.k);
     const before = await radios();
     // 첫 번째 라디오(좌석·회차 교환) 선택
     await handles[fiPair].evaluate((e) => e.scrollIntoView({ block: 'center' }));
     await page.waitForTimeout(150);
-    const r0 = await f.evaluateHandle(() => document.querySelector('[data-nav-host="0"] [data-nav-screen="PairMode"] input[name=mode]'));
+    const r0 = await f.evaluateHandle(() => document.querySelector('[data-nav-host="1"] [data-nav-screen="PairMode"] input[name=mode]'));
     const rb = await r0.asElement().boundingBox();
     await page.mouse.click(rb.x + rb.width / 2, rb.y + rb.height / 2);
     await page.waitForTimeout(250);
     const changed = await radios();
     // 다음 화면으로 갔다가 뒤로
-    const links = await linksOnVisible(f, 0);
+    const links = await linksOnVisible(f, 1);
     const next = links.find((l) => l.href === 'PairSeat.dc.html');
-    await clickLink(fiPair, 0, next.k);
-    const mid = (await visible(f, 0))[0];
-    const back = (await linksOnVisible(f, 0)).find((l) => l.label === '뒤로');
-    await clickLink(fiPair, 0, back.k);
-    const end = (await visible(f, 0))[0];
+    await clickLink(fiPair, 1, next.k);
+    const mid = (await visible(f, 1))[0];
+    const back = (await linksOnVisible(f, 1)).find((l) => l.label === '뒤로');
+    await clickLink(fiPair, 1, back.k);
+    const end = (await visible(f, 1))[0];
     const kept = await radios();
     ok('입력 보존: 라디오 선택 후 다른 화면에 다녀와도 유지', JSON.stringify(changed) !== JSON.stringify(before) && mid === 'PairSeat' && end === 'PairMode' && JSON.stringify(kept) === JSON.stringify(changed),
       '처음 ' + JSON.stringify(before) + ' → 선택 ' + JSON.stringify(changed) + ' → ' + mid + ' → ' + end + ' → ' + JSON.stringify(kept));
     // 전환 이후 입력이 계속 동작하는지 (두 번째 라디오로 다시 바꾸기)
-    const r1 = await f.evaluateHandle(() => document.querySelectorAll('[data-nav-host="0"] [data-nav-screen="PairMode"] input[name=mode]')[1]);
+    const r1 = await f.evaluateHandle(() => document.querySelectorAll('[data-nav-host="1"] [data-nav-screen="PairMode"] input[name=mode]')[1]);
     const rb1 = await r1.asElement().boundingBox();
     await page.mouse.click(rb1.x + rb1.width / 2, rb1.y + rb1.height / 2);
     await page.waitForTimeout(250);

@@ -22,7 +22,7 @@ a{color:#5B3DF5}a:hover{color:#4328D9}
 <span style="width: 44px; height: 44px; border-radius: 12px; background: #5B3DF5"></span>
 </div>
 <h1 style="margin: 0; font-size: 24px; font-weight: 700">이제 나란히 앉아요</h1>
-<p style="margin: 0; font-size: 14px; line-height: 1.55; color: #5F6370">11열 5번 관객의 수락과 최종 확인을 거쳐<br>교환이 완료됐다고 가정한 모의 화면이에요.</p>
+<p style="margin: 0; font-size: 14px; line-height: 1.55; color: #5F6370">{{cand}} 관객의 수락과 최종 확인을 거쳐<br>교환이 완료됐다고 가정한 모의 화면이에요.</p>
 </div>
 <section style="background: #FFFFFF; border-radius: 20px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
 <div style="display: flex; align-items: center; justify-content: space-between">
@@ -31,14 +31,14 @@ a{color:#5B3DF5}a:hover{color:#4328D9}
 </div>
 <dl style="margin: 0; display: grid; grid-template-columns: 72px 1fr; row-gap: 10px; font-size: 15px">
 <dt style="color: #5F6370">관람일</dt>
-<dd style="margin: 0; font-weight: 700">12.20 (일) 18:00 · 3회차</dd>
+<dd style="margin: 0; font-weight: 700">{{date}}</dd>
 <dt style="color: #5F6370">좌석</dt>
-<dd style="margin: 0; font-weight: 700">R석 · B구역 11열 4번, 5번</dd>
+<dd style="margin: 0; font-weight: 700">{{seats}}</dd>
 </dl>
 <div style="height: 0; border-top: 2px dashed #E6E8EC"></div>
 <div style="display: flex; flex-direction: column; gap: 4px">
 <span style="font-size: 12px; font-weight: 500; color: #6B7080">바뀐 티켓 · 무효 처리됨</span>
-<span style="font-size: 14px; color: #6B7080; text-decoration: line-through">B구역 7열 12번</span>
+<span style="font-size: 14px; color: #6B7080; text-decoration: line-through">{{gave}}</span>
 </div>
 </section>
 <div style="background: #FFFFFF; border-radius: 14px; padding: 14px 16px; display: flex; gap: 10px; align-items: flex-start">
@@ -48,14 +48,21 @@ a{color:#5B3DF5}a:hover{color:#4328D9}
 </main>
 <footer style="padding: 12px 20px 28px; display: flex; flex-direction: column; gap: 4px; flex-shrink: 0">
 <button style="height: 54px; border: none; border-radius: 14px; background: #5B3DF5; color: #FFFFFF; font-family: inherit; font-size: 16px; font-weight: 700">모바일 티켓 보기</button>
-<a href="Main.dc.html" style="height: 44px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #5F6370">예매 내역으로</a>
+<a href="Main.dc.html" data-act="home" style="height: 44px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #5F6370">예매 내역으로</a>
 </footer>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+var DEFAULT_VIEW = {"cand": "11열 5번", "date": "12.20 (일) 18:00 · 3회차", "seats": "R석 · B구역 11열 4번, 5번", "gave": "B구역 7열 12번"};
 class Component extends DCLogic {
 renderVals() {
-return {};
+var d = this.props.demo;
+var v = (d && d.done) || DEFAULT_VIEW;
+var o = {};
+for (var k in v) o[k] = v[k];
+o.isDemo = !!(d && d.isDemo);
+o.notDemo = !o.isDemo;
+return o;
 }
 }
 </script>

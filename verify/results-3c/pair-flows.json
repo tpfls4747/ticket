@@ -1,0 +1,950 @@
+[
+ {
+  "journey": "1 정상 성공",
+  "name": "시작 화면 = 교환 방식 선택 (실험 기능 표시)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 정상 성공",
+  "name": "내 티켓 2장과 자격 표시 (시연 판정)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 정상 성공",
+  "name": "좌석 방향: 기본 = 11열로 모으기 (11열 4번 지킴)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 정상 성공",
+  "name": "지킬 좌석·내놓을 좌석 구분 표시",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 정상 성공",
+  "name": "후보 화면: 지킬 11열 4번 / 내놓을 7열 12번",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 정상 성공",
+  "name": "옆자리 2곳 판정: 11열 3번 후보 아님 · 11열 5번 제안 가능",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 정상 성공",
+  "name": "11열 5번: 동의·인접(배치도)·자격·상대 조건 모두 충족",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 정상 성공",
+  "name": "선택 전 다음 버튼 비활성 + 안내",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 정상 성공",
+  "name": "후보 선택 → \"선택됨\" 표시 (aria-pressed)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 정상 성공",
+  "name": "후보 선택 후 다음 버튼 활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 정상 성공",
+  "name": "후보 확인 → 제안 보내기 전 확인",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 정상 성공",
+  "name": "보내기 전 확인: 양방향 모두 충족 + \"아직 매칭 완료 아님\"",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 정상 성공",
+  "name": "완료 후 좌석 = 11열 4번, 5번 (완료 시에만)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 정상 성공",
+  "name": "실험 기능 · 수요 미검증 표시",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 정상 성공",
+  "name": "확인 전에는 제안 보내기 비활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 정상 성공",
+  "name": "확인 후 제안 보내기 활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 정상 성공",
+  "name": "제안 전송 → 상대방 검토 (StatusSent 재사용)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 정상 성공",
+  "name": "상대방 검토: 데모 모드(시뮬레이션) 표시, 완료 안내 없음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 정상 성공",
+  "name": "상대방 수락(시뮬레이션) → PairAccepted, 완료 아님",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 정상 성공",
+  "name": "수락 화면 좌석 데이터: 지금 7열 12번 · 11열 4번 → 11열 4번, 5번",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 정상 성공",
+  "name": "수락 화면: 데모 모드 패널 표시",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 정상 성공",
+  "name": "최종 확인 중 (StatusFinal 재사용)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 정상 성공",
+  "name": "최종 확인 성공 → 연석 완료 화면",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 정상 성공",
+  "name": "예매 내역으로 → 처음 화면, 선택 초기화",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 정상 성공",
+  "name": "콘솔 오류·경고·빈 화면 이동 0건",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 정상 성공",
+  "name": "프레임이 blob 문서에 머무름",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "1 정상 성공",
+  "name": "다른 폰(2~4)은 그대로 (화면·기본 선택)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 수신 동의 없음",
+  "name": "교환 방식 → 좌석 방향 선택",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 수신 동의 없음",
+  "name": "좌석 방향 → 옆자리 후보 확인",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 수신 동의 없음",
+  "name": "동의하지 않은 11열 3번: \"후보 아님\", 선택 버튼 없음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 수신 동의 없음",
+  "name": "데모 모드: 11열 5번 관객 상황 = 동의 없음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 수신 동의 없음",
+  "name": "11열 5번도 동의 철회 → 후보 0, 선택 버튼 0",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 수신 동의 없음",
+  "name": "다음 버튼 비활성 + 반대 방향 안내",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 수신 동의 없음",
+  "name": "데모 모드: 11열 5번 관객 상황 = 기본",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 수신 동의 없음",
+  "name": "데모 모드: 11열 5번 관객 상황 = 동의 없음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 수신 동의 없음",
+  "name": "선택 후 동의 철회 → 선택 해제, 진행 불가",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 수신 동의 없음",
+  "name": "콘솔 오류·경고·빈 화면 이동 0건",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 수신 동의 없음",
+  "name": "프레임이 blob 문서에 머무름",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "2 수신 동의 없음",
+  "name": "다른 폰(2~4)은 그대로 (화면·기본 선택)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 번호 연속이지만 통로로 분리",
+  "name": "교환 방식 → 좌석 방향 선택",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 번호 연속이지만 통로로 분리",
+  "name": "좌석 방향 → 옆자리 후보 확인",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 번호 연속이지만 통로로 분리",
+  "name": "지킬 좌석 7열 12번 / 내놓을 좌석 11열 4번",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 번호 연속이지만 통로로 분리",
+  "name": "7열 13번: 동의했지만 \"인접 아님\" (통로) · 제안 불가 · 선택 불가",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 번호 연속이지만 통로로 분리",
+  "name": "7열 11번: 배치도 데이터 없음 → \"인접 여부 확인 필요\" · 제안 보류 · 선택 불가",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 번호 연속이지만 통로로 분리",
+  "name": "번호만으로 인접 판단하지 않는다는 안내",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 번호 연속이지만 통로로 분리",
+  "name": "제안 가능한 후보 없음 → 진행 불가",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 번호 연속이지만 통로로 분리",
+  "name": "11열 5번 관객 상황 패널은 이 방향에서 숨김",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 번호 연속이지만 통로로 분리",
+  "name": "비활성 후보 클릭 → 변화 없음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 번호 연속이지만 통로로 분리",
+  "name": "콘솔 오류·경고·빈 화면 이동 0건",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 번호 연속이지만 통로로 분리",
+  "name": "프레임이 blob 문서에 머무름",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "3 번호 연속이지만 통로로 분리",
+  "name": "다른 폰(2~4)은 그대로 (화면·기본 선택)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 상대에게 동행 좌석",
+  "name": "교환 방식 → 좌석 방향 선택",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 상대에게 동행 좌석",
+  "name": "좌석 방향 → 옆자리 후보 확인",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 상대에게 동행 좌석",
+  "name": "데모 모드: 11열 5번 관객 상황 = 동행 좌석 있음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 상대에게 동행 좌석",
+  "name": "동행 좌석이 있어도 막지 않음: \"제안 가능 · 동행 주의\"",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 상대에게 동행 좌석",
+  "name": "동행 좌석 행: 11열 6번 · 분리될 수 있어요 · 상대가 거절할 수 있어요",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 상대에게 동행 좌석",
+  "name": "후보 선택 → \"선택됨\" 표시 (aria-pressed)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 상대에게 동행 좌석",
+  "name": "후보 선택 후 다음 버튼 활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 상대에게 동행 좌석",
+  "name": "후보 확인 → 제안 보내기 전 확인",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 상대에게 동행 좌석",
+  "name": "보내기 전 확인: 동행 분리 경고와 거절 가능 안내",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 상대에게 동행 좌석",
+  "name": "확인 전에는 제안 보내기 비활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 상대에게 동행 좌석",
+  "name": "확인 후 제안 보내기 활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 상대에게 동행 좌석",
+  "name": "제안 전송 → 상대방 검토 (StatusSent 재사용)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 상대에게 동행 좌석",
+  "name": "상대방 검토: 데모 모드(시뮬레이션) 표시, 완료 안내 없음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 상대에게 동행 좌석",
+  "name": "동행 때문에 상대가 거절 → 거절 화면, 내 좌석 그대로",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 상대에게 동행 좌석",
+  "name": "콘솔 오류·경고·빈 화면 이동 0건",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 상대에게 동행 좌석",
+  "name": "프레임이 blob 문서에 머무름",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "4 상대에게 동행 좌석",
+  "name": "다른 폰(2~4)은 그대로 (화면·기본 선택)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "5 상대 조건 불일치",
+  "name": "교환 방식 → 좌석 방향 선택",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "5 상대 조건 불일치",
+  "name": "좌석 방향 → 옆자리 후보 확인",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "5 상대 조건 불일치",
+  "name": "데모 모드: 11열 5번 관객 상황 = 조건 불일치",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "5 상대 조건 불일치",
+  "name": "11열 5번: 인접은 확인됐지만 상대 필수 조건(1~6열) ↔ 내가 줄 7열 12번 불일치",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "5 상대 조건 불일치",
+  "name": "제안 불가 · 선택 불가 · \"상대의 조건은 내가 바꿀 수 없어요\"",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "5 상대 조건 불일치",
+  "name": "진행 불가",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "5 상대 조건 불일치",
+  "name": "콘솔 오류·경고·빈 화면 이동 0건",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "5 상대 조건 불일치",
+  "name": "프레임이 blob 문서에 머무름",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "5 상대 조건 불일치",
+  "name": "다른 폰(2~4)은 그대로 (화면·기본 선택)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "교환 방식 → 좌석 방향 선택",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "좌석 방향 → 옆자리 후보 확인",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "후보 선택 → \"선택됨\" 표시 (aria-pressed)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "후보 선택 후 다음 버튼 활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "후보 확인 → 제안 보내기 전 확인",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "확인 전에는 제안 보내기 비활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "확인 후 제안 보내기 활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "제안 전송 → 상대방 검토 (StatusSent 재사용)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "상대방 검토: 데모 모드(시뮬레이션) 표시, 완료 안내 없음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "상대방 거절(시뮬레이션) → PairDeclined",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "거절 화면: 내 좌석 변경 없음 · 11열 5번 거절됨 · 완료 안내 없음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "다른 후보 확인 → 후보 화면, 거절한 11열 5번은 \"거절됨\"·선택 불가",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "다시 보낼 후보 없음 → 진행 불가 + 반대 방향 안내",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "콘솔 오류·경고·빈 화면 이동 0건",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "프레임이 blob 문서에 머무름",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "다른 폰(2~4)은 그대로 (화면·기본 선택)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "교환 방식 → 좌석 방향 선택",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "좌석 방향 → 옆자리 후보 확인",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "후보 선택 → \"선택됨\" 표시 (aria-pressed)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "후보 선택 후 다음 버튼 활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "후보 확인 → 제안 보내기 전 확인",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "확인 전에는 제안 보내기 비활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "확인 후 제안 보내기 활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "제안 전송 → 상대방 검토 (StatusSent 재사용)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "상대방 검토: 데모 모드(시뮬레이션) 표시, 완료 안내 없음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "반대 방향으로 모으기 → 좌석 방향 화면, 7열 12번 지킴으로 바뀜",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "반대 방향 설명: 지킬 7열 12번 · 내놓을 11열 4번",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "콘솔 오류·경고·빈 화면 이동 0건",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "프레임이 blob 문서에 머무름",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "6 상대 거절",
+  "name": "다른 폰(2~4)은 그대로 (화면·기본 선택)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 교환 자격 확인 불가",
+  "name": "교환 방식 → 좌석 방향 선택",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 교환 자격 확인 불가",
+  "name": "좌석 방향 → 옆자리 후보 확인",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 교환 자격 확인 불가",
+  "name": "데모 모드: 11열 5번 관객 상황 = 자격 미확인",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 교환 자격 확인 불가",
+  "name": "11열 5번: 교환 자격 \"확인 필요\" → 제안 보류 · 선택 불가",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 교환 자격 확인 불가",
+  "name": "확인 안 된 후보를 \"제안 가능\"으로 표시하지 않음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 교환 자격 확인 불가",
+  "name": "진행 불가",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 교환 자격 확인 불가",
+  "name": "콘솔 오류·경고·빈 화면 이동 0건",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 교환 자격 확인 불가",
+  "name": "프레임이 blob 문서에 머무름",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "7 교환 자격 확인 불가",
+  "name": "다른 폰(2~4)은 그대로 (화면·기본 선택)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "교환 방식 → 좌석 방향 선택",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "좌석 방향 → 옆자리 후보 확인",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "후보 선택 → \"선택됨\" 표시 (aria-pressed)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "후보 선택 후 다음 버튼 활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "후보 확인 → 제안 보내기 전 확인",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "확인 전에는 제안 보내기 비활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "확인 후 제안 보내기 활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "제안 전송 → 상대방 검토 (StatusSent 재사용)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "상대방 검토: 데모 모드(시뮬레이션) 표시, 완료 안내 없음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "최종 확인 실패(시뮬레이션) → ExFinalFailed 재사용",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "실패 화면: 내 티켓 2장 유지(목표 UX), 완료 안내 없음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "원 티켓 유지를 보장된 기능으로 쓰지 않음 (\"목표로 설계\")",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "다시 신청 → 좌석 방향 화면, 고른 방향 유지",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "콘솔 오류·경고·빈 화면 이동 0건",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "프레임이 blob 문서에 머무름",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "8 최종 확인 실패",
+  "name": "다른 폰(2~4)은 그대로 (화면·기본 선택)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "9 뒤로 가기 선택 유지",
+  "name": "좌석·회차 교환 선택 → 머무르며 07 보드 안내",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "9 뒤로 가기 선택 유지",
+  "name": "티켓 1장만 선택 → 머무르며 2장 필요 안내",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "9 뒤로 가기 선택 유지",
+  "name": "후보 → 뒤로 → 방향 화면에서 7열 선택 유지",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "9 뒤로 가기 선택 유지",
+  "name": "키보드(화살표)로 방향 변경 → 11열 지킴, 설명 갱신",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "9 뒤로 가기 선택 유지",
+  "name": "화살표로 바꾼 방향이 후보 화면에 반영",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "9 뒤로 가기 선택 유지",
+  "name": "키보드(Enter)로 후보 선택",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "9 뒤로 가기 선택 유지",
+  "name": "보내기 전 확인 → 뒤로 → 후보 선택 유지",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "9 뒤로 가기 선택 유지",
+  "name": "다시 들어가도 확인 체크 유지",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "9 뒤로 가기 선택 유지",
+  "name": "키보드(Space)로 확인 해제 → 보내기 비활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "9 뒤로 가기 선택 유지",
+  "name": "키보드(Space)로 다시 확인 → 보내기 활성",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "9 뒤로 가기 선택 유지",
+  "name": "뒤로 ×3 → 교환 방식 화면, 티켓 2장·연석 선택 유지",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "9 뒤로 가기 선택 유지",
+  "name": "제안 보낸 뒤 뒤로 → 상대방 검토 화면에 머무름",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "9 뒤로 가기 선택 유지",
+  "name": "제안 취소 → 취소 화면 (내 티켓 그대로)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "9 뒤로 가기 선택 유지",
+  "name": "교환 다시 신청 → 방향 화면, 선택 유지",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "9 뒤로 가기 선택 유지",
+  "name": "Esc → 처음 화면",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "9 뒤로 가기 선택 유지",
+  "name": "Esc 후 방향 선택도 처음 값(11열)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "9 뒤로 가기 선택 유지",
+  "name": "화면 전환 후 포커스 = 폰 틀 (키보드 위치 유지)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "9 뒤로 가기 선택 유지",
+  "name": "콘솔 오류·경고·빈 화면 이동 0건",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "9 뒤로 가기 선택 유지",
+  "name": "프레임이 blob 문서에 머무름",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "9 뒤로 가기 선택 유지",
+  "name": "다른 폰(2~4)은 그대로 (화면·기본 선택)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "10 일반 교환 회귀",
+  "name": "일반 교환: 후보 발견 (MatchCheck)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "10 일반 교환 회귀",
+  "name": "일반 교환: 수락 화면은 StatusAccepted 그대로",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "10 일반 교환 회귀",
+  "name": "일반 교환 실패 화면: 내 티켓 1장(7열 12번) · 유지 (목표) — 연석 문구 섞이지 않음",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "10 일반 교환 회귀",
+  "name": "일반 교환: 다시 신청 → 조건 등록",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "10 일반 교환 회귀",
+  "name": "콘솔 오류·경고·빈 화면 이동 0건",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "journey": "공통",
+  "name": "체험 중 지나간 화면(16종)의 본문 잘림 0",
+  "pass": true,
+  "detail": ""
+ }
+]

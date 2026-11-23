@@ -1,0 +1,19 @@
+== 픽셀 비교
+  차이 desktop P12.png 10860 px (0.523%), 영역 x152-613 y369-917
+  차이 desktop P13.png 121666 px (5.862%), 영역 x414-1280 y357-803
+  desktop: 16장 중 동일 14장
+  차이 mobile P12-viewport.png 524 px (0.159%), 영역 x213-279 y395-450
+  mobile: 16장 중 동일 15장
+== 구조
+  보드 제목 동일: True | 보드 크기 동일: True
+  모바일 가로 스크롤 폭: 1968 → 1968
+  콘솔/네트워크 로그: 0 → 0
+== 페이지별
+  P12 P08 UI 연석 만들기
+     - 보이는 링크·입력 요소 다름 (15 → 15)
+     - 라디오·체크박스 클릭 결과 다름
+     - Tab 순서 다름: ['a:', 'input:', 'input:', 'input:', 'a:다음', 'a:', 'input:', 'a:동의한 옆자리에 제안 보내기', 'button:', 'button:거절', 'a:수락하기', 'button:모바일 티켓 보기', 'a:예매 내역으로', 'body', 'body'] → ['button:', 'input:', 'input:', 'input:', 'a:다음', 'a:', 'input:', 'a:동의한 옆자리에 제안 보내기', 'button:', 'button:거절', 'a:수락하기', 'button:모바일 티켓 보기', 'a:예매 내역으로', 'body', 'body']
+     - 첫 링크 클릭: blob:(1660) → blob:(1769)
+  P13 P08-B 연석 의향·인접·동의·상태 (STEP 2C 추가)
+     - 보이는 링크·입력 요소 다름 (8 → 11)
+     - Tab 순서 다름: ['input:', 'input:', 'button:설정 저장', 'input:', 'button:의향을 등록한 옆자리에 제안 보내기', 'button:다른 후보 확인하기', 'button:반대 방향으로 모으기 보기', 'body'] → ['input:', 'input:', 'button:설정 저장', 'button:선택됨', 'button:선택한 후보로 제안 준비하기', 'input:', 'button:교환 취소하기 (최종 확인 전)', 'button:다른 후보 확인하기', 'button:반대 방향으로 모으기 보기', 'body']

@@ -119,6 +119,15 @@ var DEMO = (function () {
     return list;
   }
   var ACTIVE = ['proposed', 'accepted', 'final'];
+  // 제안 이후 공용 진행 흐름 (STEP 3C 연석 만들기도 같은 규칙을 쓴다): 행동 → [필요한 현재 단계, 다음 단계]
+  // 상대방 수락·거절과 최종 확인 결과는 데모 모드 버튼으로만 일어나는 시뮬레이션이다.
+  var FLOW = { simAccept: ['proposed', 'accepted'], simDecline: ['proposed', 'declined'], toFinal: ['accepted', 'final'],
+               simOk: ['final', 'done'], simFail: ['final', 'failed'] };
+  function flowNext(step, type) { var f = FLOW[type]; return f && f[0] === step ? f[1] : null; }
+  // 신청자가 취소할 수 있는 단계 (최종 확인 시작 전까지)
+  var CANCELABLE = ['searching', 'found', 'mismatch', 'none', 'proposed', 'accepted', 'declined'];
+  var TERMINAL = ['declined', 'cancelled', 'failed', 'done'];
+  var FLOW_SCREEN = { accepted: 'StatusAccepted', declined: 'ExDeclined', final: 'StatusFinal', done: 'Done', failed: 'ExFinalFailed' };
 
   // action: { type, val, row, checked, screen } → { state, nav }
   // nav: null | {push: 화면} | {reset: [화면...]} | {pop: true} | {stay: true}
@@ -182,23 +191,13 @@ var DEMO = (function () {
       case 'send':
         if (s.step !== 'found' || !s.consent) return { state: st, nav: { stay: true } };
         s.step = 'proposed'; return { state: s, nav: { push: 'StatusSent' } };
-      case 'simAccept':
-        if (s.step !== 'proposed') return { state: st, nav: { stay: true } };
-        s.step = 'accepted'; return { state: s, nav: { push: 'StatusAccepted' } };
-      case 'simDecline':
-        if (s.step !== 'proposed') return { state: st, nav: { stay: true } };
-        s.step = 'declined'; s.declined.push(s.candId); return { state: s, nav: { push: 'ExDeclined' } };
-      case 'toFinal':
-        if (s.step !== 'accepted') return { state: st, nav: { stay: true } };
-        s.step = 'final'; return { state: s, nav: { push: 'StatusFinal' } };
-      case 'simOk':
-        if (s.step !== 'final') return { state: st, nav: { stay: true } };
-        s.step = 'done'; return { state: s, nav: { push: 'Done' } };
-      case 'simFail':
-        if (s.step !== 'final') return { state: st, nav: { stay: true } };
-        s.step = 'failed'; return { state: s, nav: { push: 'ExFinalFailed' } };
+      case 'simAccept': case 'simDecline': case 'toFinal': case 'simOk': case 'simFail':
+        var nx = flowNext(s.step, t);
+        if (!nx) return { state: st, nav: { stay: true } };
+        s.step = nx; if (nx === 'declined') s.declined.push(s.candId);
+        return { state: s, nav: { push: FLOW_SCREEN[nx] } };
       case 'cancel':         // 신청자 취소 (최종 확인 시작 전까지)
-        if (['searching', 'found', 'mismatch', 'none', 'proposed', 'accepted', 'declined'].indexOf(s.step) < 0) return { state: st, nav: { stay: true } };
+        if (CANCELABLE.indexOf(s.step) < 0) return { state: st, nav: { stay: true } };
         s.step = 'cancelled'; return { state: s, nav: { push: 'ExCancelled' } };
       case 'relax':          // 필수 불일치 화면: 내 쪽에서 불일치한 필수 조건을 선호로 바꾸고 조건 화면으로
         var r = search(c, s.declined);
@@ -215,7 +214,7 @@ var DEMO = (function () {
         return { state: initialState(), nav: { reset: ['Main'] } };
       case 'back':
         if (ACTIVE.indexOf(s.step) >= 0) return { state: st, nav: { stay: true } };       // 진행 중에는 '취소'로만 빠져나간다
-        if (['declined', 'cancelled', 'failed', 'done'].indexOf(s.step) >= 0) return { state: initialState(), nav: { reset: ['Main'] } };
+        if (TERMINAL.indexOf(s.step) >= 0) return { state: initialState(), nav: { reset: ['Main'] } };
         if (action.screen === 'MatchCheck' || action.screen === 'ExMismatch' || action.screen === 'ExNoCandidate') s.step = 'searching';
         return { state: s, nav: { pop: true } };
       default:
@@ -357,8 +356,10 @@ var DEMO = (function () {
     return { cand: ticketLine(r.best.c.ticket), rows: fails.concat(oks).map(function (x) { return resultRow(x.r, x.side); }),
       canRelax: mineFail, cantRelax: !mineFail };
   }
+  // 최종 확인 실패 화면: 유지되는 내 티켓 (목표 UX)
+  function viewFailed() { return { mine: ticketLine(MY), keepText: '유지 (목표)' }; }
   function views(s, demo) {
-    var v = { isDemo: !!demo, step: s.step, request: viewRequest(s.cond, demo), waiting: viewWaiting(s.cond) };
+    var v = { isDemo: !!demo, step: s.step, request: viewRequest(s.cond, demo), waiting: viewWaiting(s.cond), failed: viewFailed() };
     if (s.candId) { v.match = viewMatch(s.cond, s.candId); v.compare = viewCompare(s.candId, s.consent, s.consentKey, s.step); v.done = viewDone(s.candId); }
     if (s.step === 'mismatch') v.mismatch = viewMismatch(s.cond, s.declined);
     return v;
@@ -370,11 +371,14 @@ var DEMO = (function () {
     return {
       request: viewRequest(DEFAULT_COND, false), waiting: viewWaiting(DEFAULT_COND),
       match: viewMatch(c4, 'C1'), compare: viewCompare('C1', true, 0, 'found'), done: viewDone('C1'),
-      mismatch: viewMismatch(c1, []), isDemo: false,
+      mismatch: viewMismatch(c1, []), failed: viewFailed(), isDemo: false,
     };
   }
 
   return { ROUNDS: ROUNDS, POOL: POOL, MY: MY, DEFAULT_COND: DEFAULT_COND, evaluate: evaluate, search: search, validate: validate,
-    initialState: initialState, reduce: reduce, views: views, defaultViews: defaultViews };
+    initialState: initialState, reduce: reduce, views: views, defaultViews: defaultViews,
+    // STEP 3C 연석 만들기가 다시 쓰는 공용 부품 (판정 규칙·진행 흐름·표시 형식)
+    SHOW: SHOW, STY: STY, judge: judge, round: round, ticketLine: ticketLine, dateLine: dateLine, count: count, clone: clone,
+    flags: flags, resultRow: resultRow, badgeItem: badgeItem, flowNext: flowNext, FLOW: FLOW, CANCELABLE: CANCELABLE, TERMINAL: TERMINAL };
 })();
 if (typeof module !== 'undefined') module.exports = DEMO;
