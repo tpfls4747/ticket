@@ -36,8 +36,8 @@ const ok = (name, pass, detail) => results.push({ journey, name, pass: !!pass, d
     page.on('framenavigated', (f) => { if (/about:blank#blocked/.test(f.url())) problems.push('blocked: ' + f.url()); });
     await page.goto('file://' + file);
     await page.waitForSelector('section.board iframe');
-    const titles = await page.$$eval('section.board h2', (a) => a.map((x) => x.textContent));
-    const idx = titles.findIndex((t) => t.startsWith('P07 UI'));
+    const titles = await page.$$eval('section.board', (a) => a.map((x) => x.dataset.board))  // STEP 4C-2A: 보드 표시 이름 대신 바뀌지 않는 식별자(slug)로 찾는다;
+    const idx = titles.findIndex((t) => t.startsWith('p07-ui-exchange'));
     const handle = (await page.$$('section.board iframe'))[idx];
     const f = await handle.contentFrame();
     await page.waitForTimeout(8000);

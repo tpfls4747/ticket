@@ -1,0 +1,36 @@
+[1 보드 보존과 순서]
+  PASS 보드 16장 보존
+  PASS 본문 11 + 부록 5 표시 순서
+  PASS 보드 앵커 id = board-01 ~ board-16
+  PASS 보드 이름 = 번호 · 이름 / 부록 X (번호) · 이름
+[2 목차]
+  PASS 목차 항목 16개
+  PASS 목차 링크가 모두 실제 보드를 가리킴 (본문 → 부록 순서)
+  PASS 목차 번호 표기 = 보드 번호
+  PASS 목차에 체험형 표시 2개 (08·10장)
+  PASS 목차 링크 클릭 → 해당 보드로 이동
+[3 보드 번호·푸터]
+  PASS 02 p02-overview: 큰 번호 02 · 푸터 02 / 16 · 본문
+  PASS 03 p03-problem: 큰 번호 03 · 푸터 03 / 16 · 본문
+  PASS 04 p04-desk-research: 큰 번호 04 · 푸터 04 / 16 · 본문
+  PASS 05 p05-policy: 큰 번호 05 · 푸터 05 / 16 · 본문
+  PASS 06 p06-user-flow: 큰 번호 06 · 푸터 06 / 16 · 본문
+  PASS 07 p06b-state-flow: 큰 번호 07 · 푸터 07 / 16 · 본문
+  PASS 08 p07-ui-exchange: 큰 번호 08 · 푸터 08 / 16 · 본문
+  PASS 09 p07b-conditions-match: 큰 번호 09 · 푸터 09 / 16 · 본문
+  PASS 10 p08-ui-pair: 큰 번호 10 · 푸터 10 / 16 · 본문
+  PASS 11 p10-retrospective: 큰 번호 11 · 푸터 11 / 16 · 본문
+  PASS 12 p07c-status: 큰 번호 A · 푸터 12 / 16 · 부록 A
+  PASS 13 p07d-exceptions: 큰 번호 B · 푸터 13 / 16 · 부록 B
+  PASS 14 p08b-pair-states: 큰 번호 C · 푸터 14 / 16 · 부록 C
+  PASS 15 p09-components: 큰 번호 D · 푸터 15 / 16 · 부록 D
+  PASS 16 p09b-state-components: 큰 번호 E · 푸터 16 / 16 · 부록 E
+  PASS 본문 푸터의 이야기 흐름: 04장 현재 단계 = 조사·인사이트
+[4 자리표시자·내부 메모 비노출]
+  PASS 금지 표기 0건 (자리표시자·STEP 메모·옛 번호·옛 흐름·옛 회고 문구)
+[5 보드 간 참조]
+  PASS 장·부록 참조가 모두 실제 보드를 가리킴 (참조 31건)
+  PASS "직접 체험" 안내는 체험형 보드(08 교환 · 10 연석)만 가리킴
+[6 콘솔]
+  PASS 콘솔 오류·경고 0건
+합계 29건, 실패 0건

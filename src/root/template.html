@@ -1,32 +1,41 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="ko"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>티켓 교환 UX/UI 포트폴리오</title>
+<title>좌석·회차 교환 UX/UI 포트폴리오</title>
 <style>
 html{background:#f5f4ef;color:#1f1e1d;font:14px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif}
 body{margin:0;padding:48px;display:flex;flex-direction:column;align-items:flex-start;gap:48px}
 .board h2{margin:0 0 12px;font-size:13px;font-weight:500;color:#6b6a68}
 .board iframe{display:block;border:0;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.toc{width:1920px;box-sizing:border-box;background:#fff;border-radius:16px;padding:28px 32px;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;gap:48px}
+.toc h1{margin:0 0 6px;font-size:20px}.toc p{margin:0;color:#6b6a68;font-size:13px;line-height:1.6}
+.toc ol{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(6,auto);grid-auto-flow:column;gap:4px 32px}
+.toc a{display:flex;gap:10px;align-items:baseline;color:#1f1e1d;text-decoration:none;padding:4px 0;font-size:14px}
+.toc a:hover,.toc a:focus-visible{color:#5b3df5;text-decoration:underline}
+.toc b{font-variant-numeric:tabular-nums;color:#5b3df5;min-width:58px}
+.toc .appx b{color:#6b6a68}
+.toc .tag{font-size:11px;font-weight:700;color:#3a26c4;background:#e9e5ff;border-radius:4px;padding:1px 6px}
+.toc h2{margin:0 0 8px;font-size:13px;color:#6b6a68;font-weight:700}
+.board{scroll-margin-top:24px}
 </style>
 </head>
 <body>
-<section class="board"><h2>P01 표지</h2><iframe src="about:blank#{{page:p01-cover}}" title="P01 표지" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
-<section class="board"><h2>P02 개요</h2><iframe src="about:blank#{{page:p02-overview}}" title="P02 개요" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
-<section class="board"><h2>P03 문제 정의</h2><iframe src="about:blank#{{page:p03-problem}}" title="P03 문제 정의" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
-<section class="board"><h2>P04 데스크 리서치</h2><iframe src="about:blank#{{page:p04-desk-research}}" title="P04 데스크 리서치" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
-<section class="board"><h2>P05 정책과 제약</h2><iframe src="about:blank#{{page:p05-policy}}" title="P05 정책과 제약" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
-<section class="board"><h2>P06 유저 플로우</h2><iframe src="about:blank#{{page:p06-user-flow}}" title="P06 유저 플로우" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
-<section class="board"><h2>P06-B 상태 흐름 (STEP 2C 추가)</h2><iframe src="about:blank#{{page:p06b-state-flow}}" title="P06-B 상태 흐름 (STEP 2C 추가)" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
-<section class="board"><h2>P07 UI 좌석·회차 교환</h2><iframe src="about:blank#{{page:p07-ui-exchange}}" title="P07 UI 좌석·회차 교환" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
-<section class="board"><h2>P07-B 자격·조건·양방향 매칭·비교 (STEP 2C 추가)</h2><iframe src="about:blank#{{page:p07b-conditions-match}}" title="P07-B 자격·조건·양방향 매칭·비교 (STEP 2C 추가)" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
-<section class="board"><h2>P07-C 교환 처리 상태 (STEP 2C 추가)</h2><iframe src="about:blank#{{page:p07c-status}}" title="P07-C 교환 처리 상태 (STEP 2C 추가)" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
-<section class="board"><h2>P07-D 예외 상황 (STEP 2C 추가)</h2><iframe src="about:blank#{{page:p07d-exceptions}}" title="P07-D 예외 상황 (STEP 2C 추가)" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
-<section class="board"><h2>P08 UI 연석 만들기</h2><iframe src="about:blank#{{page:p08-ui-pair}}" title="P08 UI 연석 만들기" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
-<section class="board"><h2>P08-B 연석 의향·인접·동의·상태 (STEP 2C 추가)</h2><iframe src="about:blank#{{page:p08b-pair-states}}" title="P08-B 연석 의향·인접·동의·상태 (STEP 2C 추가)" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
-<section class="board"><h2>P09 컴포넌트</h2><iframe src="about:blank#{{page:p09-components}}" title="P09 컴포넌트" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
-<section class="board"><h2>P09-B 상태 컴포넌트 (STEP 2C 추가)</h2><iframe src="about:blank#{{page:p09b-state-components}}" title="P09-B 상태 컴포넌트 (STEP 2C 추가)" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
-<section class="board"><h2>P10 회고</h2><iframe src="about:blank#{{page:p10-retrospective}}" title="P10 회고" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
-
-
+<nav class="toc" aria-label="목차"><div style="width:360px;flex-shrink:0"><h1>좌석·회차 교환 UX/UI 케이스 스터디</h1><p>본문 11장 + 부록 5장. 08장(좌석·회차 교환)과 10장(연석 만들기, 실험 기능)은 폰을 직접 눌러 체험할 수 있어요. 모든 화면은 모의 데이터로 동작하는 시연이며, 실제 예매처 서비스·정책이 아니에요.</p></div><div style="flex:1"><h2>본문</h2><ol><li><a href="#board-01"><b>01</b><span>표지</span></a></li><li><a href="#board-02"><b>02</b><span>개요</span></a></li><li><a href="#board-03"><b>03</b><span>문제 정의</span></a></li><li><a href="#board-04"><b>04</b><span>조사와 핵심 인사이트</span></a></li><li><a href="#board-05"><b>05</b><span>UX 전략 ① 문제와 설계 원칙</span></a></li><li><a href="#board-06"><b>06</b><span>UX 전략 ② 사용자 여정과 기능 구조</span></a></li><li><a href="#board-07"><b>07</b><span>UX 전략 ③ 핵심 의사결정</span></a></li><li><a href="#board-08"><b>08</b><span>솔루션 · 좌석·회차 교환 체험 <span class="tag">체험</span></span></a></li><li><a href="#board-09"><b>09</b><span>솔루션 · 양방향 매칭과 비교</span></a></li><li><a href="#board-10"><b>10</b><span>실험 기능 · 연석 만들기 체험 <span class="tag">체험</span></span></a></li><li><a href="#board-11"><b>11</b><span>검증 · 한계 · 회고</span></a></li></ol></div><div style="width:300px;flex-shrink:0"><h2>부록</h2><ol style="grid-template-columns:1fr;grid-template-rows:none;grid-auto-flow:row"><li class="appx"><a href="#board-12"><b>부록 A</b><span>교환 처리 상태</span></a></li><li class="appx"><a href="#board-13"><b>부록 B</b><span>예외 상황</span></a></li><li class="appx"><a href="#board-14"><b>부록 C</b><span>연석 상세 상태</span></a></li><li class="appx"><a href="#board-15"><b>부록 D</b><span>컴포넌트</span></a></li><li class="appx"><a href="#board-16"><b>부록 E</b><span>상태 컴포넌트 · 표기 범례</span></a></li></ol></div></nav>
+<section class="board" id="board-01" data-board="p01-cover"><h2>01 · 표지</h2><iframe src="about:blank#{{page:p01-cover}}" title="01 · 표지" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
+<section class="board" id="board-02" data-board="p02-overview"><h2>02 · 개요</h2><iframe src="about:blank#{{page:p02-overview}}" title="02 · 개요" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
+<section class="board" id="board-03" data-board="p03-problem"><h2>03 · 문제 정의</h2><iframe src="about:blank#{{page:p03-problem}}" title="03 · 문제 정의" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
+<section class="board" id="board-04" data-board="p04-desk-research"><h2>04 · 조사와 핵심 인사이트</h2><iframe src="about:blank#{{page:p04-desk-research}}" title="04 · 조사와 핵심 인사이트" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
+<section class="board" id="board-05" data-board="p05-policy"><h2>05 · UX 전략 ① 문제와 설계 원칙</h2><iframe src="about:blank#{{page:p05-policy}}" title="05 · UX 전략 ① 문제와 설계 원칙" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
+<section class="board" id="board-06" data-board="p06-user-flow"><h2>06 · UX 전략 ② 사용자 여정과 기능 구조</h2><iframe src="about:blank#{{page:p06-user-flow}}" title="06 · UX 전략 ② 사용자 여정과 기능 구조" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
+<section class="board" id="board-07" data-board="p06b-state-flow"><h2>07 · UX 전략 ③ 핵심 의사결정</h2><iframe src="about:blank#{{page:p06b-state-flow}}" title="07 · UX 전략 ③ 핵심 의사결정" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
+<section class="board" id="board-08" data-board="p07-ui-exchange"><h2>08 · 솔루션 · 좌석·회차 교환 체험</h2><iframe src="about:blank#{{page:p07-ui-exchange}}" title="08 · 솔루션 · 좌석·회차 교환 체험" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
+<section class="board" id="board-09" data-board="p07b-conditions-match"><h2>09 · 솔루션 · 양방향 매칭과 비교</h2><iframe src="about:blank#{{page:p07b-conditions-match}}" title="09 · 솔루션 · 양방향 매칭과 비교" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
+<section class="board" id="board-10" data-board="p08-ui-pair"><h2>10 · 실험 기능 · 연석 만들기 체험</h2><iframe src="about:blank#{{page:p08-ui-pair}}" title="10 · 실험 기능 · 연석 만들기 체험" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
+<section class="board" id="board-11" data-board="p10-retrospective"><h2>11 · 검증 · 한계 · 회고</h2><iframe src="about:blank#{{page:p10-retrospective}}" title="11 · 검증 · 한계 · 회고" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
+<section class="board" id="board-12" data-board="p07c-status"><h2>부록 A (12) · 교환 처리 상태</h2><iframe src="about:blank#{{page:p07c-status}}" title="부록 A (12) · 교환 처리 상태" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
+<section class="board" id="board-13" data-board="p07d-exceptions"><h2>부록 B (13) · 예외 상황</h2><iframe src="about:blank#{{page:p07d-exceptions}}" title="부록 B (13) · 예외 상황" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
+<section class="board" id="board-14" data-board="p08b-pair-states"><h2>부록 C (14) · 연석 상세 상태</h2><iframe src="about:blank#{{page:p08b-pair-states}}" title="부록 C (14) · 연석 상세 상태" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
+<section class="board" id="board-15" data-board="p09-components"><h2>부록 D (15) · 컴포넌트</h2><iframe src="about:blank#{{page:p09-components}}" title="부록 D (15) · 컴포넌트" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
+<section class="board" id="board-16" data-board="p09b-state-components"><h2>부록 E (16) · 상태 컴포넌트 · 표기 범례</h2><iframe src="about:blank#{{page:p09b-state-components}}" title="부록 E (16) · 상태 컴포넌트 · 표기 범례" width="1920" height="1080" loading="eager" style="width:1920px;height:1080px"></iframe></section>
 </body></html>

@@ -37,8 +37,8 @@ const run = (n) => !ONLY.length || ONLY.includes(n);
     page.on('pageerror', (e) => problems.push('pageerror: ' + String(e).slice(0, 160)));
     await page.goto('file://' + file);
     await page.waitForSelector('section.board iframe');
-    const titles = await page.$$eval('section.board h2', (a) => a.map((x) => x.textContent));
-    const idx = titles.findIndex((t) => t.startsWith(prefix || 'P08 UI'));
+    const titles = await page.$$eval('section.board', (a) => a.map((x) => x.dataset.board))  // STEP 4C-2A: 보드 표시 이름 대신 바뀌지 않는 식별자(slug)로 찾는다;
+    const idx = titles.findIndex((t) => t.startsWith(prefix || 'p08-ui-pair'));
     const handle = (await page.$$('section.board iframe'))[idx];
     const f = await handle.contentFrame();
     await page.waitForTimeout(8000);
@@ -396,7 +396,7 @@ const run = (n) => !ONLY.length || ONLY.includes(n);
   /* ---------------------------------------------------------------- 11. 공용 문구 분기 (일반 교환 / 연석) */
   journey = '11 일반·연석 공용 문구 분기';
   if (run('11')) {
-    const H = await openBoard('P08 UI');   // P12 연석
+    const H = await openBoard('p08-ui-pair');   // P12 연석
     await registerB(H, true);
     await aToAdjacency(H);
     await aSend(H);
@@ -408,7 +408,7 @@ const run = (n) => !ONLY.length || ONLY.includes(n);
     await H.click(A, 'button', '좌석 방향 다시 고르기');
     ok('좌석 방향 다시 고르기 → PairSeat', (await H.screen(A)) === 'PairSeat');
     await finish(H);
-    const G = await openBoard('P07 UI');  // P08 일반 교환
+    const G = await openBoard('p07-ui-exchange');  // P08 일반 교환
     await G.click(A, 'a', '좌석·회차 교환 신청');
     await G.click(A, 'a', '교환 신청 등록');
     await G.click(A, '[data-act="notify"]');

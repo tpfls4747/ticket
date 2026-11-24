@@ -29,7 +29,7 @@ const ok = (name, pass, detail) => results.push({ journey, name, pass: !!pass, d
   page.on('requestfailed', (r) => problems.push('requestfailed: ' + r.url().slice(0, 120)));
   await page.goto('file://' + file);
   await page.waitForSelector('section.board iframe');
-  const titles = await page.$$eval('section.board h2', (a) => a.map((x) => x.textContent));
+  const titles = await page.$$eval('section.board', (a) => a.map((x) => x.dataset.board))  // STEP 4C-2A: 보드 표시 이름 대신 바뀌지 않는 식별자(slug)로 찾는다;
   const handles = await page.$$('section.board iframe');
   await page.waitForTimeout(9000);
 
@@ -85,7 +85,7 @@ const ok = (name, pass, detail) => results.push({ journey, name, pass: !!pass, d
   /* ---------------------------------------------------------------- 2. 확대 보기 (P12 신청자 A) */
   journey = '2 화면 확대 보기';
   {
-    const H = await board('P08 UI');
+    const H = await board('p08-ui-pair');
     const before = await minFont(H, 0);
     ok('확대 전: 보드 위 최소 글자 크기가 작음 (0.58배)', before < 7, before);
     await H.shot('00-p12-board');
@@ -130,7 +130,7 @@ const ok = (name, pass, detail) => results.push({ journey, name, pass: !!pass, d
   /* ---------------------------------------------------------------- 3. A·B 함께 크게 보기 + 수신자 상태 */
   journey = '3 A·B 함께 보기 · 수신자 상태';
   {
-    const H = await board('P08 UI');
+    const H = await board('p08-ui-pair');
     await H.f.evaluate(() => document.querySelector('[data-nav-host="0"]').focus());
     await H.key('Escape');   // 체험 초기화
     await H.click('panel', 'button', 'A·B 함께 크게 보기');
@@ -214,21 +214,21 @@ const ok = (name, pass, detail) => results.push({ journey, name, pass: !!pass, d
           inPhone: !!p.closest('[data-nav-host]'), reset: [...p.querySelectorAll('button')].some((b) => b.textContent.trim() === '처음부터 다시') };
       });
     };
-    const a = await sig('P07 UI'), b = await sig('P08 UI');
+    const a = await sig('p07-ui-exchange'), b = await sig('p08-ui-pair');
     const keys = ['pos', 'right', 'top', 'width', 'border', 'bg', 'radius', 'rows'];
     ok('P08·P12 제어판 위치·크기·테두리·배경·구조 동일', keys.every((k) => a[k] === b[k]), JSON.stringify([a, b]));
     ok('두 제어판 모두 "시연용 제어 · 실제 서비스 기능이 아니에요" · 시나리오·조작 행 · 처음부터 다시', [a, b].every((x) => x.head.includes('시연용 제어') && x.head.includes('실제 서비스 기능이 아니에요') && x.labels.length === 2 && x.reset && !x.inPhone), JSON.stringify([a.head, b.head]));
-    for (const pre of ['P07-B', 'P07-C', 'P07-D', 'P08-B']) {
+    for (const pre of ['p07b-conditions-match', 'p07c-status', 'p07d-exceptions', 'p08b-pair-states']) {
       const H = await board(pre);
       const s = await H.f.evaluate(() => { const e = document.querySelector('[aria-label="설명용 화면 안내"]'); if (!e) return null; const cs = getComputedStyle(e); return [cs.position, cs.right, e.innerText]; });
-      ok(pre.split(' ')[0] + ' 정적 보드: 같은 자리(오른쪽 위)에 설명용 표시', s && s[0] === 'absolute' && s[1] === a.right && s[2].includes('직접 체험은 06·07 보드'), JSON.stringify(s));
+      ok(pre.split(' ')[0] + ' 정적 보드: 같은 자리(오른쪽 위)에 설명용 표시', s && s[0] === 'absolute' && s[1] === a.right && /직접 체험은 (08|10)장/.test(s[2])  /* STEP 4C-2A: 새 장 번호 */, JSON.stringify(s));
     }
   }
 
   /* ---------------------------------------------------------------- 5. 공용 단계 표시 */
   journey = '5 공용 단계 표시';
   {
-    const G = await board('P07 UI');
+    const G = await board('p07-ui-exchange');
     await G.click(0, 'a', '좌석·회차 교환 신청');
     const sg = await G.f.evaluate(() => { const v = [...document.querySelectorAll('[data-nav-host="0"] > [data-nav-screen]')].find((c) => getComputedStyle(c).display !== 'none');
       const g = v.querySelector('[role="group"][aria-label^="진행 단계"]'); return g ? [g.getAttribute('aria-label'), g.querySelectorAll('li').length, g.querySelectorAll('li[aria-current="step"]').length, g.innerText.replace(/\s+/g, ' ')] : null; });
@@ -236,7 +236,7 @@ const ok = (name, pass, detail) => results.push({ journey, name, pass: !!pass, d
     ok('단계마다 스크린 리더용 상태 문구', sg && sg[3].includes('1단계 조건 등록: 현재 단계') && sg[3].includes('2단계 후보 확인: 남은 단계'), sg && sg[3]);
     await G.f.evaluate(() => document.querySelector('[data-nav-host="0"]').focus());
     await G.key('Escape');
-    const H = await board('P08 UI');
+    const H = await board('p08-ui-pair');
     await H.click(2, 'input[data-act="intent"][data-val="on"]');
     await H.click(2, 'button', '설정 저장');
     await H.click(0, 'a[data-act="next"]');
@@ -259,7 +259,7 @@ const ok = (name, pass, detail) => results.push({ journey, name, pass: !!pass, d
   /* ---------------------------------------------------------------- 6. 정보 위계 */
   journey = '6 비교표·후보 카드 정보 위계';
   {
-    const G = await board('P07 UI');
+    const G = await board('p07-ui-exchange');
     await G.click(0, 'a', '좌석·회차 교환 신청');
     await G.click(0, 'a', '교환 신청 등록');
     await G.click(0, '[data-act="notify"]');
@@ -278,7 +278,7 @@ const ok = (name, pass, detail) => results.push({ journey, name, pass: !!pass, d
     ok('같은 항목 펼치기 (상세 보기)', (await G.text(0)).includes('캐스팅 해당 없음 해당 없음 같음'));
     await G.f.evaluate(() => document.querySelector('[data-nav-host="0"]').focus());
     await G.key('Escape');
-    const H = await board('P08 UI');
+    const H = await board('p08-ui-pair');
     await H.click(2, 'input[data-act="intent"][data-val="on"]');
     await H.click(2, 'button', '설정 저장');
     await H.click(0, 'a[data-act="next"]');
@@ -292,11 +292,11 @@ const ok = (name, pass, detail) => results.push({ journey, name, pass: !!pass, d
   /* ---------------------------------------------------------------- 7. P13 설명용 화면 */
   journey = '7 P13 설명용 화면';
   {
-    const H = await board('P08-B');
+    const H = await board('p08b-pair-states');
     const inputs = await H.f.evaluate(() => [...document.querySelectorAll('[data-zoom-host] input')].length);
     ok('P13 의 설명용 폰에는 입력 요소가 없음 (체크박스·라디오 → 그림)', inputs === 0, inputs);
     const t = await H.f.evaluate(() => document.body.innerText.replace(/\s+/g, ' '));
-    ok('설명용 표시: "설명용 화면 · 체험은 07 보드" · 보내기 버튼은 비활성 + 이유', t.includes('설명용 화면 · 체험은 07 보드') && t.includes('위 내용을 확인했다고 선택하면 보낼 수 있어요'), '');
+    ok('설명용 표시: "설명용 화면 · 체험은 10장" · 보내기 버튼은 비활성 + 이유', t.includes('설명용 화면 · 체험은 10장') && t.includes('위 내용을 확인했다고 선택하면 보낼 수 있어요'), '');
     await H.click('doc', '[data-zoom-btn="3"]');
     const r = await H.rect(3);
     ok('정적 보드도 크게 보기 (390×844)', r[2] === 390 && r[3] === 844, r);
@@ -309,7 +309,7 @@ const ok = (name, pass, detail) => results.push({ journey, name, pass: !!pass, d
 
   /* ---------------------------------------------------------------- 8. 다른 정적 보드 확대 */
   journey = '8 정적 보드 확대';
-  for (const pre of ['P07-B', 'P07-C', 'P07-D']) {
+  for (const pre of ['p07b-conditions-match', 'p07c-status', 'p07d-exceptions']) {
     const H = await board(pre);
     await H.click('doc', '[data-zoom-btn="0"]');
     const r = await H.rect(0);

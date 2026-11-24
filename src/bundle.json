@@ -59,16 +59,20 @@
         "uuid": "1b951654-140b-47ea-ae65-2e538dfff364"
       },
       {
+        "slug": "p08-ui-pair",
+        "uuid": "0c65d917-c2e4-418d-820c-1b6e495528a0"
+      },
+      {
+        "slug": "p10-retrospective",
+        "uuid": "5bea9993-031e-4b9c-b494-13fd4eea88d5"
+      },
+      {
         "slug": "p07c-status",
         "uuid": "00a7dadd-94f8-4485-a99d-357cefaa32f8"
       },
       {
         "slug": "p07d-exceptions",
         "uuid": "ba2bd893-e69a-412f-936d-04fa9d0d5ab1"
-      },
-      {
-        "slug": "p08-ui-pair",
-        "uuid": "0c65d917-c2e4-418d-820c-1b6e495528a0"
       },
       {
         "slug": "p08b-pair-states",
@@ -81,10 +85,6 @@
       {
         "slug": "p09b-state-components",
         "uuid": "813cebf1-0bce-4e55-b166-5e3289562409"
-      },
-      {
-        "slug": "p10-retrospective",
-        "uuid": "5bea9993-031e-4b9c-b494-13fd4eea88d5"
       }
     ]
   },

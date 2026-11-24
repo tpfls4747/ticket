@@ -33,7 +33,7 @@ const ok = (name, pass, detail) => { results.push({ name, pass, detail: detail |
   page.on('framenavigated', (f) => { if (/about:blank#blocked/.test(f.url())) problems.push('blocked navigation: ' + f.url()); });
   await page.goto('file://' + path.resolve(file));
   await page.waitForSelector('section.board iframe');
-  const titles = await page.$$eval('section.board h2', (a) => a.map((x) => x.textContent));
+  const titles = await page.$$eval('section.board', (a) => a.map((x) => x.dataset.board))  // STEP 4C-2A: 보드 표시 이름 대신 바뀌지 않는 식별자(slug)로 찾는다;
   const handles = await page.$$('section.board iframe');
   const frames = [];
   for (const h of handles) frames.push(await h.contentFrame());
@@ -100,7 +100,7 @@ const ok = (name, pass, detail) => { results.push({ name, pass, detail: detail |
   }
 
   /* ---- 2. 뒤로 (P07 보드 폰1: 예매 상세 → 조건 등록 → 신청 현황 → 뒤로 → 뒤로) ---- */
-  const fiEx = titles.findIndex((t) => t.startsWith('P07 UI'));
+  const fiEx = titles.findIndex((t) => t.startsWith('p07-ui-exchange'));
   {
     const f = frames[fiEx];
     const seq = [];
@@ -143,7 +143,7 @@ const ok = (name, pass, detail) => { results.push({ name, pass, detail: detail |
   /* ---- 4. 입력 상태 보존 (P08 연석 보드 폰2: 교환 방식 라디오) ----
    * STEP 3C 부터 폰1은 연석 체험 폰(상태와 묶인 입력, '좌석·회차 교환'을 고르면 다음으로 가지 않음)이라
    * STEP 3A 링크 전환만 쓰는 폰2에서 같은 검사를 한다. 폰1의 입력 유지는 tools/test_pair_flows.cjs 여정 9 가 검사한다. */
-  const fiPair = titles.findIndex((t) => t.startsWith('P08 UI'));
+  const fiPair = titles.findIndex((t) => t.startsWith('p08-ui-pair'));
   {
     const f = frames[fiPair];
     const radios = () => f.evaluate(() => {

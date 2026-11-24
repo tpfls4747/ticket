@@ -39,8 +39,8 @@ const A = 0, B = 2;
     page.on('framenavigated', (f) => { if (/about:blank#blocked/.test(f.url())) problems.push('blocked: ' + f.url()); });
     await page.goto('file://' + file);
     await page.waitForSelector('section.board iframe');
-    const titles = await page.$$eval('section.board h2', (a) => a.map((x) => x.textContent));
-    const idx = titles.findIndex((t) => t.startsWith(prefix || 'P08 UI'));
+    const titles = await page.$$eval('section.board', (a) => a.map((x) => x.dataset.board))  // STEP 4C-2A: 보드 표시 이름 대신 바뀌지 않는 식별자(slug)로 찾는다;
+    const idx = titles.findIndex((t) => t.startsWith(prefix || 'p08-ui-pair'));
     const handle = (await page.$$('section.board iframe'))[idx];
     const f = await handle.contentFrame();
     await page.waitForTimeout(8000);
@@ -371,7 +371,7 @@ const A = 0, B = 2;
   /* ---------------------------------------------------------------- 10. 일반 교환 회귀 (P07 체험 폰) */
   journey = '10 일반 교환 회귀';
   {
-    const H = await openBoard('P07 UI');
+    const H = await openBoard('p07-ui-exchange');
     await H.click(A, 'a', '좌석·회차 교환 신청');
     await H.click(A, 'a', '교환 신청 등록');
     await H.click(A, '[data-act="notify"]');
