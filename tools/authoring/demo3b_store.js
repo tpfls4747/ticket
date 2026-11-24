@@ -245,7 +245,7 @@ var DEMO = (function () {
     noteText: 'margin: 0; font-size: 13px; line-height: 1.55; color: #4A4F5C',
     noteTextErr: 'margin: 0; font-size: 13px; line-height: 1.55; color: #A3440B; font-weight: 700',
   };
-  var NOTE = "중요도를 고르지 않은 조건은 '무관'으로 처리하지 않아요. 필수는 맞지 않으면 후보에서 제외돼요. 양쪽 수락과 최종 확인이 끝나야 교환이 완료돼요 (서비스 설계 가정).";
+  var NOTE = '필수 조건이 맞지 않는 티켓은 후보에서 빠져요. 중요도는 조건마다 직접 골라 주세요.';
   var RES_TEXT = { ok: '충족', pref: '선호와 달라요', fail: '불일치', skip: '비교 안 함', unknown: '확인 필요' };
   var RES_KIND = { ok: 'ok', pref: 'plan', fail: 'no', skip: 'mute', unknown: 'need' };
 
@@ -258,9 +258,9 @@ var DEMO = (function () {
   function resultRow(r, side) {
     var kind = RES_KIND[r.res];
     var note = '';
-    if (r.res === 'pref') note = side === 'mine' ? '필수가 아니라 후보로 남겨요. 내 선호는 ' + r.want + '이지만 후보는 ' + r.have + '이에요.' : '필수가 아니라 후보로 남겨요. 후보는 ' + r.want + '을 선호해요.';
-    if (r.res === 'fail') note = side === 'mine' ? '내 필수 조건이라 이 후보는 제외돼요.' : '후보의 필수 조건이라 이 후보는 제외돼요. 상대의 조건은 내가 바꿀 수 없어요.';
-    if (r.res === 'unknown') note = '정보가 없어 추정하지 않아요. 확인 전에는 후보로 확정하지 않아요.';
+    if (r.res === 'pref') note = side === 'mine' ? '내 선호는 ' + r.want + '이지만 후보는 ' + r.have + '이에요.' : '후보는 ' + r.want + '을 선호해요.';
+    if (r.res === 'fail') note = side === 'mine' ? '내 필수 조건이라 제외돼요.' : '후보의 필수 조건이라 제외돼요. 상대 조건은 바꿀 수 없어요.';
+    if (r.res === 'unknown') note = '정보가 없어 확인 전에는 후보로 확정하지 않아요.';
     var o = { label: r.dim, imp: r.imp === null ? '선택 필요' : r.imp, impStyle: STY.impTag[r.imp] || STY.impTag['무관'], detail: r.detail, text: RES_TEXT[r.res], note: note, hasNote: !!note };
     var f = flags(kind); for (var k in f) o[k] = f[k];
     return o;
@@ -312,15 +312,13 @@ var DEMO = (function () {
       mine: ticketLine(MY), cand: ticketLine(cand.ticket),
       dirA: a.map(function (r) { return resultRow(r, 'mine'); }),
       dirB: b.map(function (r) { return resultRow(r, 'theirs'); }),
-      badges: [badgeItem(mineOk ? 'ok' : 'no', mineOk ? '내 필수 충족' : '내 필수 불일치'),
-               badgeItem(theirsOk ? 'ok' : 'no', theirsOk ? '후보 필수 충족' : '후보 필수 불일치')]
-        .concat(unknown.length ? [badgeItem('need', '미확인 ' + unknown.length + '건')] : []),
-      summary: (unknown.length ? '미확인: 후보 티켓의 ' + unknown.join(', ') + '. ' : '') + "아직 '매칭 완료'가 아니고, 한쪽만 맞아도 완료로 표시하지 않아요.",
+      badges: unknown.length ? [badgeItem('need', '미확인 ' + unknown.length + '건')] : [badgeItem('plan', '매칭 완료 아님')],
+      summary: (unknown.length ? '확인 필요: ' + unknown.join(', ') + '. ' : '') + "아직 '매칭 완료'가 아니에요.",
       excludedNote: x.excludedCount ? '필수 조건이 맞지 않아 제외한 티켓 ' + x.excludedCount + '장' : '',
       // STEP 4B 정보 위계: ① 공연·회차 ② 교환 전후 좌석 ③ 필수 충족 ④ 선호 차이 ⑤ 상태 ⑥ 부가 정보(전체 조건은 접힘)
       hero: hero(cand.ticket),
       reqOk: mineOk && theirsOk, reqNo: !(mineOk && theirsOk),
-      reqText: mineOk && theirsOk ? '필수 조건: 양쪽 모두 충족' : '필수 조건: 맞지 않는 항목이 있어요',
+      reqText: mineOk && theirsOk ? '필수 조건: 양쪽 모두 충족' : (!mineOk ? '내 필수 조건 불일치' : '후보 필수 조건 불일치'),
       prefRows: a.filter(function (r) { return r.res === 'pref'; }).map(function (r) { return resultRow(r, 'mine'); })
         .concat(b.filter(function (r) { return r.res === 'pref'; }).map(function (r) { return resultRow(r, 'theirs'); })),
       hasPref: a.concat(b).some(function (r) { return r.res === 'pref'; }), noPref: !a.concat(b).some(function (r) { return r.res === 'pref'; }),
@@ -338,8 +336,8 @@ var DEMO = (function () {
     return { diffRows: rows.filter(function (r) { return !r.k_mute; }), sameRows: rows.filter(function (r) { return r.k_mute; }),
       sameTitle: '같은 항목 ' + rows.filter(function (r) { return r.k_mute; }).length + '개 보기' };
   }
-  function viewNone() { return { stepper: stepper(GEN_STEPS, 1, 'fail', '맞는 후보 없음 · 신청은 유지') }; }
-  function viewDeclined() { return { stepper: stepper(GEN_STEPS, 3, 'fail', '상대방이 제안을 거절 · 내 티켓 그대로') }; }
+  function viewNone() { return { stepper: stepper(GEN_STEPS, 1, 'fail') }; }
+  function viewDeclined() { return { stepper: stepper(GEN_STEPS, 3, 'fail') }; }
   function viewCompare(id, consent, consentKey, step) {
     var t = POOL.filter(function (p) { return p.id === id; })[0].ticket;
     var same = function (x, y) { return x === y ? ['mute', '같음'] : ['plan', '다름']; };
@@ -371,16 +369,16 @@ var DEMO = (function () {
   }
   function viewMismatch(c, declined) {
     var r = search(c, declined || []);
-    if (!r.best) return { rows: [], canRelax: false, cantRelax: true, cand: '', stepper: stepper(GEN_STEPS, 1, 'fail', '필수 조건이 맞지 않아 후보에서 제외') };
+    if (!r.best) return { rows: [], canRelax: false, cantRelax: true, cand: '', stepper: stepper(GEN_STEPS, 1, 'fail') };
     var rows = r.best.a.map(function (x) { return { r: x, side: 'mine' }; }).concat(r.best.b.map(function (x) { return { r: x, side: 'theirs' }; }));
     var fails = rows.filter(function (x) { return x.r.res === 'fail' || (x.r.res === 'unknown' && x.r.imp === '필수'); });
     var oks = rows.filter(function (x) { return x.r.res === 'ok'; }).slice(0, 1);
     var mineFail = r.best.a.filter(function (x) { return x.res === 'fail'; }).length > 0;
     return { cand: ticketLine(r.best.c.ticket), rows: fails.concat(oks).map(function (x) { return resultRow(x.r, x.side); }),
-      canRelax: mineFail, cantRelax: !mineFail, stepper: stepper(GEN_STEPS, 1, 'fail', '필수 조건이 맞지 않아 후보에서 제외') };
+      canRelax: mineFail, cantRelax: !mineFail, stepper: stepper(GEN_STEPS, 1, 'fail') };
   }
   // 최종 확인 실패 화면: 유지되는 내 티켓 (목표 UX)
-  function viewFailed() { return { mine: ticketLine(MY), keepText: '유지 (목표)', stepper: stepper(GEN_STEPS, 4, 'fail', '최종 확인 실패 · 내 티켓 유지 (목표)') }; }
+  function viewFailed() { return { mine: ticketLine(MY), keepText: '유지 (목표)', stepper: stepper(GEN_STEPS, 4, 'fail') }; }
 
   /* ---- STEP 4A: 일반 교환·연석 교환이 함께 쓰는 화면의 문구 분기 · 시연 제어판 · 상태 안내 ---- */
   // 용어 기준: 교환 제안 받기(사전 수신 의향) · 교환 제안 보내기(신청자) · 제안 수락(수신자 개별 동의) · 최종 확인 중 · 교환 완료
@@ -416,13 +414,13 @@ var DEMO = (function () {
   }
   var GEN_STEPS = ['조건 등록', '후보 확인', '비교·제안', '상대 수락', '최종 확인', '교환 완료'];
   var GEN_CANCEL_AT = { searching: 1, found: 1, mismatch: 1, none: 1, proposed: 3, accepted: 4, declined: 3 };
-  var SENT_STEPS = [['교환 신청', '조건 등록 완료'], ['후보 확인', '양방향 조건 확인 통과'], ['교환 제안 보내기', '비교 화면에서 내 동의 완료'],
-    ['상대방 검토', '응답 기한은 가상 규칙이에요 (예: 12시간)'], ['제안 수락', '상대방이 제안을 수락해야 다음으로 가요'],
-    ['최종 확인 중', '티켓·조건을 마지막으로 확인해요'], ['교환 완료', '최종 확인을 통과해야 표시돼요']];
+  var SENT_STEPS = [['교환 신청', ''], ['후보 확인', ''], ['교환 제안 보내기', ''],
+    ['상대방 검토', '응답 기한 12시간 (가상)'], ['제안 수락', '상대가 수락해야 다음 단계로 가요'],
+    ['최종 확인 중', ''], ['교환 완료', '최종 확인을 통과해야 완료돼요']];
   function viewSent() { return { steps: timeline(SENT_STEPS, 3), sub: '상대방이 검토하는 동안 내 티켓은 그대로 유효해요.' }; }
   function viewCancelled(from) {
-    return { stepper: stepper(GEN_STEPS, GEN_CANCEL_AT[from] === undefined ? 3 : GEN_CANCEL_AT[from], 'stop', '신청 취소 · 내 티켓 그대로'), title: '교환 신청을 취소했어요',
-      body: "진행 중이던 제안은 닫혔어요. 상대방에게는 '취소됨'으로 보인다고 가정했어요 (서비스 설계 가정). 내 티켓은 그대로 유효해요.",
+    return { stepper: stepper(GEN_STEPS, GEN_CANCEL_AT[from] === undefined ? 3 : GEN_CANCEL_AT[from], 'stop'), title: '교환 신청을 취소했어요',
+      body: '진행 중이던 제안은 닫혔어요. 내 티켓은 그대로 유효해요.',
       primary: '교환 다시 신청', secondary: '예매 상세로' };
   }
   var STATUS = { edit: '조건 입력 중', searching: '후보 찾는 중', found: '후보 확인 중', mismatch: '필수 조건 불일치', none: '맞는 후보 없음',

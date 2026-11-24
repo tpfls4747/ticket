@@ -27,7 +27,7 @@ a{color:#5B3DF5}a:hover{color:#4328D9}
 <span style="font-size: 13px; font-weight: 700; color: #3A26C4">교환 신청 · 후보 탐색 중</span>
 </div>
 <h2 style="margin: 0; font-size: 22px; font-weight: 700; line-height: 1.4">조건에 맞는 후보를<br>찾고 있어요</h2>
-<p style="margin: 0; font-size: 14px; line-height: 1.55; color: #5F6370">후보가 나타나면 알려드릴게요 (서비스 설계 가정). 기다리는 동안에도 내 티켓은 그대로 유효해요.</p>
+<p style="margin: 0; font-size: 14px; line-height: 1.55; color: #5F6370">후보가 나타나면 알려드릴게요. 기다리는 동안 내 티켓은 그대로 유효해요.</p>
 </div>
 <ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0">
 <li style="display: flex; gap: 12px; align-items: flex-start">
@@ -66,13 +66,13 @@ a{color:#5B3DF5}a:hover{color:#4328D9}
 </section>
 </main>
 <footer style="background: #FFFFFF; padding: 12px 20px 28px; display: flex; flex-direction: column; gap: 4px; flex-shrink: 0">
-<a href="Match.dc.html" data-act="notify" style="height: 54px; border-radius: 14px; background: #191B22; color: #FFFFFF; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px; font-weight: 700; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>알림 도착 (프로토타입)</a>
+<a href="Match.dc.html" data-act="notify" style="height: 54px; border-radius: 14px; background: #191B22; color: #FFFFFF; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px; font-weight: 700; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>후보 알림 열기 (시연)</a>
 <button data-act="cancel" style="height: 44px; border: none; background: transparent; font-family: inherit; font-size: 14px; color: #5F6370; text-decoration: underline">교환 신청 취소</button>
 </footer>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
-var DEFAULT_VIEW = {"roundsText": "12.19 (토) 19:30, 12.21 (월) 14:00 · 필수", "zonesText": "R석 A·B구역 · 선호", "rowText": "1열 ~ 10열 · 선호"};
+var DEFAULT_VIEW = {"roundsText": "12.19 (토) 19:30, 12.21 (월) 14:00 · 필수", "zonesText": "R석 A·B구역 · 선호", "rowText": "1열 ~ 10열 · 선호", "stepper": {"items": [{"label": "조건 등록", "n": 1, "bar": "display: block; height: 6px; border-radius: 3px; background: #5B3DF5", "cur": "false", "sr": "1단계 조건 등록: 완료"}, {"label": "후보 확인", "n": 2, "bar": "display: block; height: 6px; border-radius: 3px; background: #5B3DF5; box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px #5B3DF5", "cur": "step", "sr": "2단계 후보 확인: 현재 단계"}, {"label": "비교·제안", "n": 3, "bar": "display: block; height: 6px; border-radius: 3px; background: #E6E8EC", "cur": "false", "sr": "3단계 비교·제안: 남은 단계"}, {"label": "상대 수락", "n": 4, "bar": "display: block; height: 6px; border-radius: 3px; background: #E6E8EC", "cur": "false", "sr": "4단계 상대 수락: 남은 단계"}, {"label": "최종 확인", "n": 5, "bar": "display: block; height: 6px; border-radius: 3px; background: #E6E8EC", "cur": "false", "sr": "5단계 최종 확인: 남은 단계"}, {"label": "교환 완료", "n": 6, "bar": "display: block; height: 6px; border-radius: 3px; background: #E6E8EC", "cur": "false", "sr": "6단계 교환 완료: 남은 단계"}], "head": "단계 2/6 · 후보 확인", "headStyle": "font-size: 14px; font-weight: 700; color: #3A26C4", "note": "다음: 비교·제안", "hasNote": true, "endNote": "", "hasEnd": false, "noteStyle": "font-size: 12px; font-weight: 700; color: #5F6370", "exp": false, "label": "진행 단계: 단계 2/6 · 후보 확인"}};
 class Component extends DCLogic {
 renderVals() {
 var d = this.props.demo;

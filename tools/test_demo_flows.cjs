@@ -185,8 +185,8 @@ const ok = (name, pass, detail) => results.push({ journey, name, pass: !!pass, d
     await submitAndSearch(H, 'MatchCheck', ['12.20 (일) 18:00 · 필수', 'R석 A구역 · 선호', '1열 ~ 10열 · 선호']);
     const m = await H.text();
     ok('후보 = 같은 회차 A구역 6열 3번', m.includes('12.20 (일) 18:00 · 3회차 · R석 A구역 6열 3번'), m.slice(0, 300));
-    ok('양쪽 필수 충족 표시', m.includes('내 필수 충족') && m.includes('후보 필수 충족'), m);
-    ok('매칭 완료로 표시하지 않음', m.includes("아직 '매칭 완료'가 아니고"), m.slice(-200));
+    ok('양쪽 필수 충족 표시 (4B.5: 한 줄로 합침)', m.includes('필수 조건: 양쪽 모두 충족'), m);
+    ok('매칭 완료로 표시하지 않음', m.includes("아직 '매칭 완료'가 아니에요"), m.slice(-200));
     await H.shot('01-matchcheck');
     await compareAndSend(H, ['날짜·회차 12.20 (일) 18:00 · 3회차 12.20 (일) 18:00 · 3회차 같음', '구역 R석 B구역 R석 A구역 다름', '열·좌석 7열 12번 6열 3번 다름', '154,000원 (가상) 같음']);
     await H.shot('01-status-sent');
@@ -263,7 +263,7 @@ const ok = (name, pass, detail) => results.push({ journey, name, pass: !!pass, d
     await setZones(H, ['C']);
     await submitAndSearch(H, 'MatchCheck', ['R석 C구역 · 선호']);
     const m = await H.text();
-    ok('후보로 표시됨 (필수는 모두 충족)', m.includes('내 필수 충족') && m.includes('후보 필수 충족'), m);
+    ok('후보로 표시됨 (필수는 모두 충족)', m.includes('필수 조건: 양쪽 모두 충족'), m);
     ok('내 선호 차이 설명: C구역 vs A구역', m.includes('내 선호는 C구역이지만 후보는 A구역이에요'), m);
     ok('후보 선호 차이 설명', m.includes('후보는 A구역을 선호해요'), m);
     await H.shot('04-pref-only');
@@ -367,7 +367,7 @@ const ok = (name, pass, detail) => results.push({ journey, name, pass: !!pass, d
     await H.click('button', '최종 확인 실패');
     ok('최종 확인 실패 → 실패 화면', (await H.screen()) === 'ExFinalFailed', await H.screen());
     const t = await H.text();
-    ok('실패 화면: 원 티켓 유지(목표 UX) 안내, 완료 안내 없음', t.includes('원래 티켓이 그대로 유지되는 것을 목표로') && !t.includes('교환이 완료됐어요'), t);
+    ok('실패 화면: 원 티켓 유지(목표 UX) 안내, 완료 안내 없음', t.includes('내 티켓은 그대로 유지돼요 (목표)') && t.includes('시연') && !t.includes('교환이 완료됐어요'), t);
     await H.shot('08-failed');
     await H.click('button', '내 티켓 확인');
     ok('내 티켓 확인 → 예매 상세', (await H.screen()) === 'Main', await H.screen());

@@ -1,0 +1,15 @@
+== 픽셀 비교
+  desktop: 16장 중 동일 16장
+  차이 mobile P01-viewport.png 1797 px (0.546%), 영역 x121-389 y127-757
+  차이 mobile P08-viewport.png 1421 px (0.432%), 영역 x152-388 y99-841
+  차이 mobile P09-viewport.png 1971 px (0.599%), 영역 x154-388 y99-841
+  차이 mobile P10-viewport.png 1896 px (0.576%), 영역 x152-388 y99-841
+  차이 mobile P11-viewport.png 1886 px (0.573%), 영역 x153-388 y99-841
+  차이 mobile P12-viewport.png 2310 px (0.702%), 영역 x152-388 y99-841
+  차이 mobile P13-viewport.png 2617 px (0.795%), 영역 x154-388 y99-842
+  mobile: 16장 중 동일 9장
+== 구조
+  보드 제목 동일: True | 보드 크기 동일: True
+  모바일 가로 스크롤 폭: 1968 → 1968
+  콘솔/네트워크 로그: 0 → 0
+== 페이지별

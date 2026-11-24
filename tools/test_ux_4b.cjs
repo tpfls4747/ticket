@@ -250,7 +250,7 @@ const ok = (name, pass, detail) => results.push({ journey, name, pass: !!pass, d
     await H.click(2, 'button', '제안 검토하기 →');
     await H.click(2, 'button', '거절');
     t = await H.text(0);
-    ok('거절 화면: 상대 수락 단계에 실패 표시 (텍스트로도)', t.includes('5단계 상대 수락: 실패') && t.includes('상대방이 제안을 거절'), t.slice(0, 220));
+    ok('거절 화면: 상대 수락 단계에 실패 표시 (텍스트로도)', t.includes('5단계 상대 수락: 실패') && t.includes('제안을 거절했어요'), t.slice(0, 220));
     await H.shot('07-declined-stepper');
     await H.f.evaluate(() => document.querySelector('[data-nav-host="0"]').focus());
     await H.key('Escape');

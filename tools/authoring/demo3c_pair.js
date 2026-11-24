@@ -324,7 +324,7 @@ var PAIR = (function (DEMO) {
         var g = other(m.key), on = s.keep === m.key;
         return { val: m.key, checked: on, style: on ? OPT_ON : OPT_OFF,
           title: m.row + '열로 모으기 → ' + m.row + '열 ' + (m.seat - 1) + '·' + m.seat + '번 또는 ' + m.seat + '·' + (m.seat + 1) + '번',
-          desc: '유지할 좌석 ' + seatName(m.key) + ' · 교환에 제공할 좌석 ' + seatName(g.key) + '. 옆자리 관객이 ' + seatName(g.key) + '으로 옮겨 가요',
+          desc: seatName(m.key) + ' 유지 · ' + seatName(g.key) + ' 제공 (옆자리 관객이 이 좌석으로 옮겨요)',
           tag: on };
       }),
       keepName: seatName(keep.key), offerName: seatName(give.key),
@@ -369,7 +369,7 @@ var PAIR = (function (DEMO) {
       hasFacts: neighbors(s.keep).some(function (k) { return adjacency(mine(s.keep), ticketOf(k, null)).res !== 'ok'; }),
       noCandidate: !anyOk,
       emptyTitle: '현재 연결 가능한 후보가 없습니다',
-      emptyText: "'교환 제안 받기'를 켠 관객 중 조건이 맞는 좌석만 후보로 보여줘요. 좌석별로 빠진 이유는 개인정보라 알려드리지 않아요.",
+      emptyText: '좌석별로 빠진 이유는 개인정보라 알려드리지 않아요.',
       canFlip: !!demo && !anyOk && s.step === 'select', flipText: '반대 방향으로 찾아보기 (' + seatName(flipTo.key) + ' 유지)',
       notice: demo ? s.notice : '', hasNotice: !!(demo && s.notice),
       canNext: ok, cantNext: !ok,
@@ -411,7 +411,7 @@ var PAIR = (function (DEMO) {
         item('ok', '충족', '① 내 조건: ' + seatName(s.keep) + ' 바로 옆 (배치도 확인)'),
         item(c.wantFail.length ? 'no' : 'ok', c.wantFail.length ? '불일치' : '충족', '② 상대가 등록한 조건 ↔ 내가 제공할 ' + seatName(give.key)),
       ],
-      twoWayNote: "양쪽 조건이 맞아도 아직 '교환 완료'가 아니에요. 상대방의 제안 수락과 최종 확인이 남아 있어요.",
+      twoWayNote: "아직 '교환 완료'가 아니에요.",
       ack: !!s.ack, canSend: canSend, cantSend: !canSend, sendText: seatName(s.cand) + ' 관객에게 교환 제안 보내기',
       sendHint: s.step !== 'select' ? '이미 제안을 보냈거나 진행할 수 없는 상태예요.' : (!c.proposable ? '이 후보에게는 지금 제안할 수 없어요.' : (s.ack ? '' : '위 내용을 확인했다고 선택하면 보낼 수 있어요.')),
     };
@@ -424,8 +424,8 @@ var PAIR = (function (DEMO) {
     reviewing: ['plan', '검토 중', '다른 좌석으로 옮기자는 교환 제안이에요', '', 'respond'],
     accepted: ['ok', '수락함', '제안을 수락했어요', "아직 '교환 완료'가 아니에요. 예매처의 최종 확인을 기다리는 중이에요.", 'wait', '응답 완료 · 예매처 최종 확인을 기다리는 중'],
     final: ['wait', '최종 확인 중', '예매처가 최종 확인 중이에요', "티켓과 조건을 마지막으로 확인하고 있어요. 아직 '교환 완료'가 아니에요.", 'wait', '최종 확인 중 · 결과가 나오면 여기서 알려드려요'],
-    done: ['done', '교환 완료 (시연)', '교환이 완료됐어요', '새 좌석은 7열 12번이에요. 시연용 모의 결과예요.', 'back'],
-    failed: ['fail', '교환 실패', '최종 확인에 실패했어요', '교환은 진행되지 않았어요. 원래 좌석 11열 5번이 유지되는 것을 목표로 해요 (목표 UX).', 'back'],
+    done: ['done', '교환 완료 (시연)', '교환이 완료됐어요', '새 좌석은 7열 12번이에요.', 'back'],
+    failed: ['fail', '교환 실패', '최종 확인에 실패했어요', '교환은 진행되지 않았어요. 원래 좌석 11열 5번을 유지해요 (목표).', 'back'],
     declined: ['mute', '거절함', '제안을 거절했어요', '내 좌석은 그대로예요. 거절 사유는 신청자에게 공개되지 않아요.', 'back'],
     cancelled: ['cancel', '신청자 취소', '신청자가 제안을 취소했어요', '내 좌석은 그대로예요.', 'back'],
   };
@@ -465,7 +465,7 @@ var PAIR = (function (DEMO) {
       companionPolicy: comp ? (comp.policy || '좌석별 교환 정책 확인 필요') : '',
       canRespond: s.step === 'proposed' && hasProposal(s), responded: hasProposal(s) && s.step !== 'proposed',
       respondNote: "수락해도 바로 교환되지 않아요. 최종 확인을 통과해야 '교환 완료'예요.",
-      state: key, title: r[2], sub: r[3] || ('옆자리(' + seatName(s.keep) + ') 관객이 일행과 나란히 앉고 싶어 해요. 같은 R석이라 추가 결제는 없어요.'),
+      state: key, title: r[2], sub: r[3] || ('옆자리(' + seatName(s.keep) + ') 관객이 일행과 나란히 앉고 싶어 해요.'),
       statusBadge: r[1], statusTitle: r[2], statusText: r[3], bandStyle: BAND[r[0]] + '; border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px',
       hasWait: r[4] === 'wait' && hasProposal(s), waitText: r[5] || '', hasBack: r[4] === 'back' && hasProposal(s), backText: '설정 화면으로 돌아가기',
       stepper: recvStepper(key),
@@ -492,19 +492,19 @@ var PAIR = (function (DEMO) {
     };
   }
   function viewAfter(s, key) {
-    return { stepperDeclined: pstep(4, 'fail', '상대방이 제안을 거절 · 내 좌석 그대로'), now: bothMine(), after: pairText(s.keep, key), cand: seatName(key), candLabel: '옆자리 후보 · ' + sideOf(s.keep, key) };
+    return { stepperDeclined: pstep(4, 'fail'), now: bothMine(), after: pairText(s.keep, key), cand: seatName(key), candLabel: '옆자리 후보 · ' + sideOf(s.keep, key) };
   }
   function viewDone(s, key) {
     var give = other(s.keep);
     return { cand: seatName(key), date: DEMO.dateLine(mine(s.keep)), seats: 'R석 · B구역 ' + pairText(s.keep, key), gave: 'B구역 ' + seatName(give.key) };
   }
-  function viewFailed() { return { mine: dateRound() + ' · R석 B구역 ' + bothMine(), keepText: '2장 모두 유지 (목표)', stepper: pstep(5, 'fail', '최종 확인 실패 · 2장 모두 유지 (목표)') }; }
-  var SENT_STEPS = [['좌석 방향 선택', '유지할 좌석을 골랐어요'], ['옆자리 후보 확인', '배치도·양방향 조건 확인 통과'], ['교환 제안 보내기', '최종 비교 후 내 동의 완료'],
-    ['상대방 검토', '옆자리 관객이 검토 중이에요'], ['제안 수락', '상대방이 제안을 수락해야 다음으로 가요'], ['최종 확인 중', '티켓·조건을 마지막으로 확인해요'],
-    ['교환 완료', '최종 확인을 통과해야 표시돼요']];
+  function viewFailed() { return { mine: dateRound() + ' · R석 B구역 ' + bothMine(), keepText: '2장 모두 유지 (목표)', stepper: pstep(5, 'fail') }; }
+  var SENT_STEPS = [['좌석 방향 선택', ''], ['옆자리 후보 확인', ''], ['교환 제안 보내기', ''],
+    ['상대방 검토', '옆자리 관객이 검토 중이에요'], ['제안 수락', '상대가 수락해야 다음 단계로 가요'], ['최종 확인 중', ''],
+    ['교환 완료', '최종 확인을 통과해야 완료돼요']];
   function viewSent() { return { steps: DEMO.timeline(SENT_STEPS, 3), sub: '상대방이 검토하는 동안 내 티켓 2장은 그대로 유효해요.' }; }
   function viewCancelled(from) {
-    return { stepper: pstep(PAIR_CANCEL_AT[from] === undefined ? 4 : PAIR_CANCEL_AT[from], 'stop', '제안 취소 · 내 티켓 2장 그대로'), title: '교환 제안을 취소했어요', body: '보낸 제안은 닫혔어요. 옆자리 관객에게는 취소됐다고 보여요 (서비스 설계 가정). 내 티켓 2장은 그대로 유효해요.',
+    return { stepper: pstep(PAIR_CANCEL_AT[from] === undefined ? 4 : PAIR_CANCEL_AT[from], 'stop'), title: '교환 제안을 취소했어요', body: '보낸 제안은 닫혔어요. 내 티켓 2장은 그대로 유효해요.',
       primary: '좌석 방향 다시 고르기', secondary: '처음으로' };
   }
   var STATUS_A = { select: '연석 만들기 준비 중', proposed: '교환 제안 보냄 · 상대방 검토 중', accepted: '상대방 제안 수락 · 최종 확인 전', final: '최종 확인 중',

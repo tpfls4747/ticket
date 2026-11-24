@@ -1,0 +1,41 @@
+화면	4B	4B.5	차이
+Request	252	215	-37
+Match	191	160	-31
+Main	207	160	-47
+Waiting	193	181	-12
+MatchCheck	284	225	-59
+Compare	328	319	-9
+StatusSent	208	150	-58
+StatusAccepted	228	151	-77
+StatusFinal	197	132	-65
+Done	223	185	-38
+ExMismatch	283	213	-70
+ExNoCandidate	178	146	-32
+ExDeclined	141	119	-22
+ExCancelled	158	97	-61
+ExFinalFailed	230	120	-110
+Expired	152	152	0
+static:교환 자격 확인	377	272	-105
+static:교환 조건 설정	262	228	-34
+static:양방향 조건 확인	284	225	-59
+static:교환 전후 비교	328	319	-9
+static:필수 조건 불일치	283	213	-70
+static:교환 가능한 후보 없음	178	146	-32
+static:상대방 제안 거절	141	119	-22
+static:신청자 취소	158	97	-61
+static:티켓 상태 변경	198	150	-48
+static:최종 확인 실패	230	120	-110
+PairMode	264	221	-43
+PairSeat	297	202	-95
+PairAdjacency	216	165	-51
+PairWarn	172	166	-6
+PairAccepted	237	180	-57
+PairDone	173	153	-20
+PairDeclined	201	131	-70
+PairIntent	252	233	-19
+PairReceive	68	70	2
+static:옆자리 교환 제안 설정	278	259	-19
+static:연석 후보 확인	183	161	-22
+static:보내기 전 최종 비교	399	365	-34
+static:연석 교환 진행 현황	237	180	-57
+합계	8869	7100	-1769	-19.9%

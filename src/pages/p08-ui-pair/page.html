@@ -60,13 +60,22 @@ a{color:#5B3DF5}a:hover{color:#4328D9}
 <div aria-label="양방향 흐름 요약" style="margin-top: auto; border-top: 1px solid #E6E8EC; padding-top: 18px; display: flex; flex-direction: column; gap: 10px"><b style="font-size: 16px">누가 요청하고 누가 응답할까요</b><div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 14px; font-weight: 700"><span style="background: #F0EDFF; color: #3A26C4; padding: 5px 10px; border-radius: 999px">A 교환 제안 보내기</span><span aria-hidden="true" style="color: #5B3DF5">→</span><span style="background: #FFF1E6; color: #A3440B; padding: 5px 10px; border-radius: 999px">B 제안 수락 / 거절</span><span aria-hidden="true" style="color: #5B3DF5">→</span><span style="background: #F5F6F8; color: #4A4F5C; padding: 5px 10px; border-radius: 999px">최종 확인</span><span aria-hidden="true" style="color: #5B3DF5">→</span><span style="background: #E6F6EE; color: #1F7A4D; padding: 5px 10px; border-radius: 999px">교환 완료</span></div><span style="font-size: 14px; line-height: 1.55; color: #4A4F5C">양쪽 조건(A: 유지할 좌석 바로 옆 · B: 등록한 조건)이 모두 맞을 때만 후보로 연결돼요. B 가 수락해도 최종 확인을 통과해야 교환 완료예요.</span></div></section>
 </div>
 <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: #6B7080"><span style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="display: flex; gap: 3px"><span style="width: 10px; height: 10px; border-radius: 3px; background: #5B3DF5"></span><span style="width: 10px; height: 10px; border-radius: 3px; background: #5B3DF5"></span></span>좌석·회차 교환 UX/UI</span><span><b style="color: #191B22">08</b> / 10</span></div>
-<p aria-live="polite" style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0">{{zoomLive}}</p><sc-if value="{{zoomOpen}}"><div data-zoom-backdrop="" onclick="{{zclose}}" style="position: fixed; left: 0; top: 0; width: 1920px; height: 1080px; background: rgba(20, 16, 44, 0.8); z-index: 1000"></div><section data-zoom-ctl="" role="dialog" aria-label="{{zoomTitle}} 크게 보기" onkeydown="{{zkey}}" style="{{zpanelStyle}}"><span style="align-self: flex-start; font-size: 13px; font-weight: 700; color: #191B22; background: #FFFFFF; padding: 5px 12px; border-radius: 999px">{{zoomRole}}</span><b style="font-size: 26px; line-height: 1.35">{{zoomTitle}}</b><p style="margin: 0; font-size: 16px; line-height: 1.6; color: #E3DDFF">{{zoomHelp}}</p><sc-if value="{{zoomSingle}}"><div style="display: flex; align-items: center; gap: 10px"><button type="button" onclick="{{zprev}}" style="height: 44px; padding: 0 14px; border-radius: 12px; font-family: inherit; font-size: 15px; font-weight: 700; background: rgba(255, 255, 255, 0.14); color: #FFFFFF; border: 1.5px solid rgba(255, 255, 255, 0.5)">← 이전 화면</button><span style="font-size: 15px; font-weight: 700">{{zoomPos}}</span><button type="button" onclick="{{znext}}" style="height: 44px; padding: 0 14px; border-radius: 12px; font-family: inherit; font-size: 15px; font-weight: 700; background: rgba(255, 255, 255, 0.14); color: #FFFFFF; border: 1.5px solid rgba(255, 255, 255, 0.5)">다음 화면 →</button></div></sc-if><button type="button" data-zoom-close="" onclick="{{zclose}}" style="height: 50px; border-radius: 14px; font-family: inherit; font-size: 16px; font-weight: 700; background: #FFFFFF; color: #191B22; border: 0">닫기 (Esc)</button><span style="font-size: 14px; color: #C9BFFF">확대해도 진행 상태는 그대로예요. 닫으면 보드 화면으로 돌아가요.</span></section></sc-if></div>
+<p aria-live="polite" style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0">{{zoomLive}}</p><sc-if value="{{zoomOpen}}"><div data-zoom-backdrop="" onclick="{{zclose}}" style="position: fixed; left: 0; top: 0; width: 1920px; height: 1080px; background: rgba(20, 16, 44, 0.8); z-index: 1000"></div><section data-zoom-ctl="" role="dialog" aria-label="{{zoomTitle}} 크게 보기" onkeydown="{{zkey}}" style="{{zpanelStyle}}"><span style="align-self: flex-start; font-size: 13px; font-weight: 700; color: #191B22; background: #FFFFFF; padding: 5px 12px; border-radius: 999px">{{zoomRole}}</span><b style="font-size: 26px; line-height: 1.35">{{zoomTitle}}</b><p style="margin: 0; font-size: 16px; line-height: 1.6; color: #E3DDFF">{{zoomHelp}}</p><sc-if value="{{zoomSingle}}"><div style="display: flex; align-items: center; gap: 10px"><button type="button" onclick="{{zprev}}" style="height: 44px; padding: 0 14px; border-radius: 12px; font-family: inherit; font-size: 15px; font-weight: 700; background: rgba(255, 255, 255, 0.14); color: #FFFFFF; border: 1.5px solid rgba(255, 255, 255, 0.5)">← 이전 화면</button><span style="font-size: 15px; font-weight: 700">{{zoomPos}}</span><button type="button" onclick="{{znext}}" style="height: 44px; padding: 0 14px; border-radius: 12px; font-family: inherit; font-size: 15px; font-weight: 700; background: rgba(255, 255, 255, 0.14); color: #FFFFFF; border: 1.5px solid rgba(255, 255, 255, 0.5)">다음 화면 →</button></div></sc-if><sc-if value="{{zoomHasNotes}}"><div style="border-top: 1px solid rgba(255, 255, 255, 0.3); padding-top: 12px; display: flex; flex-direction: column; gap: 8px"><b style="font-size: 15px">설계 메모 · 앱 화면에서 뺀 설명</b><ul style="margin: 0; padding: 0 0 0 18px; display: flex; flex-direction: column; gap: 6px"><sc-for list="{{zoomNotes}}" as="n"><li style="font-size: 14px; line-height: 1.55; color: #E3DDFF">{{n}}</li></sc-for></ul></div></sc-if><button type="button" data-zoom-close="" onclick="{{zclose}}" style="height: 50px; border-radius: 14px; font-family: inherit; font-size: 16px; font-weight: 700; background: #FFFFFF; color: #191B22; border: 0">닫기 (Esc)</button><span style="font-size: 14px; color: #C9BFFF">확대해도 진행 상태는 그대로예요. 닫으면 보드 화면으로 돌아가요.</span></section></sc-if></div>
 </x-dc>
 <script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1920,&quot;height&quot;:1080}}">
 var INITIAL = ["PairMode", "PairSeat", "PairIntent", "PairDone"];
 var HOSTS = [["PairMode", "PairSeat", "PairAdjacency", "PairWarn", "StatusSent", "PairAccepted", "StatusFinal", "PairDone", "PairDeclined", "ExCancelled", "ExFinalFailed"], ["PairMode", "PairSeat", "PairReceive", "PairDone"], ["PairIntent", "PairReceive"], ["PairMode", "PairSeat", "PairReceive", "PairDone"]];
 var ROLES = {"0": "A", "2": "B"};
 var TITLES = {"ExTicketChanged": "티켓 상태 변경", "ExDeclined": "상대방 제안 거절", "ExCancelled": "신청자 취소", "ExNoCandidate": "교환 가능한 후보 없음", "ExFinalFailed": "최종 확인 실패", "ExMismatch": "필수 조건 불일치", "Compare": "교환 전후 비교", "StatusSent": "교환 진행 현황", "Eligibility": "교환 자격 확인", "StatusFinal": "최종 확인", "ConditionsCast": "교환 조건 설정", "StatusAccepted": "교환 진행 현황", "MatchCheck": "양방향 조건 확인", "Main": "예매 상세", "Expired": "교환 신청 현황", "Request": "교환 조건 등록", "Waiting": "교환 신청 현황", "Match": "교환 제안", "Done": "교환이 완료됐어요", "PairAccepted": "연석 교환 진행 현황", "PairDeclined": "연석 교환 진행 현황", "PairMode": "교환 신청", "PairSeat": "연석 만들기", "PairWarn": "보내기 전 최종 비교", "PairReceive": "좌석 교환 제안", "PairIntent": "옆자리 교환 제안 설정", "PairDone": "이제 나란히 앉아요", "PairAdjacency": "연석 후보 확인"};
+/* Seat Swap 일반 교환 데모 — 상태·매칭 엔진 (STEP 3B)
+ *
+ * 이 파일이 원본이다. tools/authoring/apply_demo_3b.py 가 P07(일반 교환) 페이지 로직에 그대로 넣고,
+ * 같은 코드로 컴포넌트의 기본 화면 데이터를 계산하며, tools/test_demo_engine.cjs 가 단위 테스트한다.
+ *
+ * - 모든 티켓·조건·가격·판정은 시연용 모의 데이터다. 실제 예매처·결제·티켓 변경과 연결되지 않는다.
+ * - 상대방의 수락·거절과 최종 확인 결과는 사용자가 누르는 '데모 모드' 버튼으로 시뮬레이션한다.
+ * - 외부 라이브러리 없음. ES5 문법만 쓴다 (런타임의 new Function 안에서 실행됨).
+ */
 /* Seat Swap 일반 교환 데모 — 상태·매칭 엔진 (STEP 3B)
  *
  * 이 파일이 원본이다. tools/authoring/apply_demo_3b.py 가 P07(일반 교환) 페이지 로직에 그대로 넣고,
@@ -323,7 +332,7 @@ var DEMO = (function () {
     noteText: 'margin: 0; font-size: 13px; line-height: 1.55; color: #4A4F5C',
     noteTextErr: 'margin: 0; font-size: 13px; line-height: 1.55; color: #A3440B; font-weight: 700',
   };
-  var NOTE = "중요도를 고르지 않은 조건은 '무관'으로 처리하지 않아요. 필수는 맞지 않으면 후보에서 제외돼요. 양쪽 수락과 최종 확인이 끝나야 교환이 완료돼요 (서비스 설계 가정).";
+  var NOTE = '필수 조건이 맞지 않는 티켓은 후보에서 빠져요. 중요도는 조건마다 직접 골라 주세요.';
   var RES_TEXT = { ok: '충족', pref: '선호와 달라요', fail: '불일치', skip: '비교 안 함', unknown: '확인 필요' };
   var RES_KIND = { ok: 'ok', pref: 'plan', fail: 'no', skip: 'mute', unknown: 'need' };
 
@@ -336,9 +345,9 @@ var DEMO = (function () {
   function resultRow(r, side) {
     var kind = RES_KIND[r.res];
     var note = '';
-    if (r.res === 'pref') note = side === 'mine' ? '필수가 아니라 후보로 남겨요. 내 선호는 ' + r.want + '이지만 후보는 ' + r.have + '이에요.' : '필수가 아니라 후보로 남겨요. 후보는 ' + r.want + '을 선호해요.';
-    if (r.res === 'fail') note = side === 'mine' ? '내 필수 조건이라 이 후보는 제외돼요.' : '후보의 필수 조건이라 이 후보는 제외돼요. 상대의 조건은 내가 바꿀 수 없어요.';
-    if (r.res === 'unknown') note = '정보가 없어 추정하지 않아요. 확인 전에는 후보로 확정하지 않아요.';
+    if (r.res === 'pref') note = side === 'mine' ? '내 선호는 ' + r.want + '이지만 후보는 ' + r.have + '이에요.' : '후보는 ' + r.want + '을 선호해요.';
+    if (r.res === 'fail') note = side === 'mine' ? '내 필수 조건이라 제외돼요.' : '후보의 필수 조건이라 제외돼요. 상대 조건은 바꿀 수 없어요.';
+    if (r.res === 'unknown') note = '정보가 없어 확인 전에는 후보로 확정하지 않아요.';
     var o = { label: r.dim, imp: r.imp === null ? '선택 필요' : r.imp, impStyle: STY.impTag[r.imp] || STY.impTag['무관'], detail: r.detail, text: RES_TEXT[r.res], note: note, hasNote: !!note };
     var f = flags(kind); for (var k in f) o[k] = f[k];
     return o;
@@ -390,15 +399,13 @@ var DEMO = (function () {
       mine: ticketLine(MY), cand: ticketLine(cand.ticket),
       dirA: a.map(function (r) { return resultRow(r, 'mine'); }),
       dirB: b.map(function (r) { return resultRow(r, 'theirs'); }),
-      badges: [badgeItem(mineOk ? 'ok' : 'no', mineOk ? '내 필수 충족' : '내 필수 불일치'),
-               badgeItem(theirsOk ? 'ok' : 'no', theirsOk ? '후보 필수 충족' : '후보 필수 불일치')]
-        .concat(unknown.length ? [badgeItem('need', '미확인 ' + unknown.length + '건')] : []),
-      summary: (unknown.length ? '미확인: 후보 티켓의 ' + unknown.join(', ') + '. ' : '') + "아직 '매칭 완료'가 아니고, 한쪽만 맞아도 완료로 표시하지 않아요.",
+      badges: unknown.length ? [badgeItem('need', '미확인 ' + unknown.length + '건')] : [badgeItem('plan', '매칭 완료 아님')],
+      summary: (unknown.length ? '확인 필요: ' + unknown.join(', ') + '. ' : '') + "아직 '매칭 완료'가 아니에요.",
       excludedNote: x.excludedCount ? '필수 조건이 맞지 않아 제외한 티켓 ' + x.excludedCount + '장' : '',
       // STEP 4B 정보 위계: ① 공연·회차 ② 교환 전후 좌석 ③ 필수 충족 ④ 선호 차이 ⑤ 상태 ⑥ 부가 정보(전체 조건은 접힘)
       hero: hero(cand.ticket),
       reqOk: mineOk && theirsOk, reqNo: !(mineOk && theirsOk),
-      reqText: mineOk && theirsOk ? '필수 조건: 양쪽 모두 충족' : '필수 조건: 맞지 않는 항목이 있어요',
+      reqText: mineOk && theirsOk ? '필수 조건: 양쪽 모두 충족' : (!mineOk ? '내 필수 조건 불일치' : '후보 필수 조건 불일치'),
       prefRows: a.filter(function (r) { return r.res === 'pref'; }).map(function (r) { return resultRow(r, 'mine'); })
         .concat(b.filter(function (r) { return r.res === 'pref'; }).map(function (r) { return resultRow(r, 'theirs'); })),
       hasPref: a.concat(b).some(function (r) { return r.res === 'pref'; }), noPref: !a.concat(b).some(function (r) { return r.res === 'pref'; }),
@@ -416,8 +423,8 @@ var DEMO = (function () {
     return { diffRows: rows.filter(function (r) { return !r.k_mute; }), sameRows: rows.filter(function (r) { return r.k_mute; }),
       sameTitle: '같은 항목 ' + rows.filter(function (r) { return r.k_mute; }).length + '개 보기' };
   }
-  function viewNone() { return { stepper: stepper(GEN_STEPS, 1, 'fail', '맞는 후보 없음 · 신청은 유지') }; }
-  function viewDeclined() { return { stepper: stepper(GEN_STEPS, 3, 'fail', '상대방이 제안을 거절 · 내 티켓 그대로') }; }
+  function viewNone() { return { stepper: stepper(GEN_STEPS, 1, 'fail') }; }
+  function viewDeclined() { return { stepper: stepper(GEN_STEPS, 3, 'fail') }; }
   function viewCompare(id, consent, consentKey, step) {
     var t = POOL.filter(function (p) { return p.id === id; })[0].ticket;
     var same = function (x, y) { return x === y ? ['mute', '같음'] : ['plan', '다름']; };
@@ -449,16 +456,16 @@ var DEMO = (function () {
   }
   function viewMismatch(c, declined) {
     var r = search(c, declined || []);
-    if (!r.best) return { rows: [], canRelax: false, cantRelax: true, cand: '', stepper: stepper(GEN_STEPS, 1, 'fail', '필수 조건이 맞지 않아 후보에서 제외') };
+    if (!r.best) return { rows: [], canRelax: false, cantRelax: true, cand: '', stepper: stepper(GEN_STEPS, 1, 'fail') };
     var rows = r.best.a.map(function (x) { return { r: x, side: 'mine' }; }).concat(r.best.b.map(function (x) { return { r: x, side: 'theirs' }; }));
     var fails = rows.filter(function (x) { return x.r.res === 'fail' || (x.r.res === 'unknown' && x.r.imp === '필수'); });
     var oks = rows.filter(function (x) { return x.r.res === 'ok'; }).slice(0, 1);
     var mineFail = r.best.a.filter(function (x) { return x.res === 'fail'; }).length > 0;
     return { cand: ticketLine(r.best.c.ticket), rows: fails.concat(oks).map(function (x) { return resultRow(x.r, x.side); }),
-      canRelax: mineFail, cantRelax: !mineFail, stepper: stepper(GEN_STEPS, 1, 'fail', '필수 조건이 맞지 않아 후보에서 제외') };
+      canRelax: mineFail, cantRelax: !mineFail, stepper: stepper(GEN_STEPS, 1, 'fail') };
   }
   // 최종 확인 실패 화면: 유지되는 내 티켓 (목표 UX)
-  function viewFailed() { return { mine: ticketLine(MY), keepText: '유지 (목표)', stepper: stepper(GEN_STEPS, 4, 'fail', '최종 확인 실패 · 내 티켓 유지 (목표)') }; }
+  function viewFailed() { return { mine: ticketLine(MY), keepText: '유지 (목표)', stepper: stepper(GEN_STEPS, 4, 'fail') }; }
 
   /* ---- STEP 4A: 일반 교환·연석 교환이 함께 쓰는 화면의 문구 분기 · 시연 제어판 · 상태 안내 ---- */
   // 용어 기준: 교환 제안 받기(사전 수신 의향) · 교환 제안 보내기(신청자) · 제안 수락(수신자 개별 동의) · 최종 확인 중 · 교환 완료
@@ -494,13 +501,13 @@ var DEMO = (function () {
   }
   var GEN_STEPS = ['조건 등록', '후보 확인', '비교·제안', '상대 수락', '최종 확인', '교환 완료'];
   var GEN_CANCEL_AT = { searching: 1, found: 1, mismatch: 1, none: 1, proposed: 3, accepted: 4, declined: 3 };
-  var SENT_STEPS = [['교환 신청', '조건 등록 완료'], ['후보 확인', '양방향 조건 확인 통과'], ['교환 제안 보내기', '비교 화면에서 내 동의 완료'],
-    ['상대방 검토', '응답 기한은 가상 규칙이에요 (예: 12시간)'], ['제안 수락', '상대방이 제안을 수락해야 다음으로 가요'],
-    ['최종 확인 중', '티켓·조건을 마지막으로 확인해요'], ['교환 완료', '최종 확인을 통과해야 표시돼요']];
+  var SENT_STEPS = [['교환 신청', ''], ['후보 확인', ''], ['교환 제안 보내기', ''],
+    ['상대방 검토', '응답 기한 12시간 (가상)'], ['제안 수락', '상대가 수락해야 다음 단계로 가요'],
+    ['최종 확인 중', ''], ['교환 완료', '최종 확인을 통과해야 완료돼요']];
   function viewSent() { return { steps: timeline(SENT_STEPS, 3), sub: '상대방이 검토하는 동안 내 티켓은 그대로 유효해요.' }; }
   function viewCancelled(from) {
-    return { stepper: stepper(GEN_STEPS, GEN_CANCEL_AT[from] === undefined ? 3 : GEN_CANCEL_AT[from], 'stop', '신청 취소 · 내 티켓 그대로'), title: '교환 신청을 취소했어요',
-      body: "진행 중이던 제안은 닫혔어요. 상대방에게는 '취소됨'으로 보인다고 가정했어요 (서비스 설계 가정). 내 티켓은 그대로 유효해요.",
+    return { stepper: stepper(GEN_STEPS, GEN_CANCEL_AT[from] === undefined ? 3 : GEN_CANCEL_AT[from], 'stop'), title: '교환 신청을 취소했어요',
+      body: '진행 중이던 제안은 닫혔어요. 내 티켓은 그대로 유효해요.',
       primary: '교환 다시 신청', secondary: '예매 상세로' };
   }
   var STATUS = { edit: '조건 입력 중', searching: '후보 찾는 중', found: '후보 확인 중', mismatch: '필수 조건 불일치', none: '맞는 후보 없음',
@@ -874,7 +881,7 @@ var PAIR = (function (DEMO) {
         var g = other(m.key), on = s.keep === m.key;
         return { val: m.key, checked: on, style: on ? OPT_ON : OPT_OFF,
           title: m.row + '열로 모으기 → ' + m.row + '열 ' + (m.seat - 1) + '·' + m.seat + '번 또는 ' + m.seat + '·' + (m.seat + 1) + '번',
-          desc: '유지할 좌석 ' + seatName(m.key) + ' · 교환에 제공할 좌석 ' + seatName(g.key) + '. 옆자리 관객이 ' + seatName(g.key) + '으로 옮겨 가요',
+          desc: seatName(m.key) + ' 유지 · ' + seatName(g.key) + ' 제공 (옆자리 관객이 이 좌석으로 옮겨요)',
           tag: on };
       }),
       keepName: seatName(keep.key), offerName: seatName(give.key),
@@ -919,7 +926,7 @@ var PAIR = (function (DEMO) {
       hasFacts: neighbors(s.keep).some(function (k) { return adjacency(mine(s.keep), ticketOf(k, null)).res !== 'ok'; }),
       noCandidate: !anyOk,
       emptyTitle: '현재 연결 가능한 후보가 없습니다',
-      emptyText: "'교환 제안 받기'를 켠 관객 중 조건이 맞는 좌석만 후보로 보여줘요. 좌석별로 빠진 이유는 개인정보라 알려드리지 않아요.",
+      emptyText: '좌석별로 빠진 이유는 개인정보라 알려드리지 않아요.',
       canFlip: !!demo && !anyOk && s.step === 'select', flipText: '반대 방향으로 찾아보기 (' + seatName(flipTo.key) + ' 유지)',
       notice: demo ? s.notice : '', hasNotice: !!(demo && s.notice),
       canNext: ok, cantNext: !ok,
@@ -961,7 +968,7 @@ var PAIR = (function (DEMO) {
         item('ok', '충족', '① 내 조건: ' + seatName(s.keep) + ' 바로 옆 (배치도 확인)'),
         item(c.wantFail.length ? 'no' : 'ok', c.wantFail.length ? '불일치' : '충족', '② 상대가 등록한 조건 ↔ 내가 제공할 ' + seatName(give.key)),
       ],
-      twoWayNote: "양쪽 조건이 맞아도 아직 '교환 완료'가 아니에요. 상대방의 제안 수락과 최종 확인이 남아 있어요.",
+      twoWayNote: "아직 '교환 완료'가 아니에요.",
       ack: !!s.ack, canSend: canSend, cantSend: !canSend, sendText: seatName(s.cand) + ' 관객에게 교환 제안 보내기',
       sendHint: s.step !== 'select' ? '이미 제안을 보냈거나 진행할 수 없는 상태예요.' : (!c.proposable ? '이 후보에게는 지금 제안할 수 없어요.' : (s.ack ? '' : '위 내용을 확인했다고 선택하면 보낼 수 있어요.')),
     };
@@ -974,8 +981,8 @@ var PAIR = (function (DEMO) {
     reviewing: ['plan', '검토 중', '다른 좌석으로 옮기자는 교환 제안이에요', '', 'respond'],
     accepted: ['ok', '수락함', '제안을 수락했어요', "아직 '교환 완료'가 아니에요. 예매처의 최종 확인을 기다리는 중이에요.", 'wait', '응답 완료 · 예매처 최종 확인을 기다리는 중'],
     final: ['wait', '최종 확인 중', '예매처가 최종 확인 중이에요', "티켓과 조건을 마지막으로 확인하고 있어요. 아직 '교환 완료'가 아니에요.", 'wait', '최종 확인 중 · 결과가 나오면 여기서 알려드려요'],
-    done: ['done', '교환 완료 (시연)', '교환이 완료됐어요', '새 좌석은 7열 12번이에요. 시연용 모의 결과예요.', 'back'],
-    failed: ['fail', '교환 실패', '최종 확인에 실패했어요', '교환은 진행되지 않았어요. 원래 좌석 11열 5번이 유지되는 것을 목표로 해요 (목표 UX).', 'back'],
+    done: ['done', '교환 완료 (시연)', '교환이 완료됐어요', '새 좌석은 7열 12번이에요.', 'back'],
+    failed: ['fail', '교환 실패', '최종 확인에 실패했어요', '교환은 진행되지 않았어요. 원래 좌석 11열 5번을 유지해요 (목표).', 'back'],
     declined: ['mute', '거절함', '제안을 거절했어요', '내 좌석은 그대로예요. 거절 사유는 신청자에게 공개되지 않아요.', 'back'],
     cancelled: ['cancel', '신청자 취소', '신청자가 제안을 취소했어요', '내 좌석은 그대로예요.', 'back'],
   };
@@ -1015,7 +1022,7 @@ var PAIR = (function (DEMO) {
       companionPolicy: comp ? (comp.policy || '좌석별 교환 정책 확인 필요') : '',
       canRespond: s.step === 'proposed' && hasProposal(s), responded: hasProposal(s) && s.step !== 'proposed',
       respondNote: "수락해도 바로 교환되지 않아요. 최종 확인을 통과해야 '교환 완료'예요.",
-      state: key, title: r[2], sub: r[3] || ('옆자리(' + seatName(s.keep) + ') 관객이 일행과 나란히 앉고 싶어 해요. 같은 R석이라 추가 결제는 없어요.'),
+      state: key, title: r[2], sub: r[3] || ('옆자리(' + seatName(s.keep) + ') 관객이 일행과 나란히 앉고 싶어 해요.'),
       statusBadge: r[1], statusTitle: r[2], statusText: r[3], bandStyle: BAND[r[0]] + '; border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px',
       hasWait: r[4] === 'wait' && hasProposal(s), waitText: r[5] || '', hasBack: r[4] === 'back' && hasProposal(s), backText: '설정 화면으로 돌아가기',
       stepper: recvStepper(key),
@@ -1042,19 +1049,19 @@ var PAIR = (function (DEMO) {
     };
   }
   function viewAfter(s, key) {
-    return { stepperDeclined: pstep(4, 'fail', '상대방이 제안을 거절 · 내 좌석 그대로'), now: bothMine(), after: pairText(s.keep, key), cand: seatName(key), candLabel: '옆자리 후보 · ' + sideOf(s.keep, key) };
+    return { stepperDeclined: pstep(4, 'fail'), now: bothMine(), after: pairText(s.keep, key), cand: seatName(key), candLabel: '옆자리 후보 · ' + sideOf(s.keep, key) };
   }
   function viewDone(s, key) {
     var give = other(s.keep);
     return { cand: seatName(key), date: DEMO.dateLine(mine(s.keep)), seats: 'R석 · B구역 ' + pairText(s.keep, key), gave: 'B구역 ' + seatName(give.key) };
   }
-  function viewFailed() { return { mine: dateRound() + ' · R석 B구역 ' + bothMine(), keepText: '2장 모두 유지 (목표)', stepper: pstep(5, 'fail', '최종 확인 실패 · 2장 모두 유지 (목표)') }; }
-  var SENT_STEPS = [['좌석 방향 선택', '유지할 좌석을 골랐어요'], ['옆자리 후보 확인', '배치도·양방향 조건 확인 통과'], ['교환 제안 보내기', '최종 비교 후 내 동의 완료'],
-    ['상대방 검토', '옆자리 관객이 검토 중이에요'], ['제안 수락', '상대방이 제안을 수락해야 다음으로 가요'], ['최종 확인 중', '티켓·조건을 마지막으로 확인해요'],
-    ['교환 완료', '최종 확인을 통과해야 표시돼요']];
+  function viewFailed() { return { mine: dateRound() + ' · R석 B구역 ' + bothMine(), keepText: '2장 모두 유지 (목표)', stepper: pstep(5, 'fail') }; }
+  var SENT_STEPS = [['좌석 방향 선택', ''], ['옆자리 후보 확인', ''], ['교환 제안 보내기', ''],
+    ['상대방 검토', '옆자리 관객이 검토 중이에요'], ['제안 수락', '상대가 수락해야 다음 단계로 가요'], ['최종 확인 중', ''],
+    ['교환 완료', '최종 확인을 통과해야 완료돼요']];
   function viewSent() { return { steps: DEMO.timeline(SENT_STEPS, 3), sub: '상대방이 검토하는 동안 내 티켓 2장은 그대로 유효해요.' }; }
   function viewCancelled(from) {
-    return { stepper: pstep(PAIR_CANCEL_AT[from] === undefined ? 4 : PAIR_CANCEL_AT[from], 'stop', '제안 취소 · 내 티켓 2장 그대로'), title: '교환 제안을 취소했어요', body: '보낸 제안은 닫혔어요. 옆자리 관객에게는 취소됐다고 보여요 (서비스 설계 가정). 내 티켓 2장은 그대로 유효해요.',
+    return { stepper: pstep(PAIR_CANCEL_AT[from] === undefined ? 4 : PAIR_CANCEL_AT[from], 'stop'), title: '교환 제안을 취소했어요', body: '보낸 제안은 닫혔어요. 내 티켓 2장은 그대로 유효해요.',
       primary: '좌석 방향 다시 고르기', secondary: '처음으로' };
   }
   var STATUS_A = { select: '연석 만들기 준비 중', proposed: '교환 제안 보냄 · 상대방 검토 중', accepted: '상대방 제안 수락 · 최종 확인 전', final: '최종 확인 중',
@@ -1117,6 +1124,8 @@ else if (nav.pop && s.length > 1) { s.pop(); }
 }
 function focusEl(el) { if (el && el.focus) { try { el.focus({ preventScroll: true }); } catch (err) { /* 무시 */ } } }
 
+var ZOOM_NOTES = {"Main": ["교환 가능 여부는 가상 데이터로 정한 시연 판정이에요. 실제 예매처 정책을 검증한 결과가 아니에요.", "같은 가격·등급 제한과 신청 마감일은 가상 규칙이에요."], "Request": ["양쪽 수락과 최종 확인이 끝나야 교환이 완료된다는 규칙은 비교·진행 화면에서 안내해요 (서비스 설계 가정).", "중요도를 고르지 않은 조건을 '무관'으로 처리하지 않는다는 원칙은 입력 검증 문구로 보여줘요."], "Waiting": ["후보 알림은 서비스 설계 가정이에요. '후보 알림 열기 (시연)'은 알림 도착을 흉내 내는 시연 조작이에요."], "MatchCheck": ["한쪽 조건만 맞아도 '매칭 완료'로 표시하지 않아요 (양방향 판정 원칙).", "조건별 판정 전체는 '조건 전체 보기'에 접어 두었어요."], "Compare": ["정보가 없는 항목은 추정하지 않고 '확인 필요'로 표시해요 (같은 항목 보기 안에도 안내)."], "StatusSent": ["응답 기한(12시간)은 가상 규칙이에요.", "지난 단계의 보조 설명은 단계 이름과 완료 표시로 충분해 뺐어요."], "StatusAccepted": ["최종 확인 전 취소 가능 여부는 서비스 설계 가정이에요."], "StatusFinal": ["실패하면 원래 티켓을 유지하는 것은 목표 UX이자 시스템 요구사항이에요. 두 티켓을 한 번에 처리하고 실패하면 아무것도 바꾸지 않는 기능이 필요해요.", "이 프로토타입은 실제 티켓을 처리하지 않아요. 확인 항목의 결과는 모의 값이에요."], "Done": ["새 티켓 발급은 최종 확인 통과를 가정한 모의 화면이에요.", "공연당 1회 제한·취소 수수료 기준은 가상 규칙이에요. 실제 기준은 공연별 안내 확인이 필요해요."], "ExFinalFailed": ["원래 티켓 유지는 목표 UX·시스템 요구사항이에요. 실제 서비스에는 두 티켓을 한 번에 처리하고 실패하면 아무것도 바꾸지 않는 기능이 필요해요.", "이 프로토타입은 실제 티켓을 처리하지 않아요."], "ExCancelled": ["상대방에게 '취소됨'으로 보인다는 것은 서비스 설계 가정이에요.", "신청 횟수·간격 제한은 가상 규칙이에요. 공식 정책으로 확인된 내용이 아니에요."], "ExNoCandidate": ["새 후보 알림은 서비스 설계 가정이에요."], "ExMismatch": ["선호 조건은 맞지 않아도 후보로 남기고 차이를 알려줘요 (양방향 판정 원칙)."], "ExTicketChanged": ["티켓 상태는 시연용 모의 데이터예요. 실제 예매 시스템에서 상태를 읽어 온다고 가정하지 않아요."], "Match": ["응답 기한(12시간)은 가상 규칙이에요.", "거절해도 불이익이 없다는 것은 서비스 설계 가정이에요."], "Eligibility": ["판정은 가상 데이터로 보여 주는 시연이에요.", "없는 정보는 추정하지 않고 '확인 필요'로 표시해요. 확인 전에는 신청이 열리지 않는다는 것은 서비스 설계 가정이에요."], "ConditionsCast": ["고르지 않은 조건은 '무관'으로 처리하지 않아요 (위쪽 '중요도를 선택해 주세요' 안내)."], "PairMode": ["연석 만들기는 수요를 검증하지 않은 실험 기능이에요."], "PairSeat": ["'교환 제안 받기'를 켠 관객에게만 제안한다는 것은 서비스 설계 가정이에요.", "번호가 이어져도 인접 여부는 배치도 데이터로 따로 확인해요 (다음 화면에서 표시).", "상대가 수락해도 최종 확인 뒤에 교환돼요 (진행 화면에서 표시)."], "PairAdjacency": ["다른 관객의 수신 설정·제외 사유는 개인정보라 표시하지 않아요."], "PairWarn": ["상대 수락과 최종 확인이 남았다는 점은 단계 표시('다음: 상대 수락')와 확인 목록으로 안내해요."], "PairAccepted": ["실패 시 원래 좌석 유지는 목표 UX·시스템 요구사항이에요."], "PairDeclined": ["수신자는 언제든 거절할 수 있어요 (수신자의 권한)."], "PairDone": ["교환 완료는 수락과 최종 확인 통과를 가정한 모의 화면이에요."], "PairIntent": ["같은 가격·등급 제안만 받는 것은 MVP 범위로 정한 서비스 설계 가정이에요.", "연석 만들기는 수요를 검증하지 않은 실험 기능이에요."], "PairReceive": ["수신자 화면의 '(목표)' 표기: 실패 시 원래 좌석 유지는 목표 UX·시스템 요구사항이에요.", "교환이 예매처 안에서 처리되고 송금·연락이 필요 없다는 것은 서비스 설계 가정이에요.", "응답 기한은 가상 규칙이에요."]};
+var ZOOM_STATIC = ["PairMode", "PairMode", "PairIntent", "PairMode"];
 var ZOOM_BASE = ["outline: none; width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left", "outline: none; width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left", "outline: none; width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left", "outline: none; width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left"];
 var ZOOM_INFO = [{"role": "신청자 A · 체험", "title": "신청자 A · 교환을 요청해요", "help": "직접 눌러 체험할 수 있어요. 진행 상태와 입력은 그대로 유지돼요."}, {"role": "3번 화면 · 설명용", "title": "예시 · 방향 선택", "help": "설명용 화면이에요. 화면 안의 이동 링크만 동작해요."}, {"role": "수신자 B · 체험", "title": "수신자 B · 제안에 응답해요", "help": "직접 눌러 체험할 수 있어요. 진행 상태와 입력은 그대로 유지돼요."}, {"role": "4번 화면 · 설명용", "title": "예시 · 연석 완료", "help": "설명용 화면이에요. 화면 안의 이동 링크만 동작해요."}];
 var ZOOM_ORDER = [0, 2, 1, 3];
@@ -1164,6 +1173,10 @@ v.zoomTitle = info.map(function (x) { return x.title; }).join(' / ');
 v.zoomHelp = info.length ? info[0].help : '';
 v.zoomPos = z && z.length === 1 ? (ZOOM_ORDER.indexOf(z[0]) + 1) + ' / ' + ZOOM_ORDER.length : '';
 v.zpanelStyle = z ? zoomPanelStyle(z) : 'display: none';
+var st = self.state && self.state.stacks;
+var notes = [];
+(z || []).forEach(function (i) { var name = st && st[i] ? st[i][st[i].length - 1] : ZOOM_STATIC[i]; (ZOOM_NOTES[name] || []).forEach(function (x) { if (notes.indexOf(x) < 0) notes.push(x); }); });
+v.zoomNotes = notes; v.zoomHasNotes = notes.length > 0;
 v.zoomLive = z ? '크게 보기 열림: ' + v.zoomTitle + '. Esc 로 닫아요.' : '';
 return v;
 }

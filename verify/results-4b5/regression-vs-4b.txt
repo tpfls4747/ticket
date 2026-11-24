@@ -1,0 +1,30 @@
+== 픽셀 비교
+  차이 desktop P01.png 21266 px (1.025%), 영역 x1087-1796 y681-824
+  차이 desktop P08.png 50639 px (2.440%), 영역 x163-1478 y428-750
+  차이 desktop P09.png 43437 px (2.093%), 영역 x163-1211 y358-786
+  차이 desktop P10.png 49730 px (2.396%), 영역 x163-1200 y352-788
+  차이 desktop P11.png 98547 px (4.748%), 영역 x152-1756 y351-785
+  차이 desktop P12.png 46773 px (2.254%), 영역 x163-1116 y351-710
+  차이 desktop P13.png 45897 px (2.211%), 영역 x163-1414 y351-785
+  desktop: 16장 중 동일 9장
+  차이 mobile P08-viewport.png 14738 px (4.477%), 영역 x163-366 y553-692
+  차이 mobile P09-viewport.png 27049 px (8.218%), 영역 x163-366 y357-674
+  차이 mobile P10-viewport.png 7841 px (2.382%), 영역 x163-302 y351-604
+  차이 mobile P11-viewport.png 29778 px (9.047%), 영역 x152-377 y374-785
+  차이 mobile P12-viewport.png 33531 px (10.187%), 영역 x163-366 y384-692
+  차이 mobile P13-viewport.png 4039 px (1.227%), 영역 x163-366 y351-618
+  mobile: 16장 중 동일 10장
+== 구조
+  보드 제목 동일: True | 보드 크기 동일: True
+  모바일 가로 스크롤 폭: 1968 → 1968
+  콘솔/네트워크 로그: 0 → 0
+== 페이지별
+  P01 P01 표지
+     - 첫 링크 클릭: blob:(834) → blob:(747)
+  P08 P07 UI 좌석·회차 교환
+     - Tab 순서 다름: ['button:체험 폰 크게 보기', 'button:처음부터 다시', 'button:', 'button:', 'button:모바일 티켓 보기', 'button:공연장 안내', 'button:예매 취소', 'a:좌석·회차 교환 신청', 'button:', 'a:', 'button:필수', 'button:선호', 'button:무관', 'button:12.19 (토) 19:30', 'button:12.20 (일) 14:00', 'button:12.21 (월) 14:00', 'button:필수', 'button:선호', 'button:무관', 'button:A구역', 'button:B구역', 'button:C구역', 'button:상관없음', 'button:필수', 'button:선호', 'button:무관', 'a:교환 신청 등록', 'button:', 'a:', 'a:수정', 'a:알림 도착 (프로토타입)', 'button:교환 신청 취소', 'button:', 'a:', 'a:거절', 'a:교환 수락', 'button:', 'button:모바일 티켓 보기', 'a:예매 내역으로', 'button:', 'a:', 'a:C구역도 포함하기', 'a:12.20 (일) 14:00 회차 추', 'a:이 조건으로 계속 기다리기'] → ['button:체험 폰 크게 보기', 'button:처음부터 다시', 'button:', 'button:', 'button:모바일 티켓 보기', 'button:공연장 안내', 'button:예매 취소', 'a:좌석·회차 교환 신청', 'button:', 'a:', 'button:필수', 'button:선호', 'button:무관', 'button:12.19 (토) 19:30', 'button:12.20 (일) 14:00', 'button:12.21 (월) 14:00', 'button:필수', 'button:선호', 'button:무관', 'button:A구역', 'button:B구역', 'button:C구역', 'button:상관없음', 'button:필수', 'button:선호', 'button:무관', 'a:교환 신청 등록', 'button:', 'a:', 'a:수정', 'a:후보 알림 열기 (시연)', 'button:교환 신청 취소', 'button:', 'a:', 'a:거절', 'a:교환 수락', 'button:', 'button:모바일 티켓 보기', 'a:예매 내역으로', 'button:', 'a:', 'a:C구역도 포함하기', 'a:12.20 (일) 14:00 회차 추', 'a:이 조건으로 계속 기다리기']
+     - 첫 링크 클릭: blob:(2400) → blob:(2202)
+  P10 P07-C 교환 처리 상태 (STEP 2C 추가)
+     - 첫 링크 클릭: blob:(1661) → blob:(1340)
+  P12 P08 UI 연석 만들기
+     - 첫 링크 클릭: blob:(2447) → blob:(2234)
