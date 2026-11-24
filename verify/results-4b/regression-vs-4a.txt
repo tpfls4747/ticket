@@ -1,0 +1,46 @@
+== 픽셀 비교
+  차이 desktop P01.png 110654 px (5.331%), 영역 x1085-1394 y212-760
+  차이 desktop P08.png 126614 px (6.100%), 영역 x342-1799 y31-867
+  차이 desktop P09.png 115308 px (5.556%), 영역 x152-1799 y45-867
+  차이 desktop P10.png 29323 px (1.413%), 영역 x152-1799 y45-867
+  차이 desktop P11.png 142957 px (6.888%), 영역 x153-1799 y44-866
+  차이 desktop P12.png 354092 px (17.060%), 영역 x152-1799 y30-931
+  차이 desktop P13.png 172323 px (8.303%), 영역 x152-1799 y44-866
+  desktop: 16장 중 동일 9장
+  차이 mobile P08-viewport.png 701 px (0.213%), 영역 x342-371 y320-349
+  차이 mobile P09-viewport.png 1618 px (0.492%), 영역 x152-371 y320-841
+  차이 mobile P10-viewport.png 2107 px (0.640%), 영역 x152-371 y320-841
+  차이 mobile P11-viewport.png 22853 px (6.943%), 영역 x153-371 y320-841
+  차이 mobile P12-viewport.png 32991 px (10.023%), 영역 x162-389 y268-841
+  차이 mobile P13-viewport.png 47615 px (14.466%), 영역 x152-377 y320-842
+  mobile: 16장 중 동일 10장
+== 구조
+  보드 제목 동일: True | 보드 크기 동일: True
+  모바일 가로 스크롤 폭: 1968 → 1968
+  콘솔/네트워크 로그: 0 → 0
+== 페이지별
+  P01 P01 표지
+     - 첫 링크 클릭: blob:(707) → blob:(834)
+  P08 P07 UI 좌석·회차 교환
+     - 보이는 링크·입력 요소 다름 (39 → 46)
+     - Tab 순서 다름: ['button:처음부터 다시', 'button:', 'button:모바일 티켓 보기', 'button:공연장 안내', 'button:예매 취소', 'a:좌석·회차 교환 신청', 'a:', 'button:필수', 'button:선호', 'button:무관', 'button:12.19 (토) 19:30', 'button:12.20 (일) 14:00', 'button:12.21 (월) 14:00', 'button:필수', 'button:선호', 'button:무관', 'button:A구역', 'button:B구역', 'button:C구역', 'button:상관없음', 'button:필수', 'button:선호', 'button:무관', 'a:교환 신청 등록', 'a:', 'a:수정', 'a:알림 도착 (프로토타입)', 'button:교환 신청 취소', 'a:', 'a:거절', 'a:교환 수락', 'button:모바일 티켓 보기', 'a:예매 내역으로', 'a:', 'a:C구역도 포함하기', 'a:12.20 (일) 14:00 회차 추', 'a:이 조건으로 계속 기다리기'] → ['button:체험 폰 크게 보기', 'button:처음부터 다시', 'button:', 'button:', 'button:모바일 티켓 보기', 'button:공연장 안내', 'button:예매 취소', 'a:좌석·회차 교환 신청', 'button:', 'a:', 'button:필수', 'button:선호', 'button:무관', 'button:12.19 (토) 19:30', 'button:12.20 (일) 14:00', 'button:12.21 (월) 14:00', 'button:필수', 'button:선호', 'button:무관', 'button:A구역', 'button:B구역', 'button:C구역', 'button:상관없음', 'button:필수', 'button:선호', 'button:무관', 'a:교환 신청 등록', 'button:', 'a:', 'a:수정', 'a:알림 도착 (프로토타입)', 'button:교환 신청 취소', 'button:', 'a:', 'a:거절', 'a:교환 수락', 'button:', 'button:모바일 티켓 보기', 'a:예매 내역으로', 'button:', 'a:', 'a:C구역도 포함하기', 'a:12.20 (일) 14:00 회차 추', 'a:이 조건으로 계속 기다리기']
+     - 첫 링크 클릭: blob:(2092) → blob:(2400)
+  P09 P07-B 자격·조건·양방향 매칭·비교 (STEP 2C 추가)
+     - 보이는 링크·입력 요소 다름 (25 → 31)
+     - Tab 순서 다름: ['button:교환 조건 등록하기', 'button:공연 안내에서 확인하기', 'button:필수', 'button:선호', 'button:무관', 'button:12.26 (토) 14:00', 'button:12.27 (일) 14:00', 'button:필수', 'button:선호', 'button:무관', 'button:VIP석 A구역', 'button:VIP석 B구역', 'button:상관없음', 'button:필수', 'button:선호', 'button:무관', 'button:필수', 'button:선호', 'button:무관', 'button:캐스트 A', 'button:캐스트 B', 'button:전후 정보 비교하기', 'input:', 'button:교환 제안 보내기'] → ['button:', 'button:교환 조건 등록하기', 'button:공연 안내에서 확인하기', 'button:', 'button:필수', 'button:선호', 'button:무관', 'button:12.26 (토) 14:00', 'button:12.27 (일) 14:00', 'button:필수', 'button:선호', 'button:무관', 'button:VIP석 A구역', 'button:VIP석 B구역', 'button:상관없음', 'button:필수', 'button:선호', 'button:무관', 'button:필수', 'button:선호', 'button:무관', 'button:캐스트 A', 'button:캐스트 B', 'button:', 'summary:조건 전체 보기 (양방향 · 티켓 정', 'button:전후 정보 비교하기', 'button:', 'summary:같은 항목 2개 보기', 'input:', 'button:교환 제안 보내기']
+  P10 P07-C 교환 처리 상태 (STEP 2C 추가)
+     - 보이는 링크·입력 요소 다름 (5 → 9)
+     - Tab 순서 다름: ['button:제안 취소하기', 'button:교환 취소하기 (최종 확인 전)', 'button:모바일 티켓 보기', 'a:예매 내역으로'] → ['button:', 'button:제안 취소하기', 'button:', 'button:교환 취소하기 (최종 확인 전)', 'button:', 'button:', 'button:모바일 티켓 보기', 'a:예매 내역으로']
+     - 첫 링크 클릭: blob:(1617) → blob:(1661)
+  P11 P07-D 예외 상황 (STEP 2C 추가)
+     - 보이는 링크·입력 요소 다름 (12 → 18)
+     - Tab 순서 다름: ['button:조건 수정하기', 'button:조건 수정하기', 'button:교환 신청 취소', 'button:다른 후보 찾기', 'button:교환 신청 취소', 'button:교환 다시 신청', 'button:예매 상세로', 'button:상태 다시 확인', 'button:교환 신청 취소', 'button:내 티켓 확인', 'button:다시 신청'] → ['button:', 'button:조건 수정하기', 'button:', 'button:조건 수정하기', 'button:교환 신청 취소', 'button:', 'button:다른 후보 찾기', 'button:교환 신청 취소', 'button:', 'button:교환 다시 신청', 'button:예매 상세로', 'button:', 'button:상태 다시 확인', 'button:교환 신청 취소', 'button:', 'button:내 티켓 확인', 'button:다시 신청']
+  P12 P08 UI 연석 만들기
+     - 보이는 링크·입력 요소 다름 (21 → 26)
+     - 라디오·체크박스 클릭 결과 다름
+     - Tab 순서 다름: ['button:', 'input:', 'input:', 'input:', 'a:다음', 'a:', 'input:', 'a:옆자리 후보 확인하기', 'input:', 'button:설정 저장', 'button:모바일 티켓 보기', 'a:예매 내역으로', 'button:처음부터 다시', 'button:기본', 'button:동행 좌석 있음', 'button:조건 불일치', 'button:자격 미확인', 'body', 'body', 'body'] → ['button:A·B 함께 크게 보기', 'button:처음부터 다시', 'button:기본', 'button:동행 좌석 있음', 'button:조건 불일치', 'button:자격 미확인', 'button:', 'button:', 'input:', 'input:', 'input:', 'a:다음', 'button:', 'input:', 'button:설정 저장', 'button:', 'a:', 'input:', 'a:옆자리 후보 확인하기', 'button:', 'button:모바일 티켓 보기', 'a:예매 내역으로', 'body', 'body', 'body']
+     - 첫 링크 클릭: blob:(2119) → blob:(2447)
+  P13 P08-B 연석 의향·인접·동의·상태 (STEP 2C 추가)
+     - 보이는 링크·입력 요소 다름 (10 → 13)
+     - 라디오·체크박스 클릭 결과 다름
+     - Tab 순서 다름: ['input:', 'button:설정 저장', 'button:선택됨 ✓', 'button:선택한 후보와 최종 비교하기', 'input:', 'button:교환 취소하기 (최종 확인 전)', 'button:다른 후보 찾기', 'button:이전 단계로 (유지할 좌석 다시 고르', 'body'] → ['button:', 'button:', 'button:선택됨 ✓', 'button:선택한 후보와 최종 비교하기', 'button:', 'summary:전체 비교 보기 (좌석 배치·회차·등', 'button:', 'button:교환 취소하기 (최종 확인 전)', 'button:', 'button:다른 후보 찾기', 'button:이전 단계로 (유지할 좌석 다시 고르']

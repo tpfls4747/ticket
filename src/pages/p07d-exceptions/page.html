@@ -13,7 +13,8 @@ body{margin:0}
 a{color:#5B3DF5}a:hover{color:#4328D9}
 </style>
 </helmet>
-<div style="width: 1920px; height: 1080px; box-sizing: border-box; padding: 88px 120px 56px; background: #F7F7FA; font-family: 'Noto Sans KR', sans-serif; color: #191B22; display: flex; flex-direction: column; gap: 36px; overflow: hidden">
+<div style="width: 1920px; height: 1080px; box-sizing: border-box; padding: 88px 120px 56px; background: #F7F7FA; font-family: 'Noto Sans KR', sans-serif; color: #191B22; display: flex; flex-direction: column; gap: 36px; overflow: hidden; position: relative">
+<div aria-label="설명용 화면 안내" style="position: absolute; right: 120px; top: 44px; z-index: 5; display: flex; align-items: center; gap: 10px; background: #FFFFFF; border: 1.5px dashed #8B909C; border-radius: 999px; padding: 8px 16px; font-size: 14px; color: #4A4F5C"><span style="font-size: 11px; font-weight: 900; letter-spacing: 1px; color: #4A4F5C; background: #E6E8EC; padding: 3px 7px; border-radius: 6px">설명용</span>정적 화면이에요 · 직접 체험은 06·07 보드 · 폰의 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4A4F5C" stroke-width="2.4" stroke-linecap="round" aria-label="돋보기" role="img" style="vertical-align: -2px"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>로 크게 보기</div>
 <div style="display: flex; align-items: flex-start; gap: 32px">
 <span aria-hidden="true" style="font-size: 128px; font-weight: 900; line-height: 0.82; color: #DCD5FF; letter-spacing: -4px">06</span>
 <div style="display: flex; flex-direction: column; gap: 14px">
@@ -23,41 +24,131 @@ a{color:#5B3DF5}a:hover{color:#4328D9}
 </div>
 <div style="flex: 1; display: flex; gap: 24px; min-height: 0"><div style="background: #5B3DF5; border-radius: 32px; padding: 36px 32px; flex: 1; display: flex; gap: 24px; justify-content: space-between; min-height: 0"><figure style="margin: 0; width: 226px; display: flex; flex-direction: column; gap: 16px">
 <div style="display: flex; align-items: center; gap: 10px"><span style="width: 32px; height: 32px; border-radius: 16px; background: #FFB37A; color: #5A2A06; font-size: 15px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0">!</span><span style="flex: 1; height: 2px; background: #8E7BFA; margin-right: -52px"></span></div>
-<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35)"><div style="width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left"><dc-import name="ExMismatch" hint-size="390px,844px"></dc-import></div></div>
+<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35); position: relative"><button type="button" data-zoom-btn="0" onclick="{{zoom_0}}" aria-label="필수 조건 불일치 크게 보기" title="크게 보기" style="position: absolute; right: 6px; top: 6px; z-index: 3; width: 30px; height: 30px; border-radius: 15px; border: 1.5px solid #FFFFFF; background: rgba(25, 27, 34, 0.86); color: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 0; cursor: zoom-in"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></button><div data-zoom-host="0" tabIndex="-1" onkeydown="{{zk_0}}" style="{{zs_0}}"><dc-import name="ExMismatch" hint-size="390px,844px"></dc-import></div></div>
 <figcaption style="display: flex; flex-direction: column; gap: 6px"><b style="font-size: 17px; color: #FFD2AE">필수 조건 불일치</b><span style="font-size: 15px; line-height: 1.55; color: #E3DDFF">후보에서 제외하고 이유를 보여줘요</span></figcaption>
 </figure>
 <figure style="margin: 0; width: 226px; display: flex; flex-direction: column; gap: 16px">
 <div style="display: flex; align-items: center; gap: 10px"><span style="width: 32px; height: 32px; border-radius: 16px; background: #FFB37A; color: #5A2A06; font-size: 15px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0">!</span><span style="flex: 1; height: 2px; background: #8E7BFA; margin-right: -52px"></span></div>
-<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35)"><div style="width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left"><dc-import name="ExNoCandidate" hint-size="390px,844px"></dc-import></div></div>
+<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35); position: relative"><button type="button" data-zoom-btn="1" onclick="{{zoom_1}}" aria-label="후보 없음 크게 보기" title="크게 보기" style="position: absolute; right: 6px; top: 6px; z-index: 3; width: 30px; height: 30px; border-radius: 15px; border: 1.5px solid #FFFFFF; background: rgba(25, 27, 34, 0.86); color: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 0; cursor: zoom-in"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></button><div data-zoom-host="1" tabIndex="-1" onkeydown="{{zk_1}}" style="{{zs_1}}"><dc-import name="ExNoCandidate" hint-size="390px,844px"></dc-import></div></div>
 <figcaption style="display: flex; flex-direction: column; gap: 6px"><b style="font-size: 17px; color: #FFD2AE">후보 없음</b><span style="font-size: 15px; line-height: 1.55; color: #E3DDFF">신청은 유지하고 조건을 넓히는 방법을 알려줘요</span></figcaption>
 </figure>
 <figure style="margin: 0; width: 226px; display: flex; flex-direction: column; gap: 16px">
 <div style="display: flex; align-items: center; gap: 10px"><span style="width: 32px; height: 32px; border-radius: 16px; background: #FFB37A; color: #5A2A06; font-size: 15px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0">!</span><span style="flex: 1; height: 2px; background: #8E7BFA; margin-right: -52px"></span></div>
-<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35)"><div style="width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left"><dc-import name="ExDeclined" hint-size="390px,844px"></dc-import></div></div>
+<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35); position: relative"><button type="button" data-zoom-btn="2" onclick="{{zoom_2}}" aria-label="상대방 거절 크게 보기" title="크게 보기" style="position: absolute; right: 6px; top: 6px; z-index: 3; width: 30px; height: 30px; border-radius: 15px; border: 1.5px solid #FFFFFF; background: rgba(25, 27, 34, 0.86); color: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 0; cursor: zoom-in"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></button><div data-zoom-host="2" tabIndex="-1" onkeydown="{{zk_2}}" style="{{zs_2}}"><dc-import name="ExDeclined" hint-size="390px,844px"></dc-import></div></div>
 <figcaption style="display: flex; flex-direction: column; gap: 6px"><b style="font-size: 17px; color: #FFD2AE">상대방 거절</b><span style="font-size: 15px; line-height: 1.55; color: #E3DDFF">내 티켓은 그대로예요</span></figcaption>
 </figure>
 <figure style="margin: 0; width: 226px; display: flex; flex-direction: column; gap: 16px">
 <div style="display: flex; align-items: center; gap: 10px"><span style="width: 32px; height: 32px; border-radius: 16px; background: #FFB37A; color: #5A2A06; font-size: 15px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0">!</span><span style="flex: 1; height: 2px; background: #8E7BFA; margin-right: -52px"></span></div>
-<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35)"><div style="width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left"><dc-import name="ExCancelled" hint-size="390px,844px"></dc-import></div></div>
+<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35); position: relative"><button type="button" data-zoom-btn="3" onclick="{{zoom_3}}" aria-label="신청자 취소 크게 보기" title="크게 보기" style="position: absolute; right: 6px; top: 6px; z-index: 3; width: 30px; height: 30px; border-radius: 15px; border: 1.5px solid #FFFFFF; background: rgba(25, 27, 34, 0.86); color: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 0; cursor: zoom-in"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></button><div data-zoom-host="3" tabIndex="-1" onkeydown="{{zk_3}}" style="{{zs_3}}"><dc-import name="ExCancelled" hint-size="390px,844px"></dc-import></div></div>
 <figcaption style="display: flex; flex-direction: column; gap: 6px"><b style="font-size: 17px; color: #FFD2AE">신청자 취소</b><span style="font-size: 15px; line-height: 1.55; color: #E3DDFF">진행 중인 제안을 닫아요</span></figcaption>
 </figure>
 <figure style="margin: 0; width: 226px; display: flex; flex-direction: column; gap: 16px">
 <div style="display: flex; align-items: center; gap: 10px"><span style="width: 32px; height: 32px; border-radius: 16px; background: #FFB37A; color: #5A2A06; font-size: 15px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0">!</span><span style="flex: 1; height: 2px; background: #8E7BFA; margin-right: -52px"></span></div>
-<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35)"><div style="width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left"><dc-import name="ExTicketChanged" hint-size="390px,844px"></dc-import></div></div>
+<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35); position: relative"><button type="button" data-zoom-btn="4" onclick="{{zoom_4}}" aria-label="티켓 상태 변경 크게 보기" title="크게 보기" style="position: absolute; right: 6px; top: 6px; z-index: 3; width: 30px; height: 30px; border-radius: 15px; border: 1.5px solid #FFFFFF; background: rgba(25, 27, 34, 0.86); color: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 0; cursor: zoom-in"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></button><div data-zoom-host="4" tabIndex="-1" onkeydown="{{zk_4}}" style="{{zs_4}}"><dc-import name="ExTicketChanged" hint-size="390px,844px"></dc-import></div></div>
 <figcaption style="display: flex; flex-direction: column; gap: 6px"><b style="font-size: 17px; color: #FFD2AE">티켓 상태 변경</b><span style="font-size: 15px; line-height: 1.55; color: #E3DDFF">진행을 멈추고 상태를 다시 확인해요</span></figcaption>
 </figure>
 <figure style="margin: 0; width: 226px; display: flex; flex-direction: column; gap: 16px">
 <div style="display: flex; align-items: center; gap: 10px"><span style="width: 32px; height: 32px; border-radius: 16px; background: #FFB37A; color: #5A2A06; font-size: 15px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0">!</span></div>
-<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35)"><div style="width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left"><dc-import name="ExFinalFailed" hint-size="390px,844px"></dc-import></div></div>
+<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35); position: relative"><button type="button" data-zoom-btn="5" onclick="{{zoom_5}}" aria-label="최종 확인 실패 크게 보기" title="크게 보기" style="position: absolute; right: 6px; top: 6px; z-index: 3; width: 30px; height: 30px; border-radius: 15px; border: 1.5px solid #FFFFFF; background: rgba(25, 27, 34, 0.86); color: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 0; cursor: zoom-in"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></button><div data-zoom-host="5" tabIndex="-1" onkeydown="{{zk_5}}" style="{{zs_5}}"><dc-import name="ExFinalFailed" hint-size="390px,844px"></dc-import></div></div>
 <figcaption style="display: flex; flex-direction: column; gap: 6px"><b style="font-size: 17px; color: #FFD2AE">최종 확인 실패</b><span style="font-size: 15px; line-height: 1.55; color: #E3DDFF">원 티켓 유지가 목표예요 (목표 UX)</span></figcaption>
 </figure></div></div>
 <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: #6B7080"><span style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="display: flex; gap: 3px"><span style="width: 10px; height: 10px; border-radius: 3px; background: #5B3DF5"></span><span style="width: 10px; height: 10px; border-radius: 3px; background: #5B3DF5"></span></span>좌석·회차 교환 UX/UI</span><span><b style="color: #191B22">07</b> / 10 · A-4</span></div>
-</div>
+<p aria-live="polite" style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0">{{zoomLive}}</p><sc-if value="{{zoomOpen}}"><div data-zoom-backdrop="" onclick="{{zclose}}" style="position: fixed; left: 0; top: 0; width: 1920px; height: 1080px; background: rgba(20, 16, 44, 0.8); z-index: 1000"></div><section data-zoom-ctl="" role="dialog" aria-label="{{zoomTitle}} 크게 보기" onkeydown="{{zkey}}" style="{{zpanelStyle}}"><span style="align-self: flex-start; font-size: 13px; font-weight: 700; color: #191B22; background: #FFFFFF; padding: 5px 12px; border-radius: 999px">{{zoomRole}}</span><b style="font-size: 26px; line-height: 1.35">{{zoomTitle}}</b><p style="margin: 0; font-size: 16px; line-height: 1.6; color: #E3DDFF">{{zoomHelp}}</p><sc-if value="{{zoomSingle}}"><div style="display: flex; align-items: center; gap: 10px"><button type="button" onclick="{{zprev}}" style="height: 44px; padding: 0 14px; border-radius: 12px; font-family: inherit; font-size: 15px; font-weight: 700; background: rgba(255, 255, 255, 0.14); color: #FFFFFF; border: 1.5px solid rgba(255, 255, 255, 0.5)">← 이전 화면</button><span style="font-size: 15px; font-weight: 700">{{zoomPos}}</span><button type="button" onclick="{{znext}}" style="height: 44px; padding: 0 14px; border-radius: 12px; font-family: inherit; font-size: 15px; font-weight: 700; background: rgba(255, 255, 255, 0.14); color: #FFFFFF; border: 1.5px solid rgba(255, 255, 255, 0.5)">다음 화면 →</button></div></sc-if><button type="button" data-zoom-close="" onclick="{{zclose}}" style="height: 50px; border-radius: 14px; font-family: inherit; font-size: 16px; font-weight: 700; background: #FFFFFF; color: #191B22; border: 0">닫기 (Esc)</button><span style="font-size: 14px; color: #C9BFFF">확대해도 진행 상태는 그대로예요. 닫으면 보드 화면으로 돌아가요.</span></section></sc-if></div>
 </x-dc>
 <script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1920,&quot;height&quot;:1080}}">
+
+var ZOOM_BASE = ["width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left", "width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left", "width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left", "width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left", "width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left", "width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left"];
+var ZOOM_INFO = [{"role": "1번 화면 · 설명용", "title": "필수 조건 불일치", "help": "설명용 정적 화면이에요. 크게 읽기 위한 보기예요."}, {"role": "2번 화면 · 설명용", "title": "후보 없음", "help": "설명용 정적 화면이에요. 크게 읽기 위한 보기예요."}, {"role": "3번 화면 · 설명용", "title": "상대방 거절", "help": "설명용 정적 화면이에요. 크게 읽기 위한 보기예요."}, {"role": "4번 화면 · 설명용", "title": "신청자 취소", "help": "설명용 정적 화면이에요. 크게 읽기 위한 보기예요."}, {"role": "5번 화면 · 설명용", "title": "티켓 상태 변경", "help": "설명용 정적 화면이에요. 크게 읽기 위한 보기예요."}, {"role": "6번 화면 · 설명용", "title": "최종 확인 실패", "help": "설명용 정적 화면이에요. 크게 읽기 위한 보기예요."}];
+var ZOOM_ORDER = [0, 1, 2, 3, 4, 5];
+var ZOOM_DEMO = [0];
+function zoomStyle(i, list) {
+var k = list ? list.indexOf(i) : -1;
+if (k < 0) return ZOOM_BASE[i];
+var n = list.length, W = n * 390 + (n - 1) * 40, total = W + 40 + 320, left = Math.round((1920 - total) / 2) + k * 430;
+return 'outline: none; width: 390px; height: 844px; position: fixed; left: ' + left + 'px; top: 118px; z-index: 1001; transform: none; background: #FFFFFF; border-radius: 28px; overflow: hidden; box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55)';
+}
+function zoomPanelStyle(list) {
+var n = list.length, W = n * 390 + (n - 1) * 40, total = W + 40 + 320, left = Math.round((1920 - total) / 2) + W + 40;
+return 'position: fixed; left: ' + left + 'px; top: 118px; width: 320px; z-index: 1002; display: flex; flex-direction: column; gap: 14px; color: #FFFFFF; outline: none';
+}
+function zoomEl(i) { return document.querySelector('[data-zoom-host="' + i + '"]'); }
+function zoomFocusables(list) {
+var out = [];
+list.forEach(function (i) {
+var host = zoomEl(i);
+if (!host) return;
+var scr = [].slice.call(host.querySelectorAll(':scope > [data-nav-screen]')).filter(function (c) { return getComputedStyle(c).display !== 'none'; })[0] || host;
+[].slice.call(scr.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), summary')).forEach(function (e) { if (e.offsetParent !== null) out.push(e); });
+});
+[].slice.call(document.querySelectorAll('[data-zoom-ctl] button')).forEach(function (e) { out.push(e); });
+return out;
+}
+
+function zoomVals(self, v) {
+var z = (self.state && self.state.zoom) || null;
+ZOOM_BASE.forEach(function (_, i) {
+v['zs_' + i] = zoomStyle(i, z);
+v['zoom_' + i] = function (e) { if (e && e.preventDefault) e.preventDefault(); self.openZoom([i], e && e.currentTarget); };
+v['zk_' + i] = function (e) { self.zoomKey(e); };
+});
+v.zoomDemo = function (e) { if (e && e.preventDefault) e.preventDefault(); self.openZoom(ZOOM_DEMO, e && e.currentTarget); };
+v.zclose = function (e) { if (e && e.preventDefault) e.preventDefault(); self.closeZoom(); };
+v.zprev = function (e) { if (e && e.preventDefault) e.preventDefault(); self.stepZoom(-1); };
+v.znext = function (e) { if (e && e.preventDefault) e.preventDefault(); self.stepZoom(1); };
+v.zkey = function (e) { self.zoomKey(e); };
+v.zoomOpen = !!z;
+v.zoomSingle = !!(z && z.length === 1 && ZOOM_ORDER.length > 1);
+var info = z ? z.map(function (i) { return ZOOM_INFO[i]; }) : [];
+v.zoomRole = info.map(function (x) { return x.role; }).join(' · ');
+v.zoomTitle = info.map(function (x) { return x.title; }).join(' / ');
+v.zoomHelp = info.length ? info[0].help : '';
+v.zoomPos = z && z.length === 1 ? (ZOOM_ORDER.indexOf(z[0]) + 1) + ' / ' + ZOOM_ORDER.length : '';
+v.zpanelStyle = z ? zoomPanelStyle(z) : 'display: none';
+v.zoomLive = z ? '크게 보기 열림: ' + v.zoomTitle + '. Esc 로 닫아요.' : '';
+return v;
+}
 class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { zoom: null };
+}
+
+openZoom(list, trigger) {
+this.zoomTrigger = trigger || null;
+this.setState(function () { return { zoom: list }; }, function () { var h = zoomEl(list[0]); if (h && h.focus) { try { h.focus({ preventScroll: true }); } catch (err) { /* 무시 */ } } });
+}
+closeZoom() {
+var z = this.state.zoom, trig = this.zoomTrigger;
+this.setState(function () { return { zoom: null }; }, function () {
+var el = trig || (z ? document.querySelector('[data-zoom-btn="' + z[0] + '"]') : null);
+if (el && el.focus) { try { el.focus({ preventScroll: true }); } catch (err) { /* 무시 */ } }
+});
+}
+stepZoom(d) {
+var z = this.state.zoom;
+if (!z || z.length !== 1) return;
+var k = ZOOM_ORDER.indexOf(z[0]);
+var nx = ZOOM_ORDER[(k + d + ZOOM_ORDER.length) % ZOOM_ORDER.length];
+this.zoomTrigger = document.querySelector('[data-zoom-btn="' + nx + '"]');
+this.setState(function () { return { zoom: [nx] }; });
+}
+zoomKey(e) {
+var z = this.state && this.state.zoom;
+if (!z || !e) return false;
+if (e.key === 'Escape') { e.preventDefault(); this.closeZoom(); return true; }
+if (e.key === 'Tab') {
+var list = zoomFocusables(z);
+if (!list.length) return false;
+var k = list.indexOf(document.activeElement);
+var nx = e.shiftKey ? (k <= 0 ? list.length - 1 : k - 1) : (k < 0 || k >= list.length - 1 ? 0 : k + 1);
+e.preventDefault();
+try { list[nx].focus({ preventScroll: true }); } catch (err) { /* 무시 */ }
+return true;
+}
+return false;
+}
 renderVals() {
-return {};
+return zoomVals(this, { nosubmit: function (e) { if (e && e.preventDefault) e.preventDefault(); } });
 }
 }
 </script>

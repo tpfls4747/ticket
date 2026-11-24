@@ -48,7 +48,7 @@ const run = (n) => !ONLY.length || ONLY.includes(n);
     const H = {
       page, f, handle, problems, ctx,
       screen: (h) => f.evaluate((js) => { const v = eval(js); return v ? v.getAttribute('data-nav-screen') : null; }, visJs(h)),
-      text: (h) => f.evaluate((js) => { const v = eval(js); return v ? v.innerText.replace(/\s+/g, ' ') : ''; }, visJs(h)),
+      text: (h) => f.evaluate((js) => { const v = eval(js); if (!v) return ''; const ds = [...v.querySelectorAll('details')]; const was = ds.map((d) => d.open); ds.forEach((d) => { d.open = true; }); const tx = v.innerText.replace(/\s+/g, ' '); ds.forEach((d, k) => { d.open = was[k]; }); return tx; }, visJs(h)),
       ptext: () => f.evaluate(() => { const p = document.querySelector('[data-demo-ctl]'); return p ? p.innerText.replace(/\s+/g, ' ') : ''; }),
       live: (h) => f.evaluate((hh) => { const p = document.querySelector('[data-live="' + hh + '"]'); return p ? p.textContent : null; }, h),
       async el(h, sel, text) {
@@ -109,6 +109,7 @@ const run = (n) => !ONLY.length || ONLY.includes(n);
     await H.click(A, 'button', '선택한 후보와 최종 비교하기');
     await H.click(A, 'input[data-act="ack"]');
     await H.click(A, 'button', '11열 5번 관객에게 교환 제안 보내기');
+    await H.click(B, 'button', '제안 검토하기 →');   // STEP 4B: 도착 알림 카드에서 직접 열기
   }
   async function finish(H) {
     ok('콘솔 오류·경고 0건', H.problems.length === 0, H.problems.join(' | '));
@@ -140,20 +141,22 @@ const run = (n) => !ONLY.length || ONLY.includes(n);
     ok('신청자 후보 화면: 11열 5번 "연결 가능" 카드 1개', cards.length === 1 && cards[0].title === '11열 5번 · 오른쪽' && cards[0].text.includes('연결 가능'), JSON.stringify(cards));
     const ev = P.views(Object.assign(P.initialState(), { consent: true, intentDraft: true }), true).adj;
     ok('화면 = 엔진 결과 (후보 카드 제목)', JSON.stringify(cards.map((c) => c.title)) === JSON.stringify(ev.cards.map((c) => c.title)), JSON.stringify(ev.cards.map((c) => c.title)));
-    ok('단계 표시 3/4', (await H.text(A)).includes('단계 3/4 · 옆자리 후보'), (await H.text(A)).slice(0, 100));
+    ok('단계 표시 3/6 (인접 확인)', (await H.text(A)).includes('단계 3/6 · 인접 확인'), (await H.text(A)).slice(0, 100));
     await H.shot('01-adjacency', A);
     await H.click(A, '[data-act="choose"][data-val="11-5"]');
     await H.click(A, 'button', '선택한 후보와 최종 비교하기');
     const tw = await H.text(A);
     ok('최종 비교: 유지할 좌석 그대로 · 제공할 좌석 바뀜 · 나란히(완료 시에만)', ['유지할 좌석', '그대로', '제공할 좌석', '7열 12번 → 11열 5번 받음', '떨어짐 → 11열 4번, 5번', '나란히 · 완료 시에만', '등급·가격'].every((s) => tw.includes(s)), tw.slice(0, 500));
-    ok("최종 비교: \"아직 '교환 완료'가 아니에요\" · 단계 4/4", tw.includes("아직 '교환 완료'가 아니에요") && tw.includes('단계 4/4 · 최종 비교'), tw.slice(0, 200));
+    ok("최종 비교: \"아직 '교환 완료'가 아니에요\" · 단계 4/4", tw.includes("아직 '교환 완료'가 아니에요") && tw.includes('단계 4/6 · 비교·제안'), tw.slice(0, 200));
     await H.shot('01-warn', A);
     await H.click(A, 'input[data-act="ack"]');
     await H.click(A, 'button', '11열 5번 관객에게 교환 제안 보내기');
     ok('신청자 → 상대방 검토 (StatusSent)', (await H.screen(A)) === 'StatusSent', await H.screen(A));
-    ok('수신자 폰에 제안 도착 (PairReceive 로 전환)', (await H.screen(B)) === 'PairReceive', await H.screen(B));
+    ok('수신자 폰: 제안 도착 알림 카드 (아직 열어보지 않음)', (await H.screen(B)) === 'PairIntent' && (await H.text(B)).includes('새 교환 제안이 도착했어요'), await H.text(B));
+    await H.click(B, 'button', '제안 검토하기 →');
+    ok('제안 검토하기 → 제안 검토 화면', (await H.screen(B)) === 'PairReceive', await H.screen(B));
     tb = await H.text(B);
-    ok('제안 검토: 내 티켓 11열 5번 · 상대 제공 7열 12번 · 비교(무대와 거리 4열 앞으로)', tb.includes('지금 내 좌석') && tb.includes('B구역 11열 5번') && tb.includes('B구역 7열 12번') && tb.includes('4열 앞으로') && tb.includes('추가 결제 없음') && tb.includes('11열 5번 → 7열 12번'), tb);
+    ok('제안 검토: 내 티켓 11열 5번 · 상대 제공 7열 12번 · 비교(무대와 거리 4열 앞으로)', tb.includes('지금 내 좌석') && tb.includes('11열 5번') && tb.includes('7열 12번') && tb.includes('4열 앞으로') && tb.includes('추가 결제 없음') && tb.includes('11열 5번 → 7열 12번'), tb);
     ok('제안 검토: 수락해도 최종 확인이 남는다는 안내', tb.includes("최종 확인을 통과해야 '교환 완료'예요"), tb.slice(-200));
     await H.shot('01-receive', B);
     const ts = await H.text(A);
@@ -174,7 +177,7 @@ const run = (n) => !ONLY.length || ONLY.includes(n);
     await H.click(B, 'input[data-act="intent"][data-val="on"]');
     ok('수신자가 저장하지 않으면 여전히 후보 없음', (await H.cards()).length === 0 && (await H.text(A)).includes('현재 연결 가능한 후보가 없습니다'));
     ok('수신자 폰: 도착한 제안 없음 (제안 보기 버튼 없음)', !(await H.text(B)).includes('도착한 교환 제안 1건 보기'), await H.text(B));
-    ok('시연 제어판 안내: 3번 폰에서 먼저 켜기', (await H.ptext()).includes("3번 폰(옆자리 관객)에서 '교환 제안 받기'를 켜고 저장하세요"), await H.ptext());
+    ok('시연 제어판 안내: 수신자 B 폰에서 먼저 켜기', (await H.ptext()).includes("수신자 B 폰에서 '교환 제안 받기'를 켜고 저장하세요"), await H.ptext());
     await H.shot('02-no-intent', A);
     await finish(H);
   }
@@ -198,11 +201,11 @@ const run = (n) => !ONLY.length || ONLY.includes(n);
     await registerB(H, true);
     await aSend(H);
     await H.click(B, 'button', '뒤로');
-    ok('수신자 뒤로 → 설정 화면, "도착한 교환 제안 1건 보기" + 잠금 안내', (await H.screen(B)) === 'PairIntent' && (await H.text(B)).includes('도착한 교환 제안 1건 보기') && (await H.text(B)).includes('제안에 응답한 뒤 끌 수 있어요'), await H.text(B));
+    ok('수신자 뒤로 → 설정 화면, "검토 중인 교환 제안" 카드 + 잠금 안내', (await H.screen(B)) === 'PairIntent' && (await H.text(B)).includes('검토 중인 교환 제안') && (await H.text(B)).includes('제안에 응답한 뒤 끌 수 있어요'), await H.text(B));
     await registerB(H, false);
     t = await H.text(B);
     ok('진행 중 철회 시도 → 거부 안내, 받는 중 유지', t.includes('진행 중인 교환 제안이 있어 지금은 끌 수 없어요') && t.includes('지금: 교환 제안 받는 중'), t);
-    await H.click(B, 'button', '도착한 교환 제안 1건 보기 →');
+    await H.click(B, 'button', '이어서 검토하기 →');
     ok('제안 보기 → 제안 검토 화면', (await H.screen(B)) === 'PairReceive');
     await finish(H);
   }
@@ -277,6 +280,7 @@ const run = (n) => !ONLY.length || ONLY.includes(n);
     ok('신청자 최종 비교: 일반 안내만 ("일행과 함께 예매했거나 … 거절할 수 있어요")', t.includes('상대는 일행과 함께 예매했거나 다른 이유로 거절할 수 있어요') && !t.includes('11열 6번'), t);
     await H.click(A, 'input[data-act="ack"]');
     await H.click(A, 'button', '11열 5번 관객에게 교환 제안 보내기');
+    await H.click(B, 'button', '제안 검토하기 →');
     const tb = await H.text(B);
     ok('수신자 제안 검토: "동행 좌석이 분리될 수 있어요" · 11열 6번 · 거절 가능', tb.includes('동행 좌석이 분리될 수 있어요') && tb.includes('함께 예매한 11열 6번과 떨어져 앉게 돼요') && tb.includes('거절해도 돼요'), tb);
     ok('제안을 보낸 뒤에는 티켓 상황 변경 불가 (비활성 + 안내)', (await H.disabled('panel', 'button', '조건 불일치')) === true
@@ -321,7 +325,7 @@ const run = (n) => !ONLY.length || ONLY.includes(n);
     const H = await openBoard();
     await registerB(H, true);
     let t = await H.text(A);
-    ok('첫 화면: 유지할 좌석·교환에 제공할 좌석 개념 + 단계 1/4', t.includes('유지할 좌석') && t.includes('교환에 제공할 좌석') && t.includes('단계 1/4 · 교환 방식'), t.slice(0, 300));
+    ok('첫 화면: 유지할 좌석·교환에 제공할 좌석 개념 + 단계 1/4', t.includes('유지할 좌석') && t.includes('교환에 제공할 좌석') && t.includes('단계 1/6 · 교환 방식'), t.slice(0, 300));
     await H.shot('09-mode', A);
     await aToAdjacency(H);
     await H.click(A, '[data-act="choose"][data-val="11-5"]');
@@ -348,6 +352,7 @@ const run = (n) => !ONLY.length || ONLY.includes(n);
     ok('비활성 CTA: 잠금 아이콘 + 점선 테두리', dis === null || (dis[0] && dis[1] === 'dashed'), JSON.stringify(dis));
     // 키보드: 제어판 버튼을 Tab 으로 조작 · 수신자 응답을 키보드로
     await H.click(A, 'button', '11열 5번 관객에게 교환 제안 보내기');
+    await H.click(B, 'button', '제안 검토하기 →');
     const acc = await H.el(B, 'button', '제안 수락');
     await acc.focus();
     await H.key('Enter');

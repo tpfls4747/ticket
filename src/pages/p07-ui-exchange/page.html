@@ -13,54 +13,63 @@ body{margin:0}
 a{color:#5B3DF5}a:hover{color:#4328D9}
 </style>
 </helmet>
-<div style="width: 1920px; height: 1080px; box-sizing: border-box; padding: 88px 120px 56px; background: #F7F7FA; font-family: 'Noto Sans KR', sans-serif; color: #191B22; display: flex; flex-direction: column; gap: 36px; overflow: hidden">
+<div style="width: 1920px; height: 1080px; box-sizing: border-box; padding: 88px 120px 56px; background: #F7F7FA; font-family: 'Noto Sans KR', sans-serif; color: #191B22; display: flex; flex-direction: column; gap: 36px; overflow: hidden; position: relative">
+<section data-demo-ctl="" tabIndex="-1" onclick="{{ctl}}" onkeydown="{{ctlKey}}" aria-label="시연용 제어 (실제 서비스 기능 아님)" style="position: absolute; right: 120px; top: 30px; width: 600px; box-sizing: border-box; z-index: 5; outline: none; background: #F5F6F8; border: 2px dashed #191B22; border-radius: 18px; padding: 12px 16px; display: flex; flex-direction: column; gap: 8px"><div style="display: flex; align-items: center; gap: 8px"><span style="font-size: 11px; font-weight: 900; letter-spacing: 1px; color: #FFFFFF; background: #191B22; padding: 3px 7px; border-radius: 6px; flex-shrink: 0">DEMO</span><b style="font-size: 15px; color: #191B22">시연용 제어</b><span style="flex: 1; font-size: 13px; color: #4A4F5C">실제 서비스 기능이 아니에요</span><button type="button" data-act="zoomDemo" style="height: 30px; padding: 0 10px; border-radius: 9px; font-family: inherit; font-size: 12px; font-weight: 700; background: #FFFFFF; color: #191B22; border: 1.5px solid #191B22">체험 폰 크게 보기</button><button type="button" data-act="demoReset" style="height: 30px; padding: 0 10px; border-radius: 9px; font-family: inherit; font-size: 12px; font-weight: 700; background: #FFFFFF; color: #191B22; border: 1.5px solid #191B22">처음부터 다시</button></div><p aria-live="polite" style="margin: 0; font-size: 13px; line-height: 1.45; color: #191B22"><b style="color: #3A26C4">다음 단계</b> {{ctlView.hint}}</p><div role="group" aria-label="시나리오 · {{ctlView.profileNote}}" style="display: flex; align-items: center; flex-wrap: wrap; gap: 6px; min-height: 32px"><span style="width: 72px; font-size: 13px; font-weight: 700; color: #4A4F5C">시나리오</span><span style="font-size: 13px; color: #4A4F5C">폰에서 회차·구역·열 조건을 바꾸면 결과가 달라져요 (시연 데이터)</span></div><div style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px; min-height: 34px"><span style="width: 72px; font-size: 13px; font-weight: 700; color: #4A4F5C">조작</span><sc-if value="{{ctlView.hasButtons}}"><sc-for list="{{ctlView.buttons}}" as="b"><button type="button" data-act="{{b.act}}" style="{{b.style}}">{{b.label}}</button></sc-for></sc-if><sc-if value="{{ctlView.noButtons}}"><span style="font-size: 13px; color: #5F6370">지금은 폰에서 진행해요</span></sc-if></div></section>
 <div style="display: flex; align-items: flex-start; gap: 32px">
 <span aria-hidden="true" style="font-size: 128px; font-weight: 900; line-height: 0.82; color: #DCD5FF; letter-spacing: -4px">06</span>
 <div style="display: flex; flex-direction: column; gap: 14px">
 <span style="align-self: flex-start; font-size: 14px; font-weight: 700; letter-spacing: 2px; color: #5B3DF5; background: #E9E5FF; padding: 6px 14px; border-radius: 999px">UI DESIGN · A</span>
 <h1 style="margin: 0; font-size: 48px; font-weight: 900; line-height: 1.25; letter-spacing: -1px">조건만 등록하면, <span style="color: #5B3DF5">상대는 예매처가</span> 찾아줘요</h1>
 </div>
-<section data-demo-ctl="" tabIndex="-1" onclick="{{ctl}}" onkeydown="{{ctlKey}}" aria-label="시연 제어판 (실제 서비스 기능 아님)" style="outline: none; margin-left: auto; width: 560px; flex-shrink: 0; background: #F5F6F8; border: 2px dashed #191B22; border-radius: 18px; padding: 12px 16px; display: flex; flex-direction: column; gap: 8px"><div style="display: flex; align-items: center; gap: 8px"><span style="font-size: 11px; font-weight: 900; letter-spacing: 1px; color: #FFFFFF; background: #191B22; padding: 3px 7px; border-radius: 6px; flex-shrink: 0">DEMO</span><b style="flex: 1; font-size: 15px; color: #191B22">시연 제어판 · 실제 서비스 기능이 아니에요</b><button type="button" data-act="demoReset" style="height: 30px; padding: 0 10px; border-radius: 9px; font-family: inherit; font-size: 12px; font-weight: 700; background: #FFFFFF; color: #191B22; border: 1.5px solid #191B22">처음부터 다시</button></div><p aria-live="polite" style="margin: 0; font-size: 14px; line-height: 1.45; color: #191B22">1번 폰 체험 · {{ctlView.hint}}</p><sc-if value="{{ctlView.hasButtons}}"><div style="display: flex; flex-wrap: wrap; gap: 8px"><sc-for list="{{ctlView.buttons}}" as="b"><button type="button" data-act="{{b.act}}" style="{{b.style}}">{{b.label}}</button></sc-for></div></sc-if></section>
 </div>
 <div style="flex: 1; background: #5B3DF5; border-radius: 32px; padding: 36px 32px; display: flex; gap: 52px; min-height: 0">
 <figure style="margin: 0; width: 226px; display: flex; flex-direction: column; gap: 16px">
 <div style="display: flex; align-items: center; gap: 10px"><span style="width: 32px; height: 32px; border-radius: 16px; background: #FFFFFF; color: #5B3DF5; font-size: 15px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0">1</span><span style="flex: 1; height: 2px; background: #8E7BFA; margin-right: -52px"></span></div>
-<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35)"><div data-nav-host="0" tabIndex="-1" onclick="{{nav_0}}" onkeydown="{{key_0}}" style="outline: none; width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left"><form data-nav-screen="Main" onsubmit="{{nosubmit}}" style="display: {{v_0_Main}}; margin: 0"><dc-import name="Main" hint-size="390px,844px" demo="{{demo}}"></dc-import></form><form data-nav-screen="Request" onsubmit="{{nosubmit}}" style="display: {{v_0_Request}}; margin: 0"><dc-import name="Request" hint-size="390px,844px" demo="{{demo}}"></dc-import></form><form data-nav-screen="Waiting" onsubmit="{{nosubmit}}" style="display: {{v_0_Waiting}}; margin: 0"><dc-import name="Waiting" hint-size="390px,844px" demo="{{demo}}"></dc-import></form><form data-nav-screen="MatchCheck" onsubmit="{{nosubmit}}" style="display: {{v_0_MatchCheck}}; margin: 0"><dc-import name="MatchCheck" hint-size="390px,844px" demo="{{demo}}"></dc-import></form><form data-nav-screen="Compare" onsubmit="{{nosubmit}}" style="display: {{v_0_Compare}}; margin: 0"><dc-import name="Compare" hint-size="390px,844px" demo="{{demo}}"></dc-import></form><form data-nav-screen="StatusSent" onsubmit="{{nosubmit}}" style="display: {{v_0_StatusSent}}; margin: 0"><dc-import name="StatusSent" hint-size="390px,844px" demo="{{demo}}"></dc-import></form><form data-nav-screen="StatusAccepted" onsubmit="{{nosubmit}}" style="display: {{v_0_StatusAccepted}}; margin: 0"><dc-import name="StatusAccepted" hint-size="390px,844px" demo="{{demo}}"></dc-import></form><form data-nav-screen="StatusFinal" onsubmit="{{nosubmit}}" style="display: {{v_0_StatusFinal}}; margin: 0"><dc-import name="StatusFinal" hint-size="390px,844px" demo="{{demo}}"></dc-import></form><form data-nav-screen="Done" onsubmit="{{nosubmit}}" style="display: {{v_0_Done}}; margin: 0"><dc-import name="Done" hint-size="390px,844px" demo="{{demo}}"></dc-import></form><form data-nav-screen="ExMismatch" onsubmit="{{nosubmit}}" style="display: {{v_0_ExMismatch}}; margin: 0"><dc-import name="ExMismatch" hint-size="390px,844px" demo="{{demo}}"></dc-import></form><form data-nav-screen="ExNoCandidate" onsubmit="{{nosubmit}}" style="display: {{v_0_ExNoCandidate}}; margin: 0"><dc-import name="ExNoCandidate" hint-size="390px,844px" demo="{{demo}}"></dc-import></form><form data-nav-screen="ExDeclined" onsubmit="{{nosubmit}}" style="display: {{v_0_ExDeclined}}; margin: 0"><dc-import name="ExDeclined" hint-size="390px,844px" demo="{{demo}}"></dc-import></form><form data-nav-screen="ExCancelled" onsubmit="{{nosubmit}}" style="display: {{v_0_ExCancelled}}; margin: 0"><dc-import name="ExCancelled" hint-size="390px,844px" demo="{{demo}}"></dc-import></form><form data-nav-screen="ExFinalFailed" onsubmit="{{nosubmit}}" style="display: {{v_0_ExFinalFailed}}; margin: 0"><dc-import name="ExFinalFailed" hint-size="390px,844px" demo="{{demo}}"></dc-import></form></div></div>
+<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35); position: relative"><button type="button" data-zoom-btn="0" onclick="{{zoom_0}}" aria-label="예매 상세 크게 보기" title="크게 보기" style="position: absolute; right: 6px; top: 6px; z-index: 3; width: 30px; height: 30px; border-radius: 15px; border: 1.5px solid #FFFFFF; background: rgba(25, 27, 34, 0.86); color: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 0; cursor: zoom-in"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></button><div data-nav-host="0" data-zoom-host="0" tabIndex="-1" onclick="{{nav_0}}" onkeydown="{{key_0}}" style="{{zs_0}}"><form data-nav-screen="Main" onsubmit="{{nosubmit}}" style="display: {{v_0_Main}}; margin: 0"><dc-import name="Main" hint-size="390px,844px" demo="{{demo}}"></dc-import></form><form data-nav-screen="Request" onsubmit="{{nosubmit}}" style="display: {{v_0_Request}}; margin: 0"><dc-import name="Request" hint-size="390px,844px" demo="{{demo}}"></dc-import></form><form data-nav-screen="Waiting" onsubmit="{{nosubmit}}" style="display: {{v_0_Waiting}}; margin: 0"><dc-import name="Waiting" hint-size="390px,844px" demo="{{demo}}"></dc-import></form><form data-nav-screen="MatchCheck" onsubmit="{{nosubmit}}" style="display: {{v_0_MatchCheck}}; margin: 0"><dc-import name="MatchCheck" hint-size="390px,844px" demo="{{demo}}"></dc-import></form><form data-nav-screen="Compare" onsubmit="{{nosubmit}}" style="display: {{v_0_Compare}}; margin: 0"><dc-import name="Compare" hint-size="390px,844px" demo="{{demo}}"></dc-import></form><form data-nav-screen="StatusSent" onsubmit="{{nosubmit}}" style="display: {{v_0_StatusSent}}; margin: 0"><dc-import name="StatusSent" hint-size="390px,844px" demo="{{demo}}"></dc-import></form><form data-nav-screen="StatusAccepted" onsubmit="{{nosubmit}}" style="display: {{v_0_StatusAccepted}}; margin: 0"><dc-import name="StatusAccepted" hint-size="390px,844px" demo="{{demo}}"></dc-import></form><form data-nav-screen="StatusFinal" onsubmit="{{nosubmit}}" style="display: {{v_0_StatusFinal}}; margin: 0"><dc-import name="StatusFinal" hint-size="390px,844px" demo="{{demo}}"></dc-import></form><form data-nav-screen="Done" onsubmit="{{nosubmit}}" style="display: {{v_0_Done}}; margin: 0"><dc-import name="Done" hint-size="390px,844px" demo="{{demo}}"></dc-import></form><form data-nav-screen="ExMismatch" onsubmit="{{nosubmit}}" style="display: {{v_0_ExMismatch}}; margin: 0"><dc-import name="ExMismatch" hint-size="390px,844px" demo="{{demo}}"></dc-import></form><form data-nav-screen="ExNoCandidate" onsubmit="{{nosubmit}}" style="display: {{v_0_ExNoCandidate}}; margin: 0"><dc-import name="ExNoCandidate" hint-size="390px,844px" demo="{{demo}}"></dc-import></form><form data-nav-screen="ExDeclined" onsubmit="{{nosubmit}}" style="display: {{v_0_ExDeclined}}; margin: 0"><dc-import name="ExDeclined" hint-size="390px,844px" demo="{{demo}}"></dc-import></form><form data-nav-screen="ExCancelled" onsubmit="{{nosubmit}}" style="display: {{v_0_ExCancelled}}; margin: 0"><dc-import name="ExCancelled" hint-size="390px,844px" demo="{{demo}}"></dc-import></form><form data-nav-screen="ExFinalFailed" onsubmit="{{nosubmit}}" style="display: {{v_0_ExFinalFailed}}; margin: 0"><dc-import name="ExFinalFailed" hint-size="390px,844px" demo="{{demo}}"></dc-import></form></div></div>
 <figcaption style="display: flex; flex-direction: column; gap: 6px; position: relative"><b style="font-size: 17px; color: #FFFFFF">예매 상세</b><span style="font-size: 15px; line-height: 1.55; color: #E3DDFF">교환 가능한 공연인지 먼저 알려줘요. 이 폰은 직접 눌러 체험할 수 있어요 (데모)</span><p aria-live="polite" data-live="0" style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0">{{live_0}}</p></figcaption>
 </figure>
 <figure style="margin: 0; width: 226px; display: flex; flex-direction: column; gap: 16px">
 <div style="display: flex; align-items: center; gap: 10px"><span style="width: 32px; height: 32px; border-radius: 16px; background: #FFFFFF; color: #5B3DF5; font-size: 15px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0">2</span><span style="flex: 1; height: 2px; background: #8E7BFA; margin-right: -52px"></span></div>
-<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35)"><div data-nav-host="1" tabIndex="-1" onclick="{{nav_1}}" onkeydown="{{key_1}}" style="outline: none; width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left"><form data-nav-screen="Main" onsubmit="{{nosubmit}}" style="display: {{v_1_Main}}; margin: 0"><dc-import name="Main" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Request" onsubmit="{{nosubmit}}" style="display: {{v_1_Request}}; margin: 0"><dc-import name="Request" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Waiting" onsubmit="{{nosubmit}}" style="display: {{v_1_Waiting}}; margin: 0"><dc-import name="Waiting" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Match" onsubmit="{{nosubmit}}" style="display: {{v_1_Match}}; margin: 0"><dc-import name="Match" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Done" onsubmit="{{nosubmit}}" style="display: {{v_1_Done}}; margin: 0"><dc-import name="Done" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Expired" onsubmit="{{nosubmit}}" style="display: {{v_1_Expired}}; margin: 0"><dc-import name="Expired" hint-size="390px,844px"></dc-import></form></div></div>
+<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35); position: relative"><button type="button" data-zoom-btn="1" onclick="{{zoom_1}}" aria-label="조건 등록 크게 보기" title="크게 보기" style="position: absolute; right: 6px; top: 6px; z-index: 3; width: 30px; height: 30px; border-radius: 15px; border: 1.5px solid #FFFFFF; background: rgba(25, 27, 34, 0.86); color: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 0; cursor: zoom-in"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></button><div data-nav-host="1" data-zoom-host="1" tabIndex="-1" onclick="{{nav_1}}" onkeydown="{{key_1}}" style="{{zs_1}}"><form data-nav-screen="Main" onsubmit="{{nosubmit}}" style="display: {{v_1_Main}}; margin: 0"><dc-import name="Main" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Request" onsubmit="{{nosubmit}}" style="display: {{v_1_Request}}; margin: 0"><dc-import name="Request" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Waiting" onsubmit="{{nosubmit}}" style="display: {{v_1_Waiting}}; margin: 0"><dc-import name="Waiting" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Match" onsubmit="{{nosubmit}}" style="display: {{v_1_Match}}; margin: 0"><dc-import name="Match" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Done" onsubmit="{{nosubmit}}" style="display: {{v_1_Done}}; margin: 0"><dc-import name="Done" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Expired" onsubmit="{{nosubmit}}" style="display: {{v_1_Expired}}; margin: 0"><dc-import name="Expired" hint-size="390px,844px"></dc-import></form></div></div>
 <figcaption style="display: flex; flex-direction: column; gap: 6px"><b style="font-size: 17px; color: #FFFFFF">조건 등록</b><span style="font-size: 15px; line-height: 1.55; color: #E3DDFF">회차·구역·열을 여러 개 골라 후보를 넓혀요</span></figcaption>
 </figure>
 <figure style="margin: 0; width: 226px; display: flex; flex-direction: column; gap: 16px">
 <div style="display: flex; align-items: center; gap: 10px"><span style="width: 32px; height: 32px; border-radius: 16px; background: #FFFFFF; color: #5B3DF5; font-size: 15px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0">3</span><span style="flex: 1; height: 2px; background: #8E7BFA; margin-right: -52px"></span></div>
-<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35)"><div data-nav-host="2" tabIndex="-1" onclick="{{nav_2}}" onkeydown="{{key_2}}" style="outline: none; width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left"><form data-nav-screen="Main" onsubmit="{{nosubmit}}" style="display: {{v_2_Main}}; margin: 0"><dc-import name="Main" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Request" onsubmit="{{nosubmit}}" style="display: {{v_2_Request}}; margin: 0"><dc-import name="Request" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Waiting" onsubmit="{{nosubmit}}" style="display: {{v_2_Waiting}}; margin: 0"><dc-import name="Waiting" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Match" onsubmit="{{nosubmit}}" style="display: {{v_2_Match}}; margin: 0"><dc-import name="Match" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Done" onsubmit="{{nosubmit}}" style="display: {{v_2_Done}}; margin: 0"><dc-import name="Done" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Expired" onsubmit="{{nosubmit}}" style="display: {{v_2_Expired}}; margin: 0"><dc-import name="Expired" hint-size="390px,844px"></dc-import></form></div></div>
+<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35); position: relative"><button type="button" data-zoom-btn="2" onclick="{{zoom_2}}" aria-label="매칭 대기 크게 보기" title="크게 보기" style="position: absolute; right: 6px; top: 6px; z-index: 3; width: 30px; height: 30px; border-radius: 15px; border: 1.5px solid #FFFFFF; background: rgba(25, 27, 34, 0.86); color: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 0; cursor: zoom-in"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></button><div data-nav-host="2" data-zoom-host="2" tabIndex="-1" onclick="{{nav_2}}" onkeydown="{{key_2}}" style="{{zs_2}}"><form data-nav-screen="Main" onsubmit="{{nosubmit}}" style="display: {{v_2_Main}}; margin: 0"><dc-import name="Main" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Request" onsubmit="{{nosubmit}}" style="display: {{v_2_Request}}; margin: 0"><dc-import name="Request" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Waiting" onsubmit="{{nosubmit}}" style="display: {{v_2_Waiting}}; margin: 0"><dc-import name="Waiting" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Match" onsubmit="{{nosubmit}}" style="display: {{v_2_Match}}; margin: 0"><dc-import name="Match" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Done" onsubmit="{{nosubmit}}" style="display: {{v_2_Done}}; margin: 0"><dc-import name="Done" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Expired" onsubmit="{{nosubmit}}" style="display: {{v_2_Expired}}; margin: 0"><dc-import name="Expired" hint-size="390px,844px"></dc-import></form></div></div>
 <figcaption style="display: flex; flex-direction: column; gap: 6px"><b style="font-size: 17px; color: #FFFFFF">매칭 대기</b><span style="font-size: 15px; line-height: 1.55; color: #E3DDFF">기다리는 동안에도 내 티켓은 유효해요</span></figcaption>
 </figure>
 <figure style="margin: 0; width: 226px; display: flex; flex-direction: column; gap: 16px">
 <div style="display: flex; align-items: center; gap: 10px"><span style="width: 32px; height: 32px; border-radius: 16px; background: #FFFFFF; color: #5B3DF5; font-size: 15px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0">4</span><span style="flex: 1; height: 2px; background: #8E7BFA; margin-right: -52px"></span></div>
-<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35)"><div data-nav-host="3" tabIndex="-1" onclick="{{nav_3}}" onkeydown="{{key_3}}" style="outline: none; width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left"><form data-nav-screen="Main" onsubmit="{{nosubmit}}" style="display: {{v_3_Main}}; margin: 0"><dc-import name="Main" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Request" onsubmit="{{nosubmit}}" style="display: {{v_3_Request}}; margin: 0"><dc-import name="Request" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Waiting" onsubmit="{{nosubmit}}" style="display: {{v_3_Waiting}}; margin: 0"><dc-import name="Waiting" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Match" onsubmit="{{nosubmit}}" style="display: {{v_3_Match}}; margin: 0"><dc-import name="Match" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Done" onsubmit="{{nosubmit}}" style="display: {{v_3_Done}}; margin: 0"><dc-import name="Done" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Expired" onsubmit="{{nosubmit}}" style="display: {{v_3_Expired}}; margin: 0"><dc-import name="Expired" hint-size="390px,844px"></dc-import></form></div></div>
+<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35); position: relative"><button type="button" data-zoom-btn="3" onclick="{{zoom_3}}" aria-label="교환 제안 크게 보기" title="크게 보기" style="position: absolute; right: 6px; top: 6px; z-index: 3; width: 30px; height: 30px; border-radius: 15px; border: 1.5px solid #FFFFFF; background: rgba(25, 27, 34, 0.86); color: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 0; cursor: zoom-in"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></button><div data-nav-host="3" data-zoom-host="3" tabIndex="-1" onclick="{{nav_3}}" onkeydown="{{key_3}}" style="{{zs_3}}"><form data-nav-screen="Main" onsubmit="{{nosubmit}}" style="display: {{v_3_Main}}; margin: 0"><dc-import name="Main" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Request" onsubmit="{{nosubmit}}" style="display: {{v_3_Request}}; margin: 0"><dc-import name="Request" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Waiting" onsubmit="{{nosubmit}}" style="display: {{v_3_Waiting}}; margin: 0"><dc-import name="Waiting" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Match" onsubmit="{{nosubmit}}" style="display: {{v_3_Match}}; margin: 0"><dc-import name="Match" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Done" onsubmit="{{nosubmit}}" style="display: {{v_3_Done}}; margin: 0"><dc-import name="Done" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Expired" onsubmit="{{nosubmit}}" style="display: {{v_3_Expired}}; margin: 0"><dc-import name="Expired" hint-size="390px,844px"></dc-import></form></div></div>
 <figcaption style="display: flex; flex-direction: column; gap: 6px"><b style="font-size: 17px; color: #FFFFFF">교환 제안</b><span style="font-size: 15px; line-height: 1.55; color: #E3DDFF">지금 좌석과 바뀔 좌석을 위아래로 비교해요</span></figcaption>
 </figure>
 <figure style="margin: 0; width: 226px; display: flex; flex-direction: column; gap: 16px">
 <div style="display: flex; align-items: center; gap: 10px"><span style="width: 32px; height: 32px; border-radius: 16px; background: #FFFFFF; color: #5B3DF5; font-size: 15px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0">5</span><span style="flex: 1; height: 2px; background: #8E7BFA; margin-right: -52px"></span></div>
-<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35)"><div data-nav-host="4" tabIndex="-1" onclick="{{nav_4}}" onkeydown="{{key_4}}" style="outline: none; width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left"><form data-nav-screen="Main" onsubmit="{{nosubmit}}" style="display: {{v_4_Main}}; margin: 0"><dc-import name="Main" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Request" onsubmit="{{nosubmit}}" style="display: {{v_4_Request}}; margin: 0"><dc-import name="Request" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Waiting" onsubmit="{{nosubmit}}" style="display: {{v_4_Waiting}}; margin: 0"><dc-import name="Waiting" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Match" onsubmit="{{nosubmit}}" style="display: {{v_4_Match}}; margin: 0"><dc-import name="Match" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Done" onsubmit="{{nosubmit}}" style="display: {{v_4_Done}}; margin: 0"><dc-import name="Done" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Expired" onsubmit="{{nosubmit}}" style="display: {{v_4_Expired}}; margin: 0"><dc-import name="Expired" hint-size="390px,844px"></dc-import></form></div></div>
+<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35); position: relative"><button type="button" data-zoom-btn="4" onclick="{{zoom_4}}" aria-label="교환 완료 크게 보기" title="크게 보기" style="position: absolute; right: 6px; top: 6px; z-index: 3; width: 30px; height: 30px; border-radius: 15px; border: 1.5px solid #FFFFFF; background: rgba(25, 27, 34, 0.86); color: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 0; cursor: zoom-in"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></button><div data-nav-host="4" data-zoom-host="4" tabIndex="-1" onclick="{{nav_4}}" onkeydown="{{key_4}}" style="{{zs_4}}"><form data-nav-screen="Main" onsubmit="{{nosubmit}}" style="display: {{v_4_Main}}; margin: 0"><dc-import name="Main" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Request" onsubmit="{{nosubmit}}" style="display: {{v_4_Request}}; margin: 0"><dc-import name="Request" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Waiting" onsubmit="{{nosubmit}}" style="display: {{v_4_Waiting}}; margin: 0"><dc-import name="Waiting" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Match" onsubmit="{{nosubmit}}" style="display: {{v_4_Match}}; margin: 0"><dc-import name="Match" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Done" onsubmit="{{nosubmit}}" style="display: {{v_4_Done}}; margin: 0"><dc-import name="Done" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Expired" onsubmit="{{nosubmit}}" style="display: {{v_4_Expired}}; margin: 0"><dc-import name="Expired" hint-size="390px,844px"></dc-import></form></div></div>
 <figcaption style="display: flex; flex-direction: column; gap: 6px"><b style="font-size: 17px; color: #FFFFFF">교환 완료</b><span style="font-size: 15px; line-height: 1.55; color: #E3DDFF">새 티켓과 무효 처리된 이전 티켓을 함께 보여줘요</span></figcaption>
 </figure>
 <figure style="margin: 0; width: 226px; display: flex; flex-direction: column; gap: 16px">
 <div style="display: flex; align-items: center; gap: 10px"><span style="width: 32px; height: 32px; border-radius: 16px; background: #FFB37A; color: #5A2A06; font-size: 15px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0">!</span></div>
-<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35)"><div data-nav-host="5" tabIndex="-1" onclick="{{nav_5}}" onkeydown="{{key_5}}" style="outline: none; width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left"><form data-nav-screen="Main" onsubmit="{{nosubmit}}" style="display: {{v_5_Main}}; margin: 0"><dc-import name="Main" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Request" onsubmit="{{nosubmit}}" style="display: {{v_5_Request}}; margin: 0"><dc-import name="Request" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Waiting" onsubmit="{{nosubmit}}" style="display: {{v_5_Waiting}}; margin: 0"><dc-import name="Waiting" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Match" onsubmit="{{nosubmit}}" style="display: {{v_5_Match}}; margin: 0"><dc-import name="Match" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Done" onsubmit="{{nosubmit}}" style="display: {{v_5_Done}}; margin: 0"><dc-import name="Done" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Expired" onsubmit="{{nosubmit}}" style="display: {{v_5_Expired}}; margin: 0"><dc-import name="Expired" hint-size="390px,844px"></dc-import></form></div></div>
+<div style="width: 226px; height: 490px; border-radius: 22px; overflow: hidden; background: #FFFFFF; box-shadow: 0 18px 40px rgba(18, 8, 70, 0.35); position: relative"><button type="button" data-zoom-btn="5" onclick="{{zoom_5}}" aria-label="예외 · 응답 시간 초과 크게 보기" title="크게 보기" style="position: absolute; right: 6px; top: 6px; z-index: 3; width: 30px; height: 30px; border-radius: 15px; border: 1.5px solid #FFFFFF; background: rgba(25, 27, 34, 0.86); color: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 0; cursor: zoom-in"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></button><div data-nav-host="5" data-zoom-host="5" tabIndex="-1" onclick="{{nav_5}}" onkeydown="{{key_5}}" style="{{zs_5}}"><form data-nav-screen="Main" onsubmit="{{nosubmit}}" style="display: {{v_5_Main}}; margin: 0"><dc-import name="Main" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Request" onsubmit="{{nosubmit}}" style="display: {{v_5_Request}}; margin: 0"><dc-import name="Request" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Waiting" onsubmit="{{nosubmit}}" style="display: {{v_5_Waiting}}; margin: 0"><dc-import name="Waiting" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Match" onsubmit="{{nosubmit}}" style="display: {{v_5_Match}}; margin: 0"><dc-import name="Match" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Done" onsubmit="{{nosubmit}}" style="display: {{v_5_Done}}; margin: 0"><dc-import name="Done" hint-size="390px,844px"></dc-import></form><form data-nav-screen="Expired" onsubmit="{{nosubmit}}" style="display: {{v_5_Expired}}; margin: 0"><dc-import name="Expired" hint-size="390px,844px"></dc-import></form></div></div>
 <figcaption style="display: flex; flex-direction: column; gap: 6px"><b style="font-size: 17px; color: #FFD2AE">예외 · 응답 시간 초과</b><span style="font-size: 15px; line-height: 1.55; color: #E3DDFF">다시 대기로 돌아가고 조건을 넓히자고 제안해요</span></figcaption>
 </figure></div>
 <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: #6B7080"><span style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="display: flex; gap: 3px"><span style="width: 10px; height: 10px; border-radius: 3px; background: #5B3DF5"></span><span style="width: 10px; height: 10px; border-radius: 3px; background: #5B3DF5"></span></span>좌석·회차 교환 UX/UI</span><span><b style="color: #191B22">07</b> / 10</span></div>
-</div>
+<p aria-live="polite" style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0">{{zoomLive}}</p><sc-if value="{{zoomOpen}}"><div data-zoom-backdrop="" onclick="{{zclose}}" style="position: fixed; left: 0; top: 0; width: 1920px; height: 1080px; background: rgba(20, 16, 44, 0.8); z-index: 1000"></div><section data-zoom-ctl="" role="dialog" aria-label="{{zoomTitle}} 크게 보기" onkeydown="{{zkey}}" style="{{zpanelStyle}}"><span style="align-self: flex-start; font-size: 13px; font-weight: 700; color: #191B22; background: #FFFFFF; padding: 5px 12px; border-radius: 999px">{{zoomRole}}</span><b style="font-size: 26px; line-height: 1.35">{{zoomTitle}}</b><p style="margin: 0; font-size: 16px; line-height: 1.6; color: #E3DDFF">{{zoomHelp}}</p><sc-if value="{{zoomSingle}}"><div style="display: flex; align-items: center; gap: 10px"><button type="button" onclick="{{zprev}}" style="height: 44px; padding: 0 14px; border-radius: 12px; font-family: inherit; font-size: 15px; font-weight: 700; background: rgba(255, 255, 255, 0.14); color: #FFFFFF; border: 1.5px solid rgba(255, 255, 255, 0.5)">← 이전 화면</button><span style="font-size: 15px; font-weight: 700">{{zoomPos}}</span><button type="button" onclick="{{znext}}" style="height: 44px; padding: 0 14px; border-radius: 12px; font-family: inherit; font-size: 15px; font-weight: 700; background: rgba(255, 255, 255, 0.14); color: #FFFFFF; border: 1.5px solid rgba(255, 255, 255, 0.5)">다음 화면 →</button></div></sc-if><button type="button" data-zoom-close="" onclick="{{zclose}}" style="height: 50px; border-radius: 14px; font-family: inherit; font-size: 16px; font-weight: 700; background: #FFFFFF; color: #191B22; border: 0">닫기 (Esc)</button><span style="font-size: 14px; color: #C9BFFF">확대해도 진행 상태는 그대로예요. 닫으면 보드 화면으로 돌아가요.</span></section></sc-if></div>
 </x-dc>
 <script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1920,&quot;height&quot;:1080}}">
 var INITIAL = ["Main", "Request", "Waiting", "Match", "Done", "Expired"];
 var HOSTS = [["Main", "Request", "Waiting", "MatchCheck", "Compare", "StatusSent", "StatusAccepted", "StatusFinal", "Done", "ExMismatch", "ExNoCandidate", "ExDeclined", "ExCancelled", "ExFinalFailed"], ["Main", "Request", "Waiting", "Match", "Done", "Expired"], ["Main", "Request", "Waiting", "Match", "Done", "Expired"], ["Main", "Request", "Waiting", "Match", "Done", "Expired"], ["Main", "Request", "Waiting", "Match", "Done", "Expired"], ["Main", "Request", "Waiting", "Match", "Done", "Expired"]];
 var ROLES = {"0": "A"};
 var TITLES = {"ExTicketChanged": "티켓 상태 변경", "ExDeclined": "상대방 제안 거절", "ExCancelled": "신청자 취소", "ExNoCandidate": "교환 가능한 후보 없음", "ExFinalFailed": "최종 확인 실패", "ExMismatch": "필수 조건 불일치", "Compare": "교환 전후 비교", "StatusSent": "교환 진행 현황", "Eligibility": "교환 자격 확인", "StatusFinal": "최종 확인", "ConditionsCast": "교환 조건 설정", "StatusAccepted": "교환 진행 현황", "MatchCheck": "양방향 조건 확인", "Main": "예매 상세", "Expired": "교환 신청 현황", "Request": "교환 조건 등록", "Waiting": "교환 신청 현황", "Match": "교환 제안", "Done": "교환이 완료됐어요", "PairAccepted": "연석 교환 진행 현황", "PairDeclined": "연석 교환 진행 현황", "PairMode": "교환 신청", "PairSeat": "연석 만들기", "PairWarn": "보내기 전 최종 비교", "PairReceive": "좌석 교환 제안", "PairIntent": "옆자리 교환 제안 설정", "PairDone": "이제 나란히 앉아요", "PairAdjacency": "연석 후보 확인"};
+/* Seat Swap 일반 교환 데모 — 상태·매칭 엔진 (STEP 3B)
+ *
+ * 이 파일이 원본이다. tools/authoring/apply_demo_3b.py 가 P07(일반 교환) 페이지 로직에 그대로 넣고,
+ * 같은 코드로 컴포넌트의 기본 화면 데이터를 계산하며, tools/test_demo_engine.cjs 가 단위 테스트한다.
+ *
+ * - 모든 티켓·조건·가격·판정은 시연용 모의 데이터다. 실제 예매처·결제·티켓 변경과 연결되지 않는다.
+ * - 상대방의 수락·거절과 최종 확인 결과는 사용자가 누르는 '데모 모드' 버튼으로 시뮬레이션한다.
+ * - 외부 라이브러리 없음. ES5 문법만 쓴다 (런타임의 new Function 안에서 실행됨).
+ */
 /* Seat Swap 일반 교환 데모 — 상태·매칭 엔진 (STEP 3B)
  *
  * 이 파일이 원본이다. tools/authoring/apply_demo_3b.py 가 P07(일반 교환) 페이지 로직에 그대로 넣고,
@@ -261,7 +270,7 @@ var DEMO = (function () {
         return { state: s, nav: { push: FLOW_SCREEN[nx] } };
       case 'cancel':         // 신청자 취소 (최종 확인 시작 전까지)
         if (CANCELABLE.indexOf(s.step) < 0) return { state: st, nav: { stay: true } };
-        s.step = 'cancelled'; return { state: s, nav: { push: 'ExCancelled' } };
+        s.cancelledFrom = s.step; s.step = 'cancelled'; return { state: s, nav: { push: 'ExCancelled' } };
       case 'relax':          // 필수 불일치 화면: 내 쪽에서 불일치한 필수 조건을 선호로 바꾸고 조건 화면으로
         var r = search(c, s.declined);
         if (!r.best) return { state: st, nav: { stay: true } };
@@ -353,7 +362,7 @@ var DEMO = (function () {
       showStep: !!demo, canMinus: c.rowMax > 1, cantMinus: c.rowMax <= 1, canPlus: c.rowMax < ROW_LIMIT, cantPlus: c.rowMax >= ROW_LIMIT,
       stepLabel: c.rowMax + '열까지',
       note: err || NOTE, noteBox: err ? STY.noteBoxErr : STY.noteBox, noteText: err ? STY.noteTextErr : STY.noteText,
-      valid: !err, invalid: !!err,
+      valid: !err, invalid: !!err, stepper: stepper(GEN_STEPS, 0),
     };
   }
   function viewWaiting(c) {
@@ -361,7 +370,7 @@ var DEMO = (function () {
     return {
       roundsText: roundsText(c.rounds) + ' · ' + imp(c.roundImp),
       zonesText: c.zones.indexOf('ANY') >= 0 ? 'R석 전체 (상관없음)' : 'R석 ' + zonesShort(c.zones) + ' · ' + imp(c.zoneImp),
-      rowText: '1열 ~ ' + c.rowMax + '열 · ' + imp(c.rowImp),
+      rowText: '1열 ~ ' + c.rowMax + '열 · ' + imp(c.rowImp), stepper: stepper(GEN_STEPS, 1),
     };
   }
   function viewMatch(c, id) {
@@ -380,16 +389,35 @@ var DEMO = (function () {
         .concat(unknown.length ? [badgeItem('need', '미확인 ' + unknown.length + '건')] : []),
       summary: (unknown.length ? '미확인: 후보 티켓의 ' + unknown.join(', ') + '. ' : '') + "아직 '매칭 완료'가 아니고, 한쪽만 맞아도 완료로 표시하지 않아요.",
       excludedNote: x.excludedCount ? '필수 조건이 맞지 않아 제외한 티켓 ' + x.excludedCount + '장' : '',
+      // STEP 4B 정보 위계: ① 공연·회차 ② 교환 전후 좌석 ③ 필수 충족 ④ 선호 차이 ⑤ 상태 ⑥ 부가 정보(전체 조건은 접힘)
+      hero: hero(cand.ticket),
+      reqOk: mineOk && theirsOk, reqNo: !(mineOk && theirsOk),
+      reqText: mineOk && theirsOk ? '필수 조건: 양쪽 모두 충족' : '필수 조건: 맞지 않는 항목이 있어요',
+      prefRows: a.filter(function (r) { return r.res === 'pref'; }).map(function (r) { return resultRow(r, 'mine'); })
+        .concat(b.filter(function (r) { return r.res === 'pref'; }).map(function (r) { return resultRow(r, 'theirs'); })),
+      hasPref: a.concat(b).some(function (r) { return r.res === 'pref'; }), noPref: !a.concat(b).some(function (r) { return r.res === 'pref'; }),
+      stepper: stepper(GEN_STEPS, 1),
     };
   }
   function cmp(label, a, b, kind, text) { var o = { label: label, a: a, b: b, text: text }; var f = flags(kind); for (var k in f) o[k] = f[k]; return o; }
+  // 교환 전후 핵심 (공연·회차 → 좌석)
+  function hero(t) {
+    var sameDate = dateLine(MY) === dateLine(t);
+    return { show: SHOW, date: sameDate ? dateLine(MY) + ' · 같은 회차' : dateLine(MY) + ' → ' + dateLine(t),
+      from: MY.grade + ' ' + MY.zone + '구역 ' + MY.row + '열 ' + MY.seat + '번', to: t.grade + ' ' + t.zone + '구역 ' + t.row + '열 ' + t.seat + '번' };
+  }
+  function splitRows(rows) {
+    return { diffRows: rows.filter(function (r) { return !r.k_mute; }), sameRows: rows.filter(function (r) { return r.k_mute; }),
+      sameTitle: '같은 항목 ' + rows.filter(function (r) { return r.k_mute; }).length + '개 보기' };
+  }
+  function viewNone() { return { stepper: stepper(GEN_STEPS, 1, 'fail', '맞는 후보 없음 · 신청은 유지') }; }
+  function viewDeclined() { return { stepper: stepper(GEN_STEPS, 3, 'fail', '상대방이 제안을 거절 · 내 티켓 그대로') }; }
   function viewCompare(id, consent, consentKey, step) {
     var t = POOL.filter(function (p) { return p.id === id; })[0].ticket;
     var same = function (x, y) { return x === y ? ['mute', '같음'] : ['plan', '다름']; };
     var d = same(dateLine(MY), dateLine(t)), z = same(MY.zone, t.zone), s = same(MY.row + '-' + MY.seat, t.row + '-' + t.seat);
     var canSend = step === 'found' && consent;
-    return {
-      rows: [
+    var rows = [
         cmp('공연명', SHOW, SHOW, 'mute', '같음'),
         cmp('날짜·회차', dateLine(MY), dateLine(t), d[0], d[1]),
         cmp('구역', MY.grade + ' ' + MY.zone + '구역', t.grade + ' ' + t.zone + '구역', z[0], z[1]),
@@ -399,9 +427,13 @@ var DEMO = (function () {
                          : cmp('권종·가격', MY.grade + ' · ' + MY.price, t.grade + ' · ' + t.price, MY.price === t.price ? 'mute' : 'plan', MY.price === t.price ? '같음' : '다름'),
         t.policy === null ? cmp('정책 확인', MY.policy, '정책 확인 상태 없음', 'need', '확인 필요')
                           : cmp('정책 확인', MY.policy, t.policy, 'mute', '같음'),
-      ],
+      ];
+    var sp = splitRows(rows);
+    return {
+      rows: rows, diffRows: sp.diffRows, sameRows: sp.sameRows, sameTitle: sp.sameTitle,
       consentKey: 'consent-' + consentKey, canSend: canSend, cantSend: !canSend,
       sendHint: step !== 'found' ? '이미 제안을 보냈거나 진행할 수 없는 상태예요.' : (consent ? '' : '위 동의 항목을 선택하면 제안을 보낼 수 있어요.'),
+      hero: hero(t), stepper: stepper(GEN_STEPS, 2),
     };
   }
   function viewDone(id) {
@@ -411,16 +443,16 @@ var DEMO = (function () {
   }
   function viewMismatch(c, declined) {
     var r = search(c, declined || []);
-    if (!r.best) return { rows: [], canRelax: false, cantRelax: true, cand: '' };
+    if (!r.best) return { rows: [], canRelax: false, cantRelax: true, cand: '', stepper: stepper(GEN_STEPS, 1, 'fail', '필수 조건이 맞지 않아 후보에서 제외') };
     var rows = r.best.a.map(function (x) { return { r: x, side: 'mine' }; }).concat(r.best.b.map(function (x) { return { r: x, side: 'theirs' }; }));
     var fails = rows.filter(function (x) { return x.r.res === 'fail' || (x.r.res === 'unknown' && x.r.imp === '필수'); });
     var oks = rows.filter(function (x) { return x.r.res === 'ok'; }).slice(0, 1);
     var mineFail = r.best.a.filter(function (x) { return x.res === 'fail'; }).length > 0;
     return { cand: ticketLine(r.best.c.ticket), rows: fails.concat(oks).map(function (x) { return resultRow(x.r, x.side); }),
-      canRelax: mineFail, cantRelax: !mineFail };
+      canRelax: mineFail, cantRelax: !mineFail, stepper: stepper(GEN_STEPS, 1, 'fail', '필수 조건이 맞지 않아 후보에서 제외') };
   }
   // 최종 확인 실패 화면: 유지되는 내 티켓 (목표 UX)
-  function viewFailed() { return { mine: ticketLine(MY), keepText: '유지 (목표)' }; }
+  function viewFailed() { return { mine: ticketLine(MY), keepText: '유지 (목표)', stepper: stepper(GEN_STEPS, 4, 'fail', '최종 확인 실패 · 내 티켓 유지 (목표)') }; }
 
   /* ---- STEP 4A: 일반 교환·연석 교환이 함께 쓰는 화면의 문구 분기 · 시연 제어판 · 상태 안내 ---- */
   // 용어 기준: 교환 제안 받기(사전 수신 의향) · 교환 제안 보내기(신청자) · 제안 수락(수신자 개별 동의) · 최종 확인 중 · 교환 완료
@@ -433,12 +465,35 @@ var DEMO = (function () {
         color: TL_COLOR[st], stText: TL_TEXT[st] };
     });
   }
+  /* ---- STEP 4B: 공용 단계 표시 (일반 교환·연석 교환) ----
+   * items 하나 = 단계. state: done(완료) | now(현재) | todo(남은 단계) | fail(실패·거절) | stop(취소로 중단)
+   * 색만이 아니라 텍스트(현재 단계 이름, 상태 문구, 스크린 리더용 단계 상태)로도 전달한다. */
+  var STEP_BAR = { done: 'background: #5B3DF5', now: 'background: #5B3DF5; box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px #5B3DF5',
+    todo: 'background: #E6E8EC', fail: 'background: #B03A3A', stop: 'background: #8B909C' };
+  var STEP_SR = { done: '완료', now: '현재 단계', todo: '남은 단계', fail: '실패', stop: '중단' };
+  function stepper(list, idx, end, endText, exp) {
+    // end: null | 'fail' | 'stop' | 'done' — idx 단계에서 끝난 상태
+    var items = list.map(function (label, i) {
+      var st = end === 'done' ? 'done' : i < idx ? 'done' : i > idx ? 'todo' : (end || 'now');
+      return { label: label, n: i + 1, bar: 'display: block; height: 6px; border-radius: 3px; ' + STEP_BAR[st], cur: i === idx && !end ? 'step' : 'false',
+        sr: (i + 1) + '단계 ' + label + ': ' + STEP_SR[st] };
+    });
+    var head = end === 'done' ? '모든 단계 완료' : '단계 ' + (idx + 1) + '/' + list.length + ' · ' + list[idx];
+    var color = end === 'fail' ? '#B03A3A' : end === 'stop' ? '#4A4F5C' : end === 'done' ? '#1F7A4D' : '#3A26C4';
+    return { items: items, head: head, headStyle: 'font-size: 14px; font-weight: 700; color: ' + color,
+      note: !end && idx + 1 < list.length ? '다음: ' + list[idx + 1] : '', hasNote: !end && idx + 1 < list.length,
+      endNote: end && endText ? endText : '', hasEnd: !!(end && endText),
+      noteStyle: 'font-size: 12px; font-weight: 700; ' + (end === 'fail' ? 'color: #B03A3A' : end === 'stop' ? 'color: #4A4F5C' : 'color: #5F6370'),
+      exp: !!exp, label: '진행 단계: ' + head + (end && endText ? ', ' + endText : '') };
+  }
+  var GEN_STEPS = ['조건 등록', '후보 확인', '비교·제안', '상대 수락', '최종 확인', '교환 완료'];
+  var GEN_CANCEL_AT = { searching: 1, found: 1, mismatch: 1, none: 1, proposed: 3, accepted: 4, declined: 3 };
   var SENT_STEPS = [['교환 신청', '조건 등록 완료'], ['후보 확인', '양방향 조건 확인 통과'], ['교환 제안 보내기', '비교 화면에서 내 동의 완료'],
     ['상대방 검토', '응답 기한은 가상 규칙이에요 (예: 12시간)'], ['제안 수락', '상대방이 제안을 수락해야 다음으로 가요'],
     ['최종 확인 중', '티켓·조건을 마지막으로 확인해요'], ['교환 완료', '최종 확인을 통과해야 표시돼요']];
   function viewSent() { return { steps: timeline(SENT_STEPS, 3), sub: '상대방이 검토하는 동안 내 티켓은 그대로 유효해요.' }; }
-  function viewCancelled() {
-    return { title: '교환 신청을 취소했어요',
+  function viewCancelled(from) {
+    return { stepper: stepper(GEN_STEPS, GEN_CANCEL_AT[from] === undefined ? 3 : GEN_CANCEL_AT[from], 'stop', '신청 취소 · 내 티켓 그대로'), title: '교환 신청을 취소했어요',
       body: "진행 중이던 제안은 닫혔어요. 상대방에게는 '취소됨'으로 보인다고 가정했어요 (서비스 설계 가정). 내 티켓은 그대로 유효해요.",
       primary: '교환 다시 신청', secondary: '예매 상세로' };
   }
@@ -456,12 +511,13 @@ var DEMO = (function () {
     else if (s.step === 'accepted') { hint = '양쪽이 수락했어요. 예매처의 최종 확인을 시작해요.'; b = [ctlBtn('toFinal', '최종 확인 시작')]; }
     else if (s.step === 'final') { hint = '최종 확인 결과를 정해 보세요.'; b = [ctlBtn('simOk', '최종 확인 성공'), ctlBtn('simFail', '최종 확인 실패', 'bad')]; }
     else if (TERMINAL.indexOf(s.step) >= 0) { hint = "결과 화면이에요. '처음부터 다시'로 다시 체험해요."; }
-    else { hint = '폰에서 교환 제안을 보내면 여기서 상대방 응답과 최종 확인 결과를 정해요.'; }
+    else { hint = '폰에서 교환 제안을 보내면 여기서 상대방 응답을 정해요.'; }
     return { hint: hint, buttons: b, hasButtons: b.length > 0, status: STATUS[s.step] || '' };
   }
   function views(s, demo) {
     var v = { isDemo: !!demo, step: s.step, request: viewRequest(s.cond, demo), waiting: viewWaiting(s.cond), failed: viewFailed(),
-      sent: viewSent(), cancelled: viewCancelled(), ctl: viewCtl(s), statusA: STATUS[s.step] || '' };
+      sent: viewSent(), cancelled: viewCancelled(s.cancelledFrom), ctl: viewCtl(s), statusA: STATUS[s.step] || '',
+      none: viewNone(), declined: viewDeclined() };
     if (s.candId) { v.match = viewMatch(s.cond, s.candId); v.compare = viewCompare(s.candId, s.consent, s.consentKey, s.step); v.done = viewDone(s.candId); }
     if (s.step === 'mismatch') v.mismatch = viewMismatch(s.cond, s.declined);
     return v;
@@ -473,7 +529,7 @@ var DEMO = (function () {
     return {
       request: viewRequest(DEFAULT_COND, false), waiting: viewWaiting(DEFAULT_COND),
       match: viewMatch(c4, 'C1'), compare: viewCompare('C1', true, 0, 'found'), done: viewDone('C1'),
-      mismatch: viewMismatch(c1, []), failed: viewFailed(), sent: viewSent(), cancelled: viewCancelled(), isDemo: false,
+      mismatch: viewMismatch(c1, []), failed: viewFailed(), sent: viewSent(), cancelled: viewCancelled('proposed'), none: viewNone(), declined: viewDeclined(), isDemo: false,
     };
   }
 
@@ -482,7 +538,7 @@ var DEMO = (function () {
     // STEP 3C 연석 만들기가 다시 쓰는 공용 부품 (판정 규칙·진행 흐름·표시 형식)
     SHOW: SHOW, STY: STY, judge: judge, round: round, ticketLine: ticketLine, dateLine: dateLine, count: count, clone: clone,
     flags: flags, resultRow: resultRow, badgeItem: badgeItem, flowNext: flowNext, FLOW: FLOW, CANCELABLE: CANCELABLE, TERMINAL: TERMINAL,
-    timeline: timeline, STATUS: STATUS, ctlBtn: ctlBtn, CTL_STY: CTL_STY };
+    timeline: timeline, STATUS: STATUS, ctlBtn: ctlBtn, CTL_STY: CTL_STY, stepper: stepper, GEN_STEPS: GEN_STEPS };
 })();
 
 
@@ -498,10 +554,61 @@ else if (nav.reset) { var r = nav.reset.filter(function (x) { return HOSTS[i].in
 else if (nav.pop && s.length > 1) { s.pop(); }
 }
 function focusEl(el) { if (el && el.focus) { try { el.focus({ preventScroll: true }); } catch (err) { /* 무시 */ } } }
+
+var ZOOM_BASE = ["outline: none; width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left", "outline: none; width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left", "outline: none; width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left", "outline: none; width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left", "outline: none; width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left", "outline: none; width: 390px; height: 844px; transform: scale(0.58); transform-origin: top left"];
+var ZOOM_INFO = [{"role": "신청자 A · 체험", "title": "예매 상세", "help": "직접 눌러 체험할 수 있어요. 진행 상태와 입력은 그대로 유지돼요."}, {"role": "2번 화면 · 설명용", "title": "조건 등록", "help": "설명용 화면이에요. 화면 안의 이동 링크만 동작해요."}, {"role": "3번 화면 · 설명용", "title": "매칭 대기", "help": "설명용 화면이에요. 화면 안의 이동 링크만 동작해요."}, {"role": "4번 화면 · 설명용", "title": "교환 제안", "help": "설명용 화면이에요. 화면 안의 이동 링크만 동작해요."}, {"role": "5번 화면 · 설명용", "title": "교환 완료", "help": "설명용 화면이에요. 화면 안의 이동 링크만 동작해요."}, {"role": "6번 화면 · 설명용", "title": "예외 · 응답 시간 초과", "help": "설명용 화면이에요. 화면 안의 이동 링크만 동작해요."}];
+var ZOOM_ORDER = [0, 1, 2, 3, 4, 5];
+var ZOOM_DEMO = [0];
+function zoomStyle(i, list) {
+var k = list ? list.indexOf(i) : -1;
+if (k < 0) return ZOOM_BASE[i];
+var n = list.length, W = n * 390 + (n - 1) * 40, total = W + 40 + 320, left = Math.round((1920 - total) / 2) + k * 430;
+return 'outline: none; width: 390px; height: 844px; position: fixed; left: ' + left + 'px; top: 118px; z-index: 1001; transform: none; background: #FFFFFF; border-radius: 28px; overflow: hidden; box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55)';
+}
+function zoomPanelStyle(list) {
+var n = list.length, W = n * 390 + (n - 1) * 40, total = W + 40 + 320, left = Math.round((1920 - total) / 2) + W + 40;
+return 'position: fixed; left: ' + left + 'px; top: 118px; width: 320px; z-index: 1002; display: flex; flex-direction: column; gap: 14px; color: #FFFFFF; outline: none';
+}
+function zoomEl(i) { return document.querySelector('[data-zoom-host="' + i + '"]'); }
+function zoomFocusables(list) {
+var out = [];
+list.forEach(function (i) {
+var host = zoomEl(i);
+if (!host) return;
+var scr = [].slice.call(host.querySelectorAll(':scope > [data-nav-screen]')).filter(function (c) { return getComputedStyle(c).display !== 'none'; })[0] || host;
+[].slice.call(scr.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), summary')).forEach(function (e) { if (e.offsetParent !== null) out.push(e); });
+});
+[].slice.call(document.querySelectorAll('[data-zoom-ctl] button')).forEach(function (e) { out.push(e); });
+return out;
+}
+
+function zoomVals(self, v) {
+var z = (self.state && self.state.zoom) || null;
+ZOOM_BASE.forEach(function (_, i) {
+v['zs_' + i] = zoomStyle(i, z);
+v['zoom_' + i] = function (e) { if (e && e.preventDefault) e.preventDefault(); self.openZoom([i], e && e.currentTarget); };
+v['zk_' + i] = function (e) { self.zoomKey(e); };
+});
+v.zoomDemo = function (e) { if (e && e.preventDefault) e.preventDefault(); self.openZoom(ZOOM_DEMO, e && e.currentTarget); };
+v.zclose = function (e) { if (e && e.preventDefault) e.preventDefault(); self.closeZoom(); };
+v.zprev = function (e) { if (e && e.preventDefault) e.preventDefault(); self.stepZoom(-1); };
+v.znext = function (e) { if (e && e.preventDefault) e.preventDefault(); self.stepZoom(1); };
+v.zkey = function (e) { self.zoomKey(e); };
+v.zoomOpen = !!z;
+v.zoomSingle = !!(z && z.length === 1 && ZOOM_ORDER.length > 1);
+var info = z ? z.map(function (i) { return ZOOM_INFO[i]; }) : [];
+v.zoomRole = info.map(function (x) { return x.role; }).join(' · ');
+v.zoomTitle = info.map(function (x) { return x.title; }).join(' / ');
+v.zoomHelp = info.length ? info[0].help : '';
+v.zoomPos = z && z.length === 1 ? (ZOOM_ORDER.indexOf(z[0]) + 1) + ' / ' + ZOOM_ORDER.length : '';
+v.zpanelStyle = z ? zoomPanelStyle(z) : 'display: none';
+v.zoomLive = z ? '크게 보기 열림: ' + v.zoomTitle + '. Esc 로 닫아요.' : '';
+return v;
+}
 class Component extends DCLogic {
 constructor(props) {
 super(props);
-this.state = { stacks: INITIAL.map(function (s) { return [s]; }), demo: ENGINE.initialState() };
+this.state = { zoom: null, stacks: INITIAL.map(function (s) { return [s]; }), demo: ENGINE.initialState() };
 }
 navigate(i, e) {
 var t = e && e.target;
@@ -544,6 +651,7 @@ var panel = t && t.closest ? t.closest('[data-demo-ctl]') : null;
 if (!el || el.disabled) return;
 e.preventDefault();
 if (el.getAttribute('data-act') === 'demoReset') { this.resetDemo(panel); return; }
+if (el.getAttribute('data-act') === 'zoomDemo') { this.openZoom(ZOOM_DEMO, el); return; }
 this.dispatch({ type: el.getAttribute('data-act'), val: el.getAttribute('data-val'), role: 'ctl' }, panel, null);
 }
 resetDemo(keepFocus) {
@@ -571,7 +679,43 @@ if (src === null) { if (el && !el.contains(document.activeElement)) focusEl(el);
 else if (moved) focusEl(el);
 });
 }
+
+openZoom(list, trigger) {
+this.zoomTrigger = trigger || null;
+this.setState(function () { return { zoom: list }; }, function () { var h = zoomEl(list[0]); if (h && h.focus) { try { h.focus({ preventScroll: true }); } catch (err) { /* 무시 */ } } });
+}
+closeZoom() {
+var z = this.state.zoom, trig = this.zoomTrigger;
+this.setState(function () { return { zoom: null }; }, function () {
+var el = trig || (z ? document.querySelector('[data-zoom-btn="' + z[0] + '"]') : null);
+if (el && el.focus) { try { el.focus({ preventScroll: true }); } catch (err) { /* 무시 */ } }
+});
+}
+stepZoom(d) {
+var z = this.state.zoom;
+if (!z || z.length !== 1) return;
+var k = ZOOM_ORDER.indexOf(z[0]);
+var nx = ZOOM_ORDER[(k + d + ZOOM_ORDER.length) % ZOOM_ORDER.length];
+this.zoomTrigger = document.querySelector('[data-zoom-btn="' + nx + '"]');
+this.setState(function () { return { zoom: [nx] }; });
+}
+zoomKey(e) {
+var z = this.state && this.state.zoom;
+if (!z || !e) return false;
+if (e.key === 'Escape') { e.preventDefault(); this.closeZoom(); return true; }
+if (e.key === 'Tab') {
+var list = zoomFocusables(z);
+if (!list.length) return false;
+var k = list.indexOf(document.activeElement);
+var nx = e.shiftKey ? (k <= 0 ? list.length - 1 : k - 1) : (k < 0 || k >= list.length - 1 ? 0 : k + 1);
+e.preventDefault();
+try { list[nx].focus({ preventScroll: true }); } catch (err) { /* 무시 */ }
+return true;
+}
+return false;
+}
 keydown(i, e) {
+if (this.zoomKey(e)) return;
 if (e && e.key === 'Escape') {
 if (ROLES[i]) { this.resetDemo(e.currentTarget); return; }
 this.setState(function (st) {
@@ -585,6 +729,7 @@ renderVals() {
 var self = this;
 var stacks = (this.state && this.state.stacks) || INITIAL.map(function (s) { return [s]; });
 var demo = ENGINE.views(this.state.demo, true);
+demo.ctl.noButtons = !demo.ctl.hasButtons;
 var v = { nosubmit: function (e) { if (e && e.preventDefault) e.preventDefault(); }, demo: demo, ctlView: demo.ctl,
 ctl: function (e) { self.control(e); },
 ctlKey: function (e) { if (e && e.key === 'Escape') self.resetDemo(e.currentTarget); } };
@@ -596,6 +741,7 @@ v['key_' + i] = function (e) { self.keydown(i, e); };
 // 화면 제목과 상태만 짧게 알린다 (화면 전체를 다시 읽지 않음)
 if (ROLES[i]) v['live_' + i] = (TITLES[cur] || cur) + ' 화면. ' + ((ROLES[i] === 'B' ? demo.statusB : demo.statusA) || '');
 });
+zoomVals(self, v);
 return v;
 }
 }

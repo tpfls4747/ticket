@@ -127,7 +127,8 @@ var PAIR = (function (DEMO) {
   /* ------------------------------------------------------------------ 상태 */
   function initialState() {
     return { picked: [MINE[0].key, MINE[1].key], mode: 'pair', formKey: 0, keep: '11-4', dirKey: 0, profile: 'basic',
-      consent: false, intentDraft: false, intentMsg: '', cand: null, ack: false, ackKey: 0, step: 'select', declined: [], hint: '', notice: '' };
+      consent: false, intentDraft: false, intentMsg: '', cand: null, ack: false, ackKey: 0, step: 'select', declined: [], hint: '', notice: '',
+      bSeen: false, cancelledFrom: null };
   }
   function reset(st) {
     var s = initialState();
@@ -201,10 +202,11 @@ var PAIR = (function (DEMO) {
         s.ack = !!action.checked; return out();
       case 'send':           // 교환 제안 보내기 → B 의 폰에 제안이 도착한다
         if (!selecting || !s.ack || !proposable(s, s.cand)) return keepSame({ stay: true });
-        s.step = 'proposed'; return out({ push: 'StatusSent' }, { push: 'PairReceive' });
+        // 수신자 폰에는 '제안 도착' 알림 카드가 뜬다 (수신자가 직접 열어야 '검토 중')
+        s.step = 'proposed'; s.bSeen = false; return out({ push: 'StatusSent' });
       case 'cancel':
         if (DEMO.CANCELABLE.indexOf(s.step) < 0) return keepSame({ stay: true });
-        s.step = 'cancelled'; return out({ push: 'ExCancelled' });
+        s.cancelledFrom = s.step; s.step = 'cancelled'; return out({ push: 'ExCancelled' });
       case 'otherCandidate': // 거절 뒤: 같은 방향의 다른 후보 찾기 (거절한 후보는 다시 고를 수 없다)
         if (s.step !== 'declined') return keepSame({ stay: true });
         s.step = 'select'; clearPick(); return out({ reset: ['PairMode', 'PairSeat', 'PairAdjacency'] }, { reset: ['PairIntent'] });
@@ -229,6 +231,7 @@ var PAIR = (function (DEMO) {
         s.intentMsg = s.consent ? '저장했어요. 이제 옆자리 관객이 교환 제안을 보낼 수 있어요.' : '저장했어요. 이제 교환 제안을 받지 않아요.';
         return out(recheck());
       case 'toReceive':
+        if (s.step === 'proposed') s.bSeen = true;
         return out(null, { push: 'PairReceive' });
       case 'recvAccept':     // 제안 수락 (B 의 개별 동의). 수락해도 최종 확인이 남는다
       case 'recvDecline':
@@ -286,8 +289,13 @@ var PAIR = (function (DEMO) {
   function bothMine() { return seatName(MINE[0].key) + ' · ' + seatName(MINE[1].key); }
   function dateRound() { return DEMO.dateLine(MINE[0]); }
 
+  // STEP 4B 공용 단계 표시 (일반 교환과 같은 컴포넌트). 연석은 인접 확인·상대 수락 단계를 포함한다
+  var PAIR_STEPS = ['교환 방식', '유지할 좌석', '인접 확인', '비교·제안', '상대 수락', '최종 확인'];
+  var B_STEPS = ['제안 받기', '제안 검토', '응답', '최종 확인', '교환 완료'];
+  var PAIR_CANCEL_AT = { proposed: 4, accepted: 5, declined: 4 };
+  function pstep(idx, end, text) { return DEMO.stepper(PAIR_STEPS, idx, end, text, true); }
   function viewMode(s, demo) {
-    return {
+    return { stepper: pstep(0),
       tickets: MINE.map(function (m) {
         var on = s.picked.indexOf(m.key) >= 0;
         return { val: m.key, title: m.grade + ' · ' + m.zone + '구역 ' + seatName(m.key), sub: m.label + ' · ' + (m.policy ? '교환 가능 (시연 판정)' : '교환 자격 확인 필요'),
@@ -310,7 +318,7 @@ var PAIR = (function (DEMO) {
       }
       rows.push({ label: r + '열', seats: seats });
     }
-    return {
+    return { stepper: pstep(1),
       rows: rows,
       options: MINE.slice().reverse().map(function (m) {   // 11열로 모으기(11열 4번 유지)가 먼저
         var g = other(m.key), on = s.keep === m.key;
@@ -334,14 +342,14 @@ var PAIR = (function (DEMO) {
     var give = other(s.keep), selected = s.cand === c.key;
     var title = seatName(c.key) + ' · ' + sideOf(s.keep, c.key);
     if (c.status === 'declined') {
-      return withFlags({ key: c.key, title: title, text: '거절된 제안', rows: [], note: '내가 보낸 교환 제안을 거절했어요. 같은 관객에게 다시 보내지 않아요.', hasNote: true,
+      return withFlags({ key: c.key, title: title, text: '거절된 제안', rows: [], checks: [], hasResult: false, note: '내가 보낸 교환 제안을 거절했어요. 같은 관객에게 다시 보내지 않아요.', hasNote: true,
         canPick: false, cantPick: true, pressed: 'false', pickText: '다시 보낼 수 없음', pickStyle: PICK_NO,
         border: 'border: 1px solid #E6E8EC; background: #FFFFFF' }, 'mute');
     }
     return withFlags({ key: c.key, title: title, text: '연결 가능', note: '', hasNote: false,
-      rows: [item('ok', '확인', '배치도상 옆자리', '같은 블록 · 사이에 통로 없음'),
-             item('ok', '확인 (시연)', '양쪽 교환 자격'),
-             item('ok', '충족', '상대가 등록한 조건 ↔ 내가 제공할 ' + seatName(give.key))],
+      // 위계: 교환 후 결과 → 확인 항목(한 줄 칩) → 선택
+      hasResult: true, result: '교환하면 ' + pairText(s.keep, c.key) + ' 나란히', resultSub: '내 ' + seatName(give.key) + ' ↔ 상대 ' + seatName(c.key),
+      checks: ['배치도상 옆자리 ✓', '양쪽 교환 자격 ✓ (시연)', '상대 조건 충족 ✓'], rows: [],
       canPick: true, cantPick: false, pressed: selected ? 'true' : 'false',
       pickText: selected ? '선택됨 ✓' : '이 후보 선택', pickStyle: selected ? PICK_ON : PICK_OFF,
       border: selected ? 'border: 2px solid #5B3DF5; background: #F7F5FF' : 'border: 1px solid #DADDE3; background: #FFFFFF' }, 'ok');
@@ -352,7 +360,7 @@ var PAIR = (function (DEMO) {
     var anyOk = cs.some(function (c) { return c.proposable; });
     var ok = !!(s.cand && proposable(s, s.cand));
     var flipTo = other(s.keep);
-    return {
+    return { stepper: pstep(2),
       keepName: seatName(s.keep), offerName: seatName(flipTo.key),
       // 배치도 때문에 제외한 좌석만 좌석 단위로 알린다. 배치도상 옆자리인데 후보가 없는 좌석은 언급하지 않는다 (개인 사정 추론 방지)
       facts: neighbors(s.keep).filter(function (k) { return adjacency(mine(s.keep), ticketOf(k, null)).res !== 'ok'; }).map(function (k) { return seatFact(s, k); }),
@@ -378,19 +386,26 @@ var PAIR = (function (DEMO) {
     var c = s.cand ? judgeCandidate(s, s.cand) : null;
     var give = other(s.keep);
     if (!c || c.status === 'hidden') {
-      return { compare: [], twoWay: [], candMove: '', now: '', after: '', ack: false, canSend: false, cantSend: true, sendText: '교환 제안 보내기',
+      return { stepper: pstep(3), compare: [], diffRows: [], sameRows: [], sameTitle: '', hero: { show: '', date: '', from: '', to: '', result: '' },
+        twoWay: [], candMove: '', now: '', after: '', ack: false, canSend: false, cantSend: true, sendText: '교환 제안 보내기',
         sendHint: '선택한 후보가 없어요. 후보 화면에서 다시 골라 주세요.', twoWayNote: '' };
     }
     var canSend = s.step === 'select' && s.ack && c.proposable;
-    return {
-      compare: [
+    var rowsW = [
         cmpRow('유지할 좌석', seatName(s.keep), seatName(s.keep), 'mute', '그대로'),
         cmpRow('제공할 좌석', seatName(give.key), seatName(s.cand) + ' 받음', 'plan', '바뀜'),
         cmpRow('좌석 배치', '떨어짐', pairText(s.keep, s.cand), 'ok', '나란히 · 완료 시에만'),
         cmpRow('회차', DEMO.round(MINE[0].round).n + '회차', DEMO.round(MINE[0].round).n + '회차', 'mute', '같음'),
         cmpRow('등급·가격', 'R석 · 154,000원', 'R석 · 154,000원', 'mute', '같음'),
         cmpRow('상대 좌석', seatName(s.cand), seatName(give.key), 'plan', '상대 이동'),
-      ],
+      ];
+    var sameW = ['제공할 좌석', '좌석 배치', '회차', '등급·가격'];   // 위쪽 요약(교환 전후 좌석)에 이미 있는 항목과 같은 항목은 접는다
+    return {
+      stepper: pstep(3), compare: rowsW,
+      // 위계: ① 공연·회차 ② 교환 전후 좌석(크게) ③ 바뀌는 항목 ④ 같은 항목은 접힘
+      hero: { show: DEMO.SHOW, date: dateRound() + ' · 같은 회차', from: seatName(give.key), to: seatName(s.cand), result: '교환 후 ' + pairText(s.keep, s.cand) + ' 나란히 (완료 시에만)' },
+      diffRows: rowsW.filter(function (r) { return sameW.indexOf(r.label) < 0; }), sameRows: rowsW.filter(function (r) { return sameW.indexOf(r.label) >= 0; }),
+      sameTitle: '전체 비교 보기 (좌석 배치·회차·등급·가격)',
       candMove: '상대(' + seatName(s.cand) + ')는 ' + seatName(give.key) + '으로 옮겨요. 좋고 나쁨은 사람마다 달라요.',
       twoWay: [
         item('ok', '충족', '① 내 조건: ' + seatName(s.keep) + ' 바로 옆 (배치도 확인)'),
@@ -402,41 +417,61 @@ var PAIR = (function (DEMO) {
     };
   }
   function hasProposal(s) { return s.cand === FLEX && s.step !== 'select'; }
-  // 수신자 B 의 제안 검토 화면
-  var RECV_STATUS = {
-    proposed: null,
-    accepted: ['ok', '제안을 수락했어요', '수락함', "아직 '교환 완료'가 아니에요. 예매처의 최종 확인을 기다리는 중이에요."],
-    final: ['wait', '최종 확인 중', '확인 중', "티켓과 조건을 마지막으로 확인하고 있어요. 아직 '교환 완료'가 아니에요."],
-    done: ['done', '교환 완료 (시연)', '완료', '새 좌석은 7열 12번이에요. 시연용 모의 결과예요.'],
-    failed: ['no', '최종 확인에 실패했어요', '실패', '교환은 진행되지 않았어요. 원래 좌석 11열 5번이 유지되는 것을 목표로 해요 (목표 UX).'],
-    declined: ['mute', '제안을 거절했어요', '거절함', '내 좌석은 그대로예요. 거절 사유는 신청자에게 공개되지 않아요.'],
-    cancelled: ['mute', '신청자가 제안을 취소했어요', '취소됨', '내 좌석은 그대로예요.'],
+  // 수신자 B 의 제안 검토 화면 (STEP 4B: 상태별 제목·보조 문구·색·CTA. 색만으로 구분하지 않고 배지·제목 텍스트를 함께 준다)
+  // [배지 종류, 배지, 제목, 보조 문구, CTA 종류(respond|wait|back), 대기 문구]
+  var RECV = {
+    arrived: ['plan', '제안 도착', '새 교환 제안이 도착했어요', '옆자리 관객이 보낸 제안이에요. 내용을 확인하고 결정하세요.', 'respond'],
+    reviewing: ['plan', '검토 중', '다른 좌석으로 옮기자는 교환 제안이에요', '', 'respond'],
+    accepted: ['ok', '수락함', '제안을 수락했어요', "아직 '교환 완료'가 아니에요. 예매처의 최종 확인을 기다리는 중이에요.", 'wait', '응답 완료 · 예매처 최종 확인을 기다리는 중'],
+    final: ['wait', '최종 확인 중', '예매처가 최종 확인 중이에요', "티켓과 조건을 마지막으로 확인하고 있어요. 아직 '교환 완료'가 아니에요.", 'wait', '최종 확인 중 · 결과가 나오면 여기서 알려드려요'],
+    done: ['done', '교환 완료 (시연)', '교환이 완료됐어요', '새 좌석은 7열 12번이에요. 시연용 모의 결과예요.', 'back'],
+    failed: ['fail', '교환 실패', '최종 확인에 실패했어요', '교환은 진행되지 않았어요. 원래 좌석 11열 5번이 유지되는 것을 목표로 해요 (목표 UX).', 'back'],
+    declined: ['mute', '거절함', '제안을 거절했어요', '내 좌석은 그대로예요. 거절 사유는 신청자에게 공개되지 않아요.', 'back'],
+    cancelled: ['cancel', '신청자 취소', '신청자가 제안을 취소했어요', '내 좌석은 그대로예요.', 'back'],
   };
+  var BAND = { plan: 'background: #F0EDFF; border: 1.5px solid #C9BFFF', ok: 'background: #E6F6EE; border: 1.5px solid #9ED5B8',
+    wait: 'background: #FFF1E6; border: 1.5px solid #F2C3A0', done: 'background: #E6F6EE; border: 2px solid #1F7A4D',
+    fail: 'background: #FDF0F0; border: 2px solid #B03A3A', mute: 'background: #F5F6F8; border: 1.5px solid #DADDE3', cancel: 'background: #F5F6F8; border: 1.5px solid #DADDE3' };
+  function recvState(s) { return !hasProposal(s) ? null : s.step === 'proposed' ? (s.bSeen ? 'reviewing' : 'arrived') : s.step; }
+  function recvStepper(st) {
+    var m = { arrived: [1], reviewing: [1], accepted: [3], final: [3], done: [4, 'done'], failed: [3, 'fail', '최종 확인 실패 · 원래 좌석 유지 (목표)'],
+      declined: [2, 'stop', '제안 거절 · 내 좌석 그대로'], cancelled: [1, 'stop', '신청자가 제안 취소'] }[st] || [1];
+    return DEMO.stepper(B_STEPS, m[0], m[1] || null, m[2] || '', false);
+  }
   function viewReceive(s) {
     var pr = PROFILES[s.profile] || PROFILES.basic;
     var give = hasProposal(s) ? other(s.keep) : MINE[0];
-    var st = hasProposal(s) ? RECV_STATUS[s.step] : null;
+    var key = recvState(s) || 'reviewing';
+    var r = RECV[key];
     var comp = pr.companion;
+    var dRow = Math.abs(parse(FLEX).row - parse(give.key).row);
+    var rows = [
+      cmpRow('열·좌석', seatName(FLEX), seatName(give.key), 'plan', '바뀜'),
+      cmpRow('무대와 거리', parse(FLEX).row + '열', parse(give.key).row + '열', 'plan', dRow + '열 ' + (parse(give.key).row < parse(FLEX).row ? '앞으로' : '뒤로')),
+      cmpRow('회차', '3회차', '3회차', 'mute', '같음'),
+      cmpRow('등급·가격', 'R석 · 154,000원', 'R석 · 154,000원', 'mute', '추가 결제 없음'),
+    ];
     var v = {
       hasProposal: hasProposal(s), noProposal: !hasProposal(s),
       emptyText: "도착한 교환 제안이 없어요. '교환 제안 받기'를 켜 두면 옆자리 관객의 제안이 여기에 도착해요.",
       from: '옆자리(' + seatName(s.keep) + ') 관객이 일행과 나란히 앉고 싶어 해요.',
       mine: dateRound() + ' · B구역 ' + seatName(FLEX),
       offer: dateRound() + ' · B구역 ' + seatName(give.key),
-      compare: [
-        cmpRow('회차', '3회차', '3회차', 'mute', '같음'),
-        cmpRow('등급·가격', 'R석 · 154,000원', 'R석 · 154,000원', 'mute', '추가 결제 없음'),
-        cmpRow('열·좌석', seatName(FLEX), seatName(give.key), 'plan', '바뀜'),
-        cmpRow('무대와 거리', parse(FLEX).row + '열', parse(give.key).row + '열', 'plan', Math.abs(parse(FLEX).row - parse(give.key).row) + '열 ' + (parse(give.key).row < parse(FLEX).row ? '앞으로' : '뒤로')),
-      ],
+      hero: { show: DEMO.SHOW, date: dateRound() + ' · 같은 회차', from: seatName(FLEX), to: seatName(give.key),
+        result: '무대와 ' + dRow + '열 ' + (parse(give.key).row < parse(FLEX).row ? '가까워져요' : '멀어져요') + ' · 같은 회차·가격' },
+      compare: rows, diffRows: rows.slice(0, 2), sameRows: rows.slice(2), sameTitle: '같은 항목 2개 보기 (회차·등급·가격)',
       hasCompanion: !!comp,
       companionText: comp ? '함께 예매한 ' + seatName(comp.key) + '과 떨어져 앉게 돼요. 일행과 상의한 뒤 결정하세요. 원하지 않으면 거절해도 돼요.' : '',
       companionPolicy: comp ? (comp.policy || '좌석별 교환 정책 확인 필요') : '',
-      canRespond: s.step === 'proposed' && hasProposal(s), responded: !!st,
+      canRespond: s.step === 'proposed' && hasProposal(s), responded: hasProposal(s) && s.step !== 'proposed',
       respondNote: "수락해도 바로 교환되지 않아요. 최종 확인을 통과해야 '교환 완료'예요.",
-      statusTitle: st ? st[1] : '', statusBadge: st ? st[2] : '', statusText: st ? st[3] : '',
+      state: key, title: r[2], sub: r[3] || ('옆자리(' + seatName(s.keep) + ') 관객이 일행과 나란히 앉고 싶어 해요. 같은 R석이라 추가 결제는 없어요.'),
+      statusBadge: r[1], statusTitle: r[2], statusText: r[3], bandStyle: BAND[r[0]] + '; border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px',
+      hasWait: r[4] === 'wait' && hasProposal(s), waitText: r[5] || '', hasBack: r[4] === 'back' && hasProposal(s), backText: '설정 화면으로 돌아가기',
+      stepper: recvStepper(key),
     };
-    return withFlags(v, st ? (st[0] === 'wait' ? 'need' : st[0] === 'done' ? 'ok' : st[0]) : 'mute');
+    ['plan', 'ok', 'wait', 'done', 'fail', 'mute', 'cancel'].forEach(function (k) { v['b_' + k] = r[0] === k; });
+    return withFlags(v, { plan: 'plan', ok: 'ok', wait: 'need', done: 'ok', fail: 'no', mute: 'mute', cancel: 'mute' }[r[0]]);
   }
   function viewIntent(s, demo) {
     var locked = ACTIVE.indexOf(s.step) >= 0 && s.consent;
@@ -450,38 +485,43 @@ var PAIR = (function (DEMO) {
       msg: demo ? s.intentMsg : '', hasMsg: !!(demo && s.intentMsg),
       locked: locked, lockText: '진행 중인 교환 제안이 있어요. 제안에 응답한 뒤 끌 수 있어요.',
       hasProposal: hasProposal(s), proposalText: '도착한 교환 제안 1건 보기',
+      // 제안 도착 알림 카드 (수신자가 직접 열어야 '검토 중')
+      card: (function (c) { return { title: c[0], text: c[1], cta: c[2] }; })(hasProposal(s) ? (s.step === 'proposed' ? (s.bSeen ? ['검토 중인 교환 제안', '아직 응답하지 않았어요.', '이어서 검토하기'] : ['새 교환 제안이 도착했어요', '옆자리(' + seatName(s.keep) + ') 관객 · 내 11열 5번을 ' + seatName(other(s.keep).key) + '과 바꾸자는 제안', '제안 검토하기'])
+        : [RECV[s.step][2], '상태: ' + RECV[s.step][1], '제안 결과 보기']) : ['', '', '']),
+      cardNew: hasProposal(s) && s.step === 'proposed' && !s.bSeen,
     };
   }
   function viewAfter(s, key) {
-    return { now: bothMine(), after: pairText(s.keep, key), cand: seatName(key), candLabel: '옆자리 후보 · ' + sideOf(s.keep, key) };
+    return { stepperDeclined: pstep(4, 'fail', '상대방이 제안을 거절 · 내 좌석 그대로'), now: bothMine(), after: pairText(s.keep, key), cand: seatName(key), candLabel: '옆자리 후보 · ' + sideOf(s.keep, key) };
   }
   function viewDone(s, key) {
     var give = other(s.keep);
     return { cand: seatName(key), date: DEMO.dateLine(mine(s.keep)), seats: 'R석 · B구역 ' + pairText(s.keep, key), gave: 'B구역 ' + seatName(give.key) };
   }
-  function viewFailed() { return { mine: dateRound() + ' · R석 B구역 ' + bothMine(), keepText: '2장 모두 유지 (목표)' }; }
+  function viewFailed() { return { mine: dateRound() + ' · R석 B구역 ' + bothMine(), keepText: '2장 모두 유지 (목표)', stepper: pstep(5, 'fail', '최종 확인 실패 · 2장 모두 유지 (목표)') }; }
   var SENT_STEPS = [['좌석 방향 선택', '유지할 좌석을 골랐어요'], ['옆자리 후보 확인', '배치도·양방향 조건 확인 통과'], ['교환 제안 보내기', '최종 비교 후 내 동의 완료'],
     ['상대방 검토', '옆자리 관객이 검토 중이에요'], ['제안 수락', '상대방이 제안을 수락해야 다음으로 가요'], ['최종 확인 중', '티켓·조건을 마지막으로 확인해요'],
     ['교환 완료', '최종 확인을 통과해야 표시돼요']];
   function viewSent() { return { steps: DEMO.timeline(SENT_STEPS, 3), sub: '상대방이 검토하는 동안 내 티켓 2장은 그대로 유효해요.' }; }
-  function viewCancelled() {
-    return { title: '교환 제안을 취소했어요', body: '보낸 제안은 닫혔어요. 옆자리 관객에게는 취소됐다고 보여요 (서비스 설계 가정). 내 티켓 2장은 그대로 유효해요.',
+  function viewCancelled(from) {
+    return { stepper: pstep(PAIR_CANCEL_AT[from] === undefined ? 4 : PAIR_CANCEL_AT[from], 'stop', '제안 취소 · 내 티켓 2장 그대로'), title: '교환 제안을 취소했어요', body: '보낸 제안은 닫혔어요. 옆자리 관객에게는 취소됐다고 보여요 (서비스 설계 가정). 내 티켓 2장은 그대로 유효해요.',
       primary: '좌석 방향 다시 고르기', secondary: '처음으로' };
   }
   var STATUS_A = { select: '연석 만들기 준비 중', proposed: '교환 제안 보냄 · 상대방 검토 중', accepted: '상대방 제안 수락 · 최종 확인 전', final: '최종 확인 중',
     done: '교환 완료 (시연)', declined: '상대방이 제안을 거절함', cancelled: '교환 제안 취소', failed: '최종 확인 실패 · 내 티켓 유지 (목표)' };
   function statusB(s) {
     if (!hasProposal(s)) return s.consent ? '교환 제안 받는 중 · 도착한 제안 없음' : '교환 제안 받지 않음';
+    if (s.step === 'proposed') return s.bSeen ? '제안 검토 중 · 응답 전' : '교환 제안 도착 · 아직 열어보지 않음';
     return { proposed: '교환 제안 도착 · 응답 전', accepted: '제안 수락함 · 최종 확인 전', final: '최종 확인 중', done: '교환 완료 (시연)',
       failed: '최종 확인 실패', declined: '제안 거절함', cancelled: '신청자가 제안 취소' }[s.step];
   }
   // 시연 제어판 (폰 밖, 실제 서비스 기능 아님)
   function viewCtl(s) {
     var b = [], hint;
-    if (s.step === 'select') hint = s.consent ? '② 1번 폰에서 후보를 고르고 교환 제안을 보내세요.' : "① 3번 폰(옆자리 관객)에서 '교환 제안 받기'를 켜고 저장하세요. 켜기 전에는 1번 폰에 후보가 나타나지 않아요.";
-    else if (s.step === 'proposed') hint = '③ 3번 폰에서 제안을 수락하거나 거절해 보세요.';
-    else if (s.step === 'accepted') { hint = '④ 양쪽이 수락했어요. 예매처의 최종 확인을 시작해요.'; b = [DEMO.ctlBtn('toFinal', '최종 확인 시작')]; }
-    else if (s.step === 'final') { hint = '최종 확인 결과를 정해 보세요.'; b = [DEMO.ctlBtn('simOk', '최종 확인 성공'), DEMO.ctlBtn('simFail', '최종 확인 실패', 'bad')]; }
+    if (s.step === 'select') hint = s.consent ? '② 신청자 A 폰에서 후보를 고르고 교환 제안을 보내세요.' : "① 수신자 B 폰에서 '교환 제안 받기'를 켜고 저장하세요.";
+    else if (s.step === 'proposed') hint = '③ 수신자 B 폰에서 제안을 열어 수락하거나 거절하세요.';
+    else if (s.step === 'accepted') { hint = '④ 양쪽이 수락했어요. 예매처 최종 확인을 시작하세요.'; b = [DEMO.ctlBtn('toFinal', '최종 확인 시작')]; }
+    else if (s.step === 'final') { hint = '⑤ 최종 확인 결과를 정하세요.'; b = [DEMO.ctlBtn('simOk', '최종 확인 성공'), DEMO.ctlBtn('simFail', '최종 확인 실패', 'bad')]; }
     else hint = "결과 화면이에요. '처음부터 다시'로 다시 체험해요.";
     var can = s.step === 'select';
     return { hint: hint, buttons: b, hasButtons: b.length > 0, status: STATUS_A[s.step],
@@ -493,7 +533,7 @@ var PAIR = (function (DEMO) {
   }
   function views(s, demo) {
     var v = { isDemo: !!demo, step: s.step, mode: viewMode(s, demo), seat: viewSeat(s), adj: viewAdj(s, demo), warn: viewWarn(s),
-      receive: viewReceive(s), intent: viewIntent(s, demo), failed: viewFailed(), sent: viewSent(), cancelled: viewCancelled(), ctl: viewCtl(s),
+      receive: viewReceive(s), intent: viewIntent(s, demo), failed: viewFailed(), sent: viewSent(), cancelled: viewCancelled(s.cancelledFrom), ctl: viewCtl(s),
       statusA: STATUS_A[s.step], statusB: statusB(s) };
     if (s.cand) { v.after = viewAfter(s, s.cand); v.done = viewDone(s, s.cand); }
     return v;
@@ -502,10 +542,10 @@ var PAIR = (function (DEMO) {
   function defaultViews() {
     var base = initialState();
     var sel = initialState(); sel.consent = true; sel.intentDraft = true; sel.cand = FLEX;
-    var sent = DEMO.clone(sel); sent.step = 'proposed';
+    var sent = DEMO.clone(sel); sent.step = 'proposed'; sent.bSeen = true;
     return { mode: viewMode(base, false), seat: viewSeat(base), adj: viewAdj(sel, false), warn: viewWarn(sel), receive: viewReceive(sent),
       intent: viewIntent(base, false), after: viewAfter(sel, FLEX), done: viewDone(sel, FLEX), failed: viewFailed(), sent: viewSent(),
-      cancelled: viewCancelled(), isDemo: false };
+      cancelled: viewCancelled('proposed'), isDemo: false };
   }
 
   return { MINE: MINE, LAYOUT: LAYOUT, HOLDERS: HOLDERS, PROFILES: PROFILES, FLEX: FLEX, adjacency: adjacency, judgeCandidate: judgeCandidate,

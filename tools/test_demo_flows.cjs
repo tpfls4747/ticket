@@ -50,8 +50,11 @@ const ok = (name, pass, detail) => results.push({ journey, name, pass: !!pass, d
         return vis.map((c) => c.getAttribute('data-nav-screen')).join(',');
       }),
       text: () => f.evaluate(() => {
-        const vis = [...document.querySelectorAll('[data-nav-host="0"] > [data-nav-screen]')].find((c) => getComputedStyle(c).display !== 'none');
-        return vis ? vis.innerText.replace(/\s+/g, ' ') : '';
+        const v = [...document.querySelectorAll('[data-nav-host="0"] > [data-nav-screen]')].find((c) => getComputedStyle(c).display !== 'none');
+        if (!v) return '';
+        // STEP 4B: 접힌 '같은 항목'·'조건 전체 보기'까지 읽고 원래대로 되돌린다
+        const ds = [...v.querySelectorAll('details')]; const was = ds.map((d) => d.open); ds.forEach((d) => { d.open = true; });
+        const tx = v.innerText.replace(/\s+/g, ' '); ds.forEach((d, k) => { d.open = was[k]; }); return tx;
       }),
       async el(sel, text) {
         const h = await f.evaluateHandle(([s, tx]) => {
@@ -142,7 +145,7 @@ const ok = (name, pass, detail) => results.push({ journey, name, pass: !!pass, d
     ok('제안 전송 → 상대방 검토 화면', (await H.screen()) === 'StatusSent', await H.screen());
     const t2 = await H.text();
     const p2 = await H.ptext();
-    ok('상대방 응답은 폰 밖 시연 제어판에서 (폰 화면에는 데모 조작 없음)', p2.includes('시연 제어판') && p2.includes('상대방 제안 수락') && !t2.includes('데모 모드'), p2 + ' | ' + t2.slice(-120));
+    ok('상대방 응답은 폰 밖 시연 제어판에서 (폰 화면에는 데모 조작 없음)', p2.includes('시연용 제어') && p2.includes('상대방 제안 수락') && !t2.includes('데모 모드'), p2 + ' | ' + t2.slice(-120));
     ok('상대방 검토 중에는 완료 안내 없음', !t2.includes('교환이 완료됐어요'), t2);
   }
   async function acceptToFinal(H) {

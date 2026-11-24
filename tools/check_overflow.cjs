@@ -33,10 +33,21 @@ const file = process.argv[2];
         const scale = rc.width / (bx.el.offsetWidth || 1);   // 표지의 0.877배 축소 대응
         const W = bx.w ? bx.w : rc.width, H = bx.h ? bx.h : rc.height;
         const left = bx.w ? 0 : rc.left, top = bx.w ? 0 : rc.top;
+        // STEP 4B: 화면에 보이지 않는 요소는 제외한다
+        //  - 스크린 리더 전용(1px·clip) 요소와 그 안의 글자, 닫힌 <details> 안의 내용(브라우저가 화면 밖에 배치해 둠)
+        const hiddenAnc = (el) => {
+          for (let a = el; a && a !== bx.el; a = a.parentElement) {
+            const c = getComputedStyle(a);
+            if (c.clip && c.clip !== 'auto' && a.getBoundingClientRect().width <= 2) return true;
+            if (a.parentElement && a.parentElement.tagName === 'DETAILS' && !a.parentElement.open && a.tagName !== 'SUMMARY') return true;
+          }
+          return false;
+        };
         for (const el of bx.el.querySelectorAll('*')) {
           const cs = getComputedStyle(el);
           const r = el.getBoundingClientRect();
           if (r.width === 0 || r.height === 0 || cs.position === 'absolute' && el.closest('svg')) continue;
+          if (hiddenAnc(el)) continue;
           if (r.bottom > top + H + 1 || r.right > left + W + 1) {
             res.outside.push(bx.name + ':' + el.tagName.toLowerCase() + ':' + (el.textContent || '').trim().slice(0, 20));
           }

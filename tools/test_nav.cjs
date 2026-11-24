@@ -44,9 +44,9 @@ const ok = (name, pass, detail) => { results.push({ name, pass, detail: detail |
     const vis = [...el.querySelectorAll(':scope > [data-nav-screen]')].filter((c) => getComputedStyle(c).display !== 'none');
     return vis.map((c) => c.getAttribute('data-nav-screen'));
   }, host);
-  const hostInfo = (f) => f.evaluate(() => [...document.querySelectorAll('[data-nav-host]')].map((h) => ({
-    screens: [...h.querySelectorAll(':scope > [data-nav-screen]')].map((c) => c.getAttribute('data-nav-screen')),
-  })));
+  // host 번호(data-nav-host) 기준. STEP 4B 부터 P12 는 화면 배치 순서(A·B 나란히)와 host 번호가 다르다
+  const hostInfo = (f) => f.evaluate(() => { const out = []; document.querySelectorAll('[data-nav-host]').forEach((h) => {
+    out[+h.getAttribute('data-nav-host')] = { screens: [...h.querySelectorAll(':scope > [data-nav-screen]')].map((c) => c.getAttribute('data-nav-screen')) }; }); return out; });
   const linksOnVisible = (f, host) => f.evaluate((h) => {
     const el = document.querySelector('[data-nav-host="' + h + '"]');
     const vis = [...el.querySelectorAll(':scope > [data-nav-screen]')].find((c) => getComputedStyle(c).display !== 'none');
@@ -125,7 +125,8 @@ const ok = (name, pass, detail) => { results.push({ name, pass, detail: detail |
     await handles[fiEx].evaluate((e) => e.scrollIntoView({ block: 'center' }));
     await f.evaluate(() => { document.body.tabIndex = -1; document.body.focus(); });
     let reached = null;
-    for (let k = 0; k < 6; k++) {
+    // STEP 4B: 보드 위 시연 제어판·크게 보기 버튼이 먼저 포커스를 받으므로 Tab 을 최대 12번까지 누른다
+    for (let k = 0; k < 12; k++) {
       await page.keyboard.press('Tab');
       reached = await f.evaluate(() => { const a = document.activeElement; return a && a.tagName === 'A' ? (a.getAttribute('aria-label') || a.textContent.trim()) : null; });
       if (reached === '좌석·회차 교환 신청') break;

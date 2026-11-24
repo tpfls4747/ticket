@@ -72,7 +72,9 @@ t('받지 않는 좌석 선택 시도 → 무시', r.s.cand === null);
 r = run(ON(), [{ type: 'choose', val: '11-5' }, { type: 'send' }]);
 t('확인(ack) 없이 보내기 → 머무름', r.s.step === 'select' && r.nav.stay);
 r = run(ON(), SEND);
-t('교환 제안 보내기 → proposed · 신청자 StatusSent · 수신자 폰 PairReceive', r.s.step === 'proposed' && r.nav.push === 'StatusSent' && r.navB.push === 'PairReceive');
+t('교환 제안 보내기 → proposed · 신청자 StatusSent · 수신자 폰은 그대로(도착 알림 카드)', r.s.step === 'proposed' && r.nav.push === 'StatusSent' && r.navB === null && r.s.bSeen === false);
+t('수신자 상태: 열기 전 "제안 도착" → 열면 "검토 중"', P.views(r.s, true).receive.state === 'arrived' && P.views(r.s, true).intent.cardNew
+  && P.views(run(r.s, [{ type: 'toReceive', role: 'B' }]).s, true).receive.state === 'reviewing' && run(r.s, [{ type: 'toReceive', role: 'B' }]).navB.push === 'PairReceive');
 t('진행 중 신청자 뒤로 → 머무름', run(r.s, [{ type: 'back' }]).nav.stay);
 t('수신자 뒤로 → 수신자 폰만 이전 화면', run(r.s, [{ type: 'back', role: 'B' }]).navB.pop === true && run(r.s, [{ type: 'back', role: 'B' }]).s.step === 'proposed');
 const acc = run(r.s, [{ type: 'recvAccept', role: 'B' }]);
@@ -96,6 +98,20 @@ t('제안 뒤에는 티켓 상황 변경 불가', run(run(ON(), SEND).s, [{ type
 r = run(ON({ keep: '7-12' }), [{ type: 'home' }]);
 t('처음으로(신청자): 신청자만 초기화, 수신자 설정은 유지', r.s.keep === '11-4' && r.s.consent === true && r.navB.reset[0] === 'PairIntent');
 t('전체 초기화(reset): 수신자 설정도 기본값', P.reset(ON()).consent === false);
+
+/* ---- STEP 4B: 수신자 상태별 제목·CTA, 공용 단계 표시 ---- */
+const rs = (acts) => P.views(run(ON(), SEND.concat([{ type: 'toReceive', role: 'B' }]).concat(acts)).s, true).receive;
+t('수락함: 제목·배지·대기 문구', rs([{ type: 'recvAccept', role: 'B' }]).title === '제안을 수락했어요' && rs([{ type: 'recvAccept', role: 'B' }]).statusBadge === '수락함' && rs([{ type: 'recvAccept', role: 'B' }]).hasWait);
+t('거절함: 제목·되돌아가기 CTA', rs([{ type: 'recvDecline', role: 'B' }]).title === '제안을 거절했어요' && rs([{ type: 'recvDecline', role: 'B' }]).hasBack);
+t('최종 확인 중 → 교환 완료 / 교환 실패 제목', rs([{ type: 'recvAccept', role: 'B' }, { type: 'toFinal' }]).statusBadge === '최종 확인 중'
+  && rs([{ type: 'recvAccept', role: 'B' }, { type: 'toFinal' }, { type: 'simOk' }]).title === '교환이 완료됐어요'
+  && rs([{ type: 'recvAccept', role: 'B' }, { type: 'toFinal' }, { type: 'simFail' }]).statusBadge === '교환 실패');
+t('수신자 단계 표시: 응답 전 2/5, 수락 뒤 4/5, 거절은 중단', rs([]).stepper.head === '단계 2/5 · 제안 검토' && rs([{ type: 'recvAccept', role: 'B' }]).stepper.head === '단계 4/5 · 최종 확인'
+  && rs([{ type: 'recvDecline', role: 'B' }]).stepper.items[2].sr.indexOf('중단') > 0);
+t('연석 단계: 인접 확인·상대 수락 포함 6단계', JSON.stringify(P.views(ON(), true).adj.stepper.items.map((x) => x.label)) === JSON.stringify(['교환 방식', '유지할 좌석', '인접 확인', '비교·제안', '상대 수락', '최종 확인']));
+t('일반 교환 단계: 같은 컴포넌트 6단계', D.views(D.initialState(), true).request.stepper.items.length === 6 && D.views(D.initialState(), true).request.stepper.items[0].cur === 'step');
+t('거절 화면 단계: 상대 수락 단계에서 실패 표시', P.views(run(ON(), SEND.concat([{ type: 'recvDecline', role: 'B' }])).s, true).after.stepperDeclined.items[4].sr === '5단계 상대 수락: 실패');
+t('취소 화면 단계: 취소한 단계에서 중단 표시', P.views(run(ON(), SEND.concat([{ type: 'cancel' }])).s, true).cancelled.stepper.items[4].sr === '5단계 상대 수락: 중단');
 
 /* ---- 공용 화면 문구 분기 ---- */
 const pv = P.views(ON(), true), dv = D.views(D.initialState(), true);
